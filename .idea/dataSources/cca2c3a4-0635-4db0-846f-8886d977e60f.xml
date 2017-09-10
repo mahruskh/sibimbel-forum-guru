@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="sibimbel_forum_guru@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="sibimbel_forum_guru">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="ci_datasiswa"/>
+    <schema id="4" parent="1" name="db_cidatasiswa"/>
+    <schema id="5" parent="1" name="db_datasiswa"/>
+    <schema id="6" parent="1" name="db_ilab"/>
+    <schema id="7" parent="1" name="hargadomains"/>
+    <schema id="8" parent="1" name="information_schema"/>
+    <schema id="9" parent="1" name="kbbi_katadasar"/>
+    <schema id="10" parent="1" name="mysql"/>
+    <schema id="11" parent="1" name="oke"/>
+    <schema id="12" parent="1" name="performance_schema"/>
+    <schema id="13" parent="1" name="phpmyadmin"/>
+    <schema id="14" parent="1" name="python_db"/>
+    <schema id="15" parent="1" name="wordpress"/>
+    <table id="16" parent="2" name="tb_admin"/>
+    <table id="17" parent="2" name="tb_orang_tua"/>
+    <table id="18" parent="2" name="tb_pengajar"/>
+    <table id="19" parent="2" name="tb_pilihan_program"/>
+    <table id="20" parent="2" name="tb_program_bimbel"/>
+    <table id="21" parent="2" name="tb_siswa"/>
+    <table id="22" parent="2" name="tb_tahun_ajaran"/>
+    <column id="23" parent="16" name="username">
+      <Position>1</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="24" parent="16" name="password">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="25" parent="16" name="nama">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="26" parent="16" name="foto">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="27" parent="16" name="alamat">
+      <Position>5</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="16" name="telepon">
+      <Position>6</Position>
+      <DataType>varchar(12)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="29" parent="16" name="keterangan">
+      <Position>7</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="30" parent="16" name="last_login">
+      <Position>8</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0000-00-00 00:00:00&apos;</DefaultExpression>
+    </column>
+    <column id="31" parent="16" name="last_data_update">
+      <Position>9</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <key id="32" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>username</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="33" parent="17" name="id_orang_tua">
+      <Position>1</Position>
+      <DataType>varchar(30)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="34" parent="17" name="nama">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="35" parent="17" name="foto">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="36" parent="17" name="pekerjaan">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="37" parent="17" name="alamat">
+      <Position>5</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="38" parent="17" name="telepon">
+      <Position>6</Position>
+      <DataType>varchar(12)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="39" parent="17" name="keterangan">
+      <Position>7</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="40" parent="17" name="last_data_update">
+      <Position>8</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <key id="41" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id_orang_tua</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="42" parent="18" name="id_pengajar">
+      <Position>1</Position>
+      <DataType>varchar(30)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="43" parent="18" name="nama">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="44" parent="18" name="foto">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="45" parent="18" name="alamat">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="46" parent="18" name="telepon">
+      <Position>5</Position>
+      <DataType>varchar(12)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="47" parent="18" name="keterangan">
+      <Position>6</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="48" parent="18" name="last_data_update">
+      <Position>7</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <key id="49" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id_pengajar</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="50" parent="19" name="id_pilihan_program">
+      <Position>1</Position>
+      <DataType>tinyint(4)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="51" parent="19" name="nama_pilihan_program">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="52" parent="19" name="keterangan">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="53" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id_pilihan_program</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="54" parent="20" name="id_program_bimbel">
+      <Position>1</Position>
+      <DataType>tinyint(4)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="55" parent="20" name="nama_program">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="56" parent="20" name="keterangan">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="57" parent="20" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id_program_bimbel</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="58" parent="21" name="nis">
+      <Position>1</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="59" parent="21" name="nama">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="60" parent="21" name="tmpt_lahir">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="61" parent="21" name="tgl_lahir">
+      <Position>4</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="62" parent="21" name="asal_sekolah">
+      <Position>5</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="63" parent="21" name="kelas">
+      <Position>6</Position>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="64" parent="21" name="jurusan">
+      <Position>7</Position>
+      <DataType>int(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="65" parent="21" name="alamat">
+      <Position>8</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="66" parent="21" name="telepon">
+      <Position>9</Position>
+      <DataType>varchar(12)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="67" parent="21" name="catatan">
+      <Position>10</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="68" parent="21" name="id_orang_tua">
+      <Position>11</Position>
+      <DataType>smallint(6)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="69" parent="21" name="last_data_update">
+      <Position>12</Position>
+      <DataType>timestamp|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <key id="70" parent="21" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>nis</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="71" parent="22" name="id_tahun_ajaran">
+      <Position>1</Position>
+      <DataType>tinyint(4)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="72" parent="22" name="tahun_ajaran">
+      <Position>2</Position>
+      <DataType>varchar(59)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="73" parent="22" name="keterangan">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="74" parent="22" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id_tahun_ajaran</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

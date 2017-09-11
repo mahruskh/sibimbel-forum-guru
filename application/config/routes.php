@@ -21,6 +21,10 @@ $route['pendaftaran/wali/add_wali'] = 'Pendaftaran/_WaliController/add_wali';
 $route['pendaftaran/wali/edit_wali'] = 'Pendaftaran/_WaliController/edit_wali';
 $route['pendaftaran/wali/update_wali'] = 'Pendaftaran/_WaliController/update_wali';
 
+$route['setup/biaya-diskon/show'] = 'Setup/_BiayaDiskonController/index';
+$route['setup/biaya-diskon/show_biaya_daftar'] = 'Setup/_BiayaDiskonController/show_biaya_daftar';
+$route['setup/biaya-diskon/update_biaya_daftar'] = 'Setup/_BiayaDiskonController/update_biaya_daftar';
+
 $route['setup/tahun-ajaran/show'] = 'Setup/_TahunAjaranController/index';
 $route['setup/tahun-ajaran/show_data_ajaran'] = 'Setup/_TahunAjaranController/show_data_ajaran';
 $route['setup/tahun-ajaran/trash_ajaran'] = 'Setup/_TahunAjaranController/trash_ajaran';

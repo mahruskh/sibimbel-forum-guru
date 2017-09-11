@@ -103,7 +103,7 @@
           <a href="#"><i class="glyphicon glyphicon-cog"></i><span> SETUP</span><span class="pull-right-container"><i class="glyphicon glyphicon-option-horizontal pull-right"></i></span></a>
           <ul class="treeview-menu">
             <li><a href="<?php echo base_url('setup/program-pilihan/show')?>"><i class="glyphicon glyphicon-minus"></i> Program & Pilihan</a></li>
-            <li><a href=""><i class="glyphicon glyphicon-minus"></i> Biaya & Diskon</a></li>
+            <li><a href="<?php echo base_url('setup/biaya-diskon/show')?>"><i class="glyphicon glyphicon-minus"></i> Biaya & Diskon</a></li>
             <li class="active"><a href="<?php echo base_url('setup/tahun-ajaran/show')?>"><i class="glyphicon glyphicon-minus"></i> Tahun Ajaran</a></li>
           </ul>
         </li>
@@ -137,7 +137,7 @@
       <div class="box box-primary box-solid flat">
         <div class="box-body">
             <a href="<?php echo base_url('setup/program-pilihan/show')?>" class="btn btn-yahoo btn-flat">Program & Pilihan</a> |
-            <a href="" class="btn btn-yahoo btn-flat">Biaya & Diskon</a> |
+            <a href="<?php echo base_url('setup/biaya-diskon/show')?>" class="btn btn-yahoo btn-flat">Biaya & Diskon</a> |
             <a href="<?php echo base_url('setup/tahun-ajaran/show')?>" class="btn btn-yahoo btn-flat active">Tahun Ajaran</a> |
         </div>
       </div>

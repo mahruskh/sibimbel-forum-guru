@@ -102,8 +102,8 @@
         <li class="active treeview menu-open">
           <a href="#"><i class="glyphicon glyphicon-cog"></i><span> SETUP</span><span class="pull-right-container"><i class="glyphicon glyphicon-option-horizontal pull-right"></i></span></a>
           <ul class="treeview-menu">
-            <li class="active"><a href="<?php echo base_url('setup/program-pilihan/show')?>"><i class="glyphicon glyphicon-minus"></i> Program & Pilihan</a></li>
-            <li><a href="<?php echo base_url('setup/biaya-diskon/show')?>"><i class="glyphicon glyphicon-minus"></i> Biaya & Diskon</a></li>
+            <li><a href="<?php echo base_url('setup/program-pilihan/show')?>"><i class="glyphicon glyphicon-minus"></i> Program & Pilihan</a></li>
+            <li class="active"><a href="<?php echo base_url('setup/biaya-diskon/show')?>"><i class="glyphicon glyphicon-minus"></i> Biaya & Diskon</a></li>
             <li><a href="<?php echo base_url('setup/tahun-ajaran/show')?>"><i class="glyphicon glyphicon-minus"></i> Tahun Ajaran</a></li>
           </ul>
         </li>
@@ -136,62 +136,29 @@
   <section class="content">
       <div class="box box-primary box-solid flat">
         <div class="box-body">
-            <a href="<?php echo base_url('setup/program-pilihan/show')?>" class="btn btn-yahoo active btn-flat">Program & Pilihan</a> |
-            <a href="<?php echo base_url('setup/biaya-diskon/show')?>" class="btn btn-yahoo btn-flat">Biaya & Diskon</a> |
+            <a href="<?php echo base_url('setup/program-pilihan/show')?>" class="btn btn-yahoo btn-flat">Program & Pilihan</a> |
+            <a href="<?php echo base_url('setup/biaya-diskon/show')?>" class="btn btn-yahoo btn-flat active">Biaya & Diskon</a> |
             <a href="<?php echo base_url('setup/tahun-ajaran/show')?>" class="btn btn-yahoo btn-flat">Tahun Ajaran</a> |
         </div>
       </div>
-      <div class="row">
-          <div class="col-sm-6 col-md-6">
-              <div class="box box-primary flat">
-                  <div class="box-header with-border">
-                      <h4 class="box-tittle">Program Bimbingan Belajar</h4>
-                      <div class="box-tools pull-right">
-                          <button type="button" class="btn btn-primary btn-sm" onclick="add_program()"><span class="glyphicon glyphicon-plus"></span> Program Bimbel</button>
-                      </div>
-                  </div>
-                  <div class="box-body">
-                      <div class="table-responsive">
-                          <table class="table table-bordered table-hover table-striped" id="programbimbel-dt">
-                              <thead>
-                              <tr class="info">
-                                  <th>Program Bimbel</th>
-                                  <th>Tools</th>
-                              </tr>
-                              </thead>
-                              <tbody>
-                              </tbody>
-                          </table>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="col-sm-6 col-md-6">
-              <div class="box box-primary flat">
-                  <div class="box-header with-border">
-                      <h4 class="box-tittle">Pilihan Program Bimbingan Belajar</h4>
-                      <div class="box-tools pull-right">
-                          <button type="button" class="btn btn-primary btn-sm" onclick="add()"><span class="glyphicon glyphicon-plus"></span> Pilihan Program</button>
-                      </div>
-                  </div>
-                  <div class="box-body">
-                      <div class="table-responsive">
-                          <table class="table table-bordered table-hover table-striped" id="pilihanprogram-dt">
-                              <thead>
-                              <tr class="info">
-                                  <th>Pilihan Program</th>
-                                  <th>Tools</th>
-                              </tr>
-                              </thead>
-                              <tbody>
-                              </tbody>
-                          </table>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+                <div class="box box-primary flat">
+                    <div class="box-header with-border">
+                        <h4 class="box-tittle">Biaya Pendaftaran</h4>
+                        <div class="row">
+                            <div class="col-sm-6 col-md-9">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">Rp.</div>
+                                        <input type="text" class="form-control" name="biaya_pendaftaran" readonly="readonly">
+                                    </div>
+                            </div>
+                            <button type="button" class="btn btn-primary" id="method_biaya_pendaftaran">UBAH</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
     <!-- /.content -->
   </div>
@@ -225,124 +192,37 @@
 </body>
 </html>
 <script type="text/javascript">
-    var programbimbel_dt ;
-    var pilihanprogram_dt;
-    var method;
     $(document).ready(function (e) {
-        programbimbel_dt = $("#programbimbel-dt").DataTable({
-            "autoWidth": false,
-            "processing": true,
-            "serverSide": true,
-            "ajax": {"url":"show_data_program", "type":"POST"},
-            "columns": [
-                {"data":'program_bimbel'},
-                {"data":"tools", "class": "text-center", "orderable":false}
-            ],
-        });
-        pilihanprogram_dt = $("#pilihanprogram-dt").DataTable({
-            "autoWidth": false,
-            "processing": true,
-            "serverSide": true,
-            "ajax": {"url":"show_data_pilihan", "type":"POST"},
-            "columns": [
-                {"data":'pilihan_program'},
-                {"data":"tools", "class": "text-center", "orderable":false}
-            ],
-        });
-    });
-    function trash_program(id_program_bimbel) {
-      if (confirm("Hapus Program Bimbel Permanen !!!")){
-          $.ajax({
-              type: "POST",
-              url: "trash_program",
-              data: {id_program_bimbel:id_program_bimbel},
-              success: function (data) {
-                  if (data == 1){
-                      programbimbel_dt.ajax.reload(null,false)
-                  }
-              }
-          });
-      }
-    };
-    function add_program() {
-        method = "add_program"
-        $("#id_program_bimbel").val("")
-        $("#form-program")[0].reset()
-        $('.modal-title').html("Tambah Program Bimbel")
-        $("#act").html("SIMPAN")
-        $("#modal-program").modal("show")
-    };
-    function edit_program(id_program_bimbel) {
-        method ="update_program"
-        $("#id_program_bimbel").val(id_program_bimbel)
-        $("#form-program")[0].reset()
-        $('.modal-title').html("Detail Program Bimbel")
-        $("#act").html("UPDATE")
+        show_biaya_daftar()
+        $("#method_biaya_pendaftaran").click(function() {
 
-        $.ajax({
-            type: "POST",
-            url: "edit_program",
-            dataType: "JSON",
-            data: {id_program_bimbel:$("#id_program_bimbel").val()},
-            success: function (data) {
-                $('[name="program_bimbel"]').val(data.program_bimbel)
-                $('[name="materi_ajar"]').val(data.materi_ajar)
-                $("#modal-program").modal("show")
-            }
-        });
-    };
-    function save_program() {
-        if ($('[name="program_bimbel"]').val() == "" || $('[name="materi_ajar"]').val() == ""){
-            alert("Setiap Data Wajib Diisi !")
-        }else {
-            if (method == "add_program"){
-                $.ajax({
-                   type: "POST",
-                   url: method,
-                   data: {program_bimbel:$('[name="program_bimbel"]').val(),materi_ajar:$('[name="materi_ajar"]').val()},
-                   success: function (data) {
-                       if (data == 1){
-                           $("#modal-program").modal("hide")
-                           programbimbel_dt.ajax.reload(null,false)
-                       }
-                   }
-                });
-            }else if (method == "update_program"){
+            if ($("#method_biaya_pendaftaran").html() == "UBAH"){
+                $("#method_biaya_pendaftaran").html("SIMPAN")
+                $('[name="biaya_pendaftaran"]').attr("readonly", false)
+            }else if($("#method_biaya_pendaftaran").html() == "SIMPAN"){
+                $("#method_biaya_pendaftaran").html("UBAH")
+
                 $.ajax({
                     type: "POST",
-                    url: method,
-                    data: {id_program_bimbel:$("#id_program_bimbel").val(),program_bimbel:$('[name="program_bimbel"]').val(),materi_ajar:$('[name="materi_ajar"]').val()},
+                    url: "update_biaya_daftar",
+                    data: {biaya_daftar: $('[name="biaya_pendaftaran"]').val()},
                     success: function (data) {
-                     if (data == 1){
-                         $("#modal-program").modal("hide")
-                         programbimbel_dt.ajax.reload(null,false)
-                     }
+                        if (data == 1){
+                            $('[name="biaya_pendaftaran"]').attr("readonly", "readonly")
+                            alert("Biaya Daftar Berhasil Diubah")
+                        }
                     }
                 });
             }
-        }
-    };
-    function add_pilihan() {
-
-    };
-    function edit_pilihan() {
-
-    };
-    function edit_pilihan() {
-
-    };
-    function trash_pilihan(id_pilihan_program) {
-        if (confirm("Hapus Pilihan Program Permanen !!!")){
-            $.ajax({
-                type: "POST",
-                url: "trash_pilihan",
-                data: {id_pilihan_program:id_pilihan_program},
-                success: function (data) {
-                    if (data == 1){
-                        pilihanprogram_dt.ajax.reload(null,false)
-                    }
-                }
-            });
-        }
+        });
+    });
+    function show_biaya_daftar() {
+      $.ajax({
+         type: "POST",
+         url: "show_biaya_daftar",
+         success: function (data) {
+             $('[name="biaya_pendaftaran"]').val(data)
+         } 
+      });  
     };
 </script>

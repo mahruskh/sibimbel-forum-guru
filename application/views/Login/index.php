@@ -14,7 +14,7 @@
   <body class="hold-transition login-page">
     <div class="login-box">
     <div class="login-logo ">
-      <b>SI BIMBEL </b>
+      <img src="../assets/images/logotitle.png">
     </div>
     <div class="login-box-body">
         <p class="login-box-msg">Login Administrator</p>

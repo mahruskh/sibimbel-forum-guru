@@ -150,12 +150,12 @@
                             <div class="col-sm-6 col-md-9">
                                     <div class="input-group">
                                         <div class="input-group-addon">Rp.</div>
-                                        <input type="text" class="form-control" name="biaya_pendaftaran" readonly="readonly">
+                                        <input type="text" class="form-control text-bold" name="biaya_pendaftaran" readonly="readonly">
                                     </div>
                             </div>
                             <button type="button" class="btn btn-primary" id="method_biaya_pendaftaran">UBAH</button>
                         </div>
-                    </div>
+                    </div><label for="" class="col-sm-3 control-label">/ Minggu</label>
                 </div>
             </div>
         </div>
@@ -200,19 +200,22 @@
                 $("#method_biaya_pendaftaran").html("SIMPAN")
                 $('[name="biaya_pendaftaran"]').attr("readonly", false)
             }else if($("#method_biaya_pendaftaran").html() == "SIMPAN"){
-                $("#method_biaya_pendaftaran").html("UBAH")
-
-                $.ajax({
-                    type: "POST",
-                    url: "update_biaya_daftar",
-                    data: {biaya_daftar: $('[name="biaya_pendaftaran"]').val()},
-                    success: function (data) {
-                        if (data == 1){
-                            $('[name="biaya_pendaftaran"]').attr("readonly", "readonly")
-                            alert("Biaya Daftar Berhasil Diubah")
+                if ($('[name="biaya_pendaftaran"]').val() == ""){
+                    alert("Biaya Daftar Wajib Diisi !!!")
+                }else {
+                    $("#method_biaya_pendaftaran").html("UBAH")
+                    $.ajax({
+                        type: "POST",
+                        url: "update_biaya_daftar",
+                        data: {biaya_daftar: $('[name="biaya_pendaftaran"]').val()},
+                        success: function (data) {
+                            if (data == 1){
+                                $('[name="biaya_pendaftaran"]').attr("readonly", "readonly")
+                                alert("Biaya Daftar Berhasil Diubah")
+                            }
                         }
-                    }
-                });
+                    });
+                }
             }
         });
     });

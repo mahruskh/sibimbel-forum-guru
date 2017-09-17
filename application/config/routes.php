@@ -38,6 +38,8 @@ $route['setup/program-pilihan/trash_program'] = 'Setup/_ProgramPilihanController
 $route['setup/program-pilihan/add_program'] = 'Setup/_ProgramPilihanController/add_program';
 $route['setup/program-pilihan/edit_program'] = 'Setup/_ProgramPilihanController/edit_program';
 $route['setup/program-pilihan/update_program'] = 'Setup/_ProgramPilihanController/update_program';
+$route['setup/program-pilihan/show_pilihan_program'] = 'Setup/_ProgramPilihanController/show_pilihan_program';
+$route['setup/program-pilihan/halo'] = 'Setup/_ProgramPilihanController/halo'; //percobaan
 
 $route['setup/program-pilihan/show_data_pilihan'] = 'Setup/_ProgramPilihanController/show_data_pilihan';
 $route['setup/program-pilihan/trash_pilihan'] = 'Setup/_ProgramPilihanController/trash_pilihan';

@@ -13,10 +13,16 @@ class ProgramPilihanModel extends CI_Model
     ';
     public function show_data_program()
     {
-        $this->datatables->select('id_program_bimbel, program_bimbel');
+        $this->datatables->select('id_program_bimbel, program_bimbel,biaya_total,tb_pilihan_program.pilihan_program as pilihan_program');
         $this->datatables->from('tb_program_bimbel');
+        $this->datatables->join('tb_pilihan_program', 'tb_program_bimbel.id_pilihan_program = tb_pilihan_program.id_pilihan_program');
         $this->datatables->add_column('tools',$this->tools_program,'id_program_bimbel');
         return $this->datatables->generate();
+    }
+    public function show_pilihan_program()
+    {
+
+        return $this->db->get('tb_pilihan_program')->result();
     }
     public function add_program($data)
     {

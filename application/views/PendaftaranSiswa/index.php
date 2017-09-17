@@ -174,7 +174,6 @@
             <table class="table table-bordered table-hover table-striped" id="siswabimbel-dt">
                 <thead>
                   <tr class="info">
-                    <th>NIS</th>
                     <th>Nama Lengkap</th>
                     <th>Asal Sekolah</th>
                     <th>Tools</th>
@@ -227,7 +226,6 @@
             "serverSide": true,
             "ajax": {"url":"show_data", "type":"POST"},
             "columns": [
-                {"data":'nis', "class":"text-center"},
                 {"data":"nama"},
                 {"data":"asal_sekolah"},
                 {"data":"tools", "class": "text-center", "orderable":false}

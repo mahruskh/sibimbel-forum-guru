@@ -1,4 +1,3 @@
-
 <html>
 <head>
   <meta charset="utf-8">
@@ -142,10 +141,10 @@
         </div>
       </div>
       <div class="row">
-          <div class="col-sm-6 col-md-6">
+          <div class="col-sm-6 col-md-12">
               <div class="box box-primary flat">
                   <div class="box-header with-border">
-                      <h4 class="box-tittle">Program Bimbingan Belajar</h4>
+                      <h4 class="box-tittle">Program Jenjang Bimbingan Belajar</h4>
                       <div class="box-tools pull-right">
                           <button type="button" class="btn btn-primary btn-sm" onclick="add_program()"><span class="glyphicon glyphicon-plus"></span> Program Bimbel</button>
                       </div>
@@ -155,7 +154,9 @@
                           <table class="table table-bordered table-hover table-striped" id="programbimbel-dt">
                               <thead>
                               <tr class="info">
-                                  <th>Program Bimbel</th>
+                                  <th>Program Jenjang (Kelas)</th>
+                                  <th>Jenis Program</th>
+                                  <th>Biaya Total (Rp.)</th>
                                   <th>Tools</th>
                               </tr>
                               </thead>
@@ -166,10 +167,11 @@
                   </div>
               </div>
           </div>
+          <div id="sukma"></div>
           <div class="col-sm-6 col-md-6">
               <div class="box box-primary flat">
                   <div class="box-header with-border">
-                      <h4 class="box-tittle">Pilihan Program Bimbingan Belajar</h4>
+                      <h4 class="box-tittle">Pilihan Program</h4>
                       <div class="box-tools pull-right">
                           <button type="button" class="btn btn-primary btn-sm" onclick="add()"><span class="glyphicon glyphicon-plus"></span> Pilihan Program</button>
                       </div>
@@ -236,6 +238,8 @@
             "ajax": {"url":"show_data_program", "type":"POST"},
             "columns": [
                 {"data":'program_bimbel'},
+                {"data": 'pilihan_program', "class": "text-center"},
+                {"data": 'biaya_total'},
                 {"data":"tools", "class": "text-center", "orderable":false}
             ],
         });
@@ -270,6 +274,14 @@
         $("#form-program")[0].reset()
         $('.modal-title').html("Tambah Program Bimbel")
         $("#act").html("SIMPAN")
+
+        $.ajax({
+           type: "POST",
+           url: "show_pilihan_program",
+           success: function (data) {
+              $("#pilihan_program").html(data)
+           }
+        });
         $("#modal-program").modal("show")
     };
     function edit_program(id_program_bimbel) {
@@ -291,16 +303,56 @@
             }
         });
     };
+    function pertemuan() {
+        var pertemuan = []
+        if($('[name="Senin"]:checked').val() != undefined){
+            pertemuan[pertemuan.length] = $('[name="Senin"]:checked').val()
+        }
+        if($('[name="Selasa"]:checked').val() != undefined){
+            pertemuan[pertemuan.length] = $('[name="Selasa"]:checked').val()
+        }
+        if($('[name="Rabu"]:checked').val() != undefined){
+            pertemuan[pertemuan.length] = $('[name="Rabu"]:checked').val()
+        }
+        if($('[name="Kamis"]:checked').val() != undefined){
+            pertemuan[pertemuan.length] = $('[name="Kamis"]:checked').val()
+        }
+        if($('[name="Jumat"]:checked').val() != undefined){
+            pertemuan[pertemuan.length] = $('[name="Jumat"]:checked').val()
+        }
+        if($('[name="Sabtu"]:checked').val() != undefined){
+            pertemuan[pertemuan.length] = $('[name="Sabtu"]:checked').val()
+        }
+        if($('[name="Minggu"]:checked').val() != undefined){
+            pertemuan[pertemuan.length] = $('[name="Minggu"]:checked').val()
+        }
+       return pertemuan
+    };
+    function halo() {
+//        alert(hari_pertemuan())
+//        alert($("#sapi:checked").val())
+//        alert($("#form-program").serialize())
+//        $.ajax({
+//           type: "POST",
+//           url: "halo",
+//           data: {hari_pertemuan:$('[name="hari_pertemuan[]"]').val()},
+//           success: function (data) {
+//                alert(data)
+//           }
+//        });
+    };
     function save_program() {
-        if ($('[name="program_bimbel"]').val() == "" || $('[name="materi_ajar"]').val() == ""){
+        if ($('[name="program_bimbel"]').val() == ""){
             alert("Setiap Data Wajib Diisi !")
         }else {
+            var hari_pertemuan = pertemuan()
             if (method == "add_program"){
                 $.ajax({
                    type: "POST",
                    url: method,
-                   data: {program_bimbel:$('[name="program_bimbel"]').val(),materi_ajar:$('[name="materi_ajar"]').val()},
+                   data: {program_bimbel:$('[name="program_bimbel"]').val(),biaya_total:$('[name="biaya_total"]').val(),id_pilihan_program:$('[name="id_pilihan_program"]').val(),materi_ajar:$('[name="materi_ajar"]').val(),lama_belajar:$('[name="lama_belajar"]').val(),jumlah_pertemuan:$('[name="jumlah_pertemuan"]').val(),hari_pertemuan:hari_pertemuan,jam_pertemuan:$('[name="jam_pertemuan"]').val(),keterangan:$('[name="keterangan"]').val()},
                    success: function (data) {
+                       $("#sukma").html(data)
                        if (data == 1){
                            $("#modal-program").modal("hide")
                            programbimbel_dt.ajax.reload(null,false)

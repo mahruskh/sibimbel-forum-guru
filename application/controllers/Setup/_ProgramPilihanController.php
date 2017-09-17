@@ -15,6 +15,10 @@ class _ProgramPilihanController extends CI_Controller
         $this->load->view('SetupProgramPilihan/index',$data);
         $this->load->view('SetupProgramPilihan/modal-program');
     }
+    public function halo()
+    {
+        echo $this->input->post('hari_pertemuan');
+    }
     public function show_data_program()
     {
         if ($this->input->is_ajax_request()){
@@ -22,10 +26,32 @@ class _ProgramPilihanController extends CI_Controller
         }
 
     }
+    public function show_pilihan_program()
+    {
+        if ($this->input->is_ajax_request()){
+        ?>
+        <div class="form-group">
+            <label for="" class="col-sm-3 control-label">Jenis Program</label>
+            <div class="col-sm-6">
+                <select class="form-control" name="id_pilihan_program">
+                    <?php
+                    foreach ($this->ProgramPilihanModel->show_pilihan_program() as $row){ ?>
+                        <option value="<?php echo $row->id_pilihan_program?>"><?php echo $row->pilihan_program?></option>
+
+                 <?php   }
+                    ?>
+                </select>
+            </div>
+        </div>
+
+        <?php
+        }
+    }
     public function add_program()
     {
         if ($this->input->is_ajax_request()){
-            echo $this->ProgramPilihanModel->add_program($this->input->post());
+//            echo $this->ProgramPilihanModel->add_program($this->input->post());
+            var_dump($this->input->post());
         }
     }
     public function edit_program()

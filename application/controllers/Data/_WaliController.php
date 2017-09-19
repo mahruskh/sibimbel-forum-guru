@@ -6,14 +6,14 @@ class _WaliController extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Pendaftaran/WaliSiswaModel');
+        $this->load->model('Data/WaliSiswaModel');
         $this->load->library('Datatables');
     }
     public function index()
     {
-        $data['title'] = "Pendaftaran Orang Tua (Wali)";
-        $this->load->view('PendaftaranWali/index',$data);
-        $this->load->view('PendaftaranWali/modal-wali');
+        $data['title'] = "Data Wali / Orang Tua";
+        $this->load->view('DataWali/index',$data);
+        $this->load->view('DataWali/modal-wali');
     }
     public function show_data_wali()
     {

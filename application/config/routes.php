@@ -10,16 +10,23 @@ $route['login/show'] = 'Login/_LoginController/index';
 
 $route['dashboard/show'] = 'Dashboard/_DashboardController/index';
 
-$route['pendaftaran/siswa/show'] = 'Pendaftaran/_SiswaBimbelController/index';
-$route['pendaftaran/siswa/show_data'] = 'Pendaftaran/_SiswaBimbelController/show_data';
-$route['pendaftaran/siswa/trash'] = 'Pendaftaran/_SiswaBimbelController/trash';
+$route['data/siswa/show'] = 'Data/_SiswaBimbelController/index';
+$route['data/siswa/show_data'] = 'Data/_SiswaBimbelController/show_data';
+$route['data/siswa/trash'] = 'Data/_SiswaBimbelController/trash';
 
-$route['pendaftaran/wali/show'] = 'Pendaftaran/_WaliController/index';
-$route['pendaftaran/wali/show_data_wali'] = 'Pendaftaran/_WaliController/show_data_wali';
-$route['pendaftaran/wali/trash_wali'] = 'Pendaftaran/_WaliController/trash_wali';
-$route['pendaftaran/wali/add_wali'] = 'Pendaftaran/_WaliController/add_wali';
-$route['pendaftaran/wali/edit_wali'] = 'Pendaftaran/_WaliController/edit_wali';
-$route['pendaftaran/wali/update_wali'] = 'Pendaftaran/_WaliController/update_wali';
+$route['data/wali/show'] = 'Data/_WaliController/index';
+$route['data/wali/show_data_wali'] = 'Data/_WaliController/show_data_wali';
+$route['data/wali/trash_wali'] = 'Data/_WaliController/trash_wali';
+$route['data/wali/add_wali'] = 'Data/_WaliController/add_wali';
+$route['data/wali/edit_wali'] = 'Data/_WaliController/edit_wali';
+$route['data/wali/update_wali'] = 'Data/_WaliController/update_wali';
+
+$route['data/tentor/show'] = 'Data/_TentorController/index';
+$route['data/tentor/show_data_tentor'] = 'Data/_TentorController/show_data_tentor';
+$route['data/tentor/trash_tentor'] = 'Data/_TentorController/trash_tentor';
+$route['data/tentor/add_tentor'] = 'Data/_TentorController/add_tentor';
+$route['data/tentor/edit_tentor'] = 'Data/_TentorController/edit_tentor';
+$route['data/tentor/update_tentor'] = 'Data/_TentorController/update_tentor';
 
 $route['setup/biaya-diskon/show'] = 'Setup/_BiayaDiskonController/index';
 $route['setup/biaya-diskon/show_biaya_daftar'] = 'Setup/_BiayaDiskonController/show_biaya_daftar';

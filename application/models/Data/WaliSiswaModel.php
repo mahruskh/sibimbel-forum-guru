@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class WaliSiswaModel extends CI_Model
 {
-    private $tools = '<div class="dropdown">
+    private $tools_wali = '<div class="dropdown">
          <button class="btn btn-default dropdown-toggle btn-sm" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             <span class="glyphicon glyphicon-cog"></span>
          </button>
@@ -17,7 +17,7 @@ class WaliSiswaModel extends CI_Model
     {
         $this->datatables->select('id_wali_siswa,nama,alamat,');
         $this->datatables->from('tb_wali_siswa');
-        $this->datatables->add_column('tools', $this->tools, 'id_wali_siswa');
+        $this->datatables->add_column('tools', $this->tools_wali, 'id_wali_siswa');
         return $this->datatables->generate();
     }
     public function add_wali($data)

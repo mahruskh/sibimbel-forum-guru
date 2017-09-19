@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class SiswaBimbelModel extends CI_Model
 {
-    private $tools = '<div class="dropdown">
+    private $tools_siswa = '<div class="dropdown">
          <button class="btn btn-default dropdown-toggle btn-sm" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             <span class="glyphicon glyphicon-cog"></span>
          </button>
@@ -18,7 +18,7 @@ class SiswaBimbelModel extends CI_Model
     {
         $this->datatables->select('nis,nama,asal_sekolah');
         $this->datatables->from('tb_siswa');
-        $this->datatables->add_column('tools', $this->tools, 'nis');
+        $this->datatables->add_column('tools', $this->tools_siswa, 'nis');
         return $this->datatables->generate();
     }
     public function trash($nis)

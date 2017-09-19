@@ -6,14 +6,14 @@ class _SiswaBimbelController extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Pendaftaran/SiswaBimbelModel');
+        $this->load->model('Data/SiswaBimbelModel');
         $this->load->library('Datatables');
     }
     public function index()
     {
-        $data['title'] = "Pendaftaran Siswa";
-        $this->load->view('PendaftaranSiswa/index',$data);
-        $this->load->view('PendaftaranSiswa/modal-trash');
+        $data['title'] = "Data Siswa Bimbel";
+        $this->load->view('DataSiswa/index',$data);
+        $this->load->view('DataSiswa/modal-trash');
     }
     public function show_data()
     {

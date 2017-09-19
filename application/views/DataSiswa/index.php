@@ -12,8 +12,7 @@
         echo link_tag('assets/plugins/datatables/dataTables.bootstrap.css');
   ?>
   <!-- Font Awesome -->
-  <?php //echo link_tag('assets/lte/plugins/font-awesome/css/font-awesome.min.css');?>
-  <?php echo link_tag('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'); ?>
+  <link rel="stylesheet" href="../../assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css">
   <!-- Theme style -->
   <?php echo link_tag('assets/dist/css/AdminLTE.min.css'); ?>
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
@@ -29,7 +28,7 @@
     <!-- Logo -->
     <a href="<?php echo current_url();?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>BFG</b></span>
+        <span class="logo-mini"><b>BFG</b></span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg">Bimbel Forum Guru</span>
     </a>
@@ -88,18 +87,18 @@
         <!-- Optionally, you can add icons to the links -->
         <li><a href="<?php echo base_url('dashboard/show')?>"><i class="glyphicon glyphicon-dashboard"></i><span> DASHBOARD</span></a></li>
         <li class="active treeview menu-open">
-          <a href="#"><i class="glyphicon glyphicon-book"></i><span> DATA PENDAFTARAN</span><span class="pull-right-container"><i class="glyphicon glyphicon-option-horizontal pull-right"></i></span></a>
+          <a href="#"><i class="glyphicon glyphicon-book"></i><span> DATA PENDAFTARAN</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
           <ul class="treeview-menu">
-            <li class="active"><a href="<?php echo base_url('pendaftaran/siswa/show')?>"><i class="glyphicon glyphicon-minus"></i> Siswa Bimbel</a></li>
-            <li><a href="<?php echo base_url('pendaftaran/wali/show')?>"><i class="glyphicon glyphicon-minus"></i> Orang Tua (Wali)</a></li>
-            <li><a href=""><i class="glyphicon glyphicon-minus"></i> Pengajar (Tentor)</a></li>
+            <li class="active"><a href="<?php echo base_url('data/siswa/show')?>"><i class="glyphicon glyphicon-minus"></i> Siswa Bimbel</a></li>
+            <li><a href="<?php echo base_url('data/wali/show')?>"><i class="glyphicon glyphicon-minus"></i> Wali / Orang Tua</a></li>
+            <li><a href="<?php echo base_url('data/tentor/show')?>"><i class="glyphicon glyphicon-minus"></i> Tentor / Pengajar</a></li>
           </ul>
         </li>
         <li><a href=""><i class="glyphicon glyphicon-tags" aria-hidden="true"></i><span> DATA BIMBEL</span></a></li>
         <li><a href=""><i class="glyphicon glyphicon-usd" aria-hidden="true"></i><span> PEMBAYARAN</span></a></li>
         <li><a href=""><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i><span> PENJADWALAN</span></a></li>
         <li class="treeview">
-          <a href="#"><i class="glyphicon glyphicon-cog"></i><span> SETUP</span><span class="pull-right-container"><i class="glyphicon glyphicon-option-horizontal pull-right"></i></span></a>
+          <a href="#"><i class="glyphicon glyphicon-cog"></i><span> SETUP</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
           <ul class="treeview-menu">
             <li><a href=""><i class="glyphicon glyphicon-minus"></i> Program & Pilihan</a></li>
             <li><a href=""><i class="glyphicon glyphicon-minus"></i> Biaya & Diskon</a></li>
@@ -108,7 +107,7 @@
         </li>
         <li><a href=""><i class="glyphicon glyphicon-file" aria-hidden="true"></i><span> LAPORAN - LAPORAN</span></a></li>
         <li class="treeview">
-          <a href="#"><i class="glyphicon glyphicon-user"></i><span> ADMINISTRATOR</span><span class="pull-right-container"><i class="glyphicon glyphicon-option-horizontal pull-right"></i></span></a>
+          <a href="#"><i class="glyphicon glyphicon-user"></i><span> ADMINISTRATOR</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
           <ul class="treeview-menu">
             <li><a href="<?php echo base_url('administrator/show')?>"><i class="glyphicon glyphicon-minus"></i> Data Administrator</a></li>
             <li><a href=""><i class="glyphicon glyphicon-minus"></i> Setup Akun</a></li>
@@ -164,7 +163,7 @@
     </div>
         <div class="box box-primary flat">
           <div class="box-header with-border">
-            <h4 class="box-tittle">Data Pendaftaran Siswa</h4>
+            <h4 class="box-tittle">Data Siswa Bimbel</h4>
               <div class="box-tools pull-right">
                   <button type="button" class="btn btn-primary btn-sm" onclick="add()"><span class="glyphicon glyphicon-plus"></span> Data Siswa</button>
               </div>

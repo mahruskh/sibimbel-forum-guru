@@ -12,7 +12,7 @@
         echo link_tag('assets/plugins/datatables/dataTables.bootstrap.css');
   ?>
   <!-- Font Awesome -->
-  <?php echo link_tag('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'); ?>
+    <?php echo link_tag('assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css');?>
   <!-- wever, you can choose any other skin. Make sure you
         apply theTheme style -->
   <?php echo link_tag('assets/dist/css/AdminLTE.min.css'); ?>
@@ -136,6 +136,7 @@
     <div class="box box-primary box-solid flat">
         <div class="box-body">
             <a href="#" class="btn btn-yahoo btn-flat">Tambah Administrator</a> |
+            <a href="<?php echo base_url('administrator/show');?>" class="btn btn-yahoo btn-flat active">Data Adminsitrator</a> |
             <a href="#" class="btn btn-yahoo btn-flat">Setup Akun</a>
         </div>
     </div>

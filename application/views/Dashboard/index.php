@@ -13,8 +13,7 @@
     echo link_tag('assets/plugins/datatables/dataTables.bootstrap.css');
     ?>
     <!-- Font Awesome -->
-    <?php //echo link_tag('assets/lte/plugins/font-awesome/css/font-awesome.min.css');?>
-    <?php echo link_tag('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'); ?>
+    <link rel="stylesheet" href="../assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css">
     <!-- Theme style -->
     <?php echo link_tag('assets/dist/css/AdminLTE.min.css'); ?>
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter

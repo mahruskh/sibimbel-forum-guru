@@ -1,4 +1,3 @@
-
 <html>
 <head>
   <meta charset="utf-8">
@@ -13,8 +12,7 @@
         echo link_tag('assets/plugins/datatables/dataTables.bootstrap.css');
   ?>
   <!-- Font Awesome -->
-  <?php //echo link_tag('assets/lte/plugins/font-awesome/css/font-awesome.min.css');?>
-  <?php echo link_tag('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'); ?>
+    <?php echo link_tag('assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css');?>
   <!-- Theme style -->
   <?php echo link_tag('assets/dist/css/AdminLTE.min.css'); ?>
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
@@ -197,9 +195,9 @@
         $("#method_biaya_pendaftaran").click(function() {
 
             if ($("#method_biaya_pendaftaran").html() == "UBAH"){
-                $("#method_biaya_pendaftaran").html("SIMPAN")
+                $("#method_biaya_pendaftaran").html("SAVE")
                 $('[name="biaya_pendaftaran"]').attr("readonly", false)
-            }else if($("#method_biaya_pendaftaran").html() == "SIMPAN"){
+            }else if($("#method_biaya_pendaftaran").html() == "SAVE"){
                 if ($('[name="biaya_pendaftaran"]').val() == ""){
                     alert("Biaya Daftar Wajib Diisi !!!")
                 }else {

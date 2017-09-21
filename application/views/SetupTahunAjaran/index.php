@@ -12,8 +12,7 @@
         echo link_tag('assets/plugins/datatables/dataTables.bootstrap.css');
   ?>
   <!-- Font Awesome -->
-  <?php //echo link_tag('assets/lte/plugins/font-awesome/css/font-awesome.min.css');?>
-  <?php echo link_tag('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'); ?>
+    <?php echo link_tag('assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css');?>
   <!-- Theme style -->
   <?php echo link_tag('assets/dist/css/AdminLTE.min.css'); ?>
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
@@ -201,6 +200,7 @@
 <script type="text/javascript">
     var tahunajaran_dt;
     var method;
+    var id_update_tahun_ajaran;
     $(document).ready(function (e) {
         tahunajaran_dt = $("#tahunajaran-dt").DataTable({
             "autoWidth": false,
@@ -216,14 +216,14 @@
     });
     function add_ajaran() {
         method = "add_ajaran"
-        $("#id_tahun_ajaran").val("")
+        id_update_tahun_ajaran = ""
         $("#form-ajaran")[0].reset()
         $("#act").html("SIMPAN")
         $("#modal-ajaran").modal("show")
     };
     function edit_ajaran(id_tahun_ajaran) {
         method = "update_ajaran"
-        $("#id_tahun_ajaran").val(id_tahun_ajaran)
+        id_update_tahun_ajaran = id_tahun_ajaran
         $("#form-ajaran")[0].reset()
         $("#act").html("UPDATE")
 
@@ -258,7 +258,7 @@
                 $.ajax({
                     type: "POST",
                     url: method,
-                    data: {id_tahun_ajaran:$("#id_tahun_ajaran").val(),tahun_ajaran:$('[name="tahun_ajaran"]').val()},
+                    data: {id_tahun_ajaran:id_update_tahun_ajaran,tahun_ajaran:$('[name="tahun_ajaran"]').val()},
                     success: function (data) {
                         if (data == 1){
                             $("#modal-ajaran").modal("hide")

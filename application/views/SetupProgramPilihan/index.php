@@ -12,8 +12,7 @@
         echo link_tag('assets/plugins/datatables/dataTables.bootstrap.css');
   ?>
   <!-- Font Awesome -->
-  <?php //echo link_tag('assets/lte/plugins/font-awesome/css/font-awesome.min.css');?>
-  <?php echo link_tag('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'); ?>
+    <?php echo link_tag('assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css');?>
   <!-- Theme style -->
   <?php echo link_tag('assets/dist/css/AdminLTE.min.css'); ?>
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
@@ -167,13 +166,12 @@
                   </div>
               </div>
           </div>
-          <div id="sukma"></div>
           <div class="col-sm-6 col-md-6">
               <div class="box box-primary flat">
                   <div class="box-header with-border">
                       <h4 class="box-tittle">Pilihan Program</h4>
                       <div class="box-tools pull-right">
-                          <button type="button" class="btn btn-primary btn-sm" onclick="add()"><span class="glyphicon glyphicon-plus"></span> Pilihan Program</button>
+                          <button type="button" class="btn btn-primary btn-sm" onclick="add_pilihan()"><span class="glyphicon glyphicon-plus"></span> Pilihan Program</button>
                       </div>
                   </div>
                   <div class="box-body">
@@ -230,6 +228,7 @@
     var programbimbel_dt ;
     var pilihanprogram_dt;
     var method;
+    var id_update_pilihan;
     $(document).ready(function (e) {
         programbimbel_dt = $("#programbimbel-dt").DataTable({
             "autoWidth": false,
@@ -273,7 +272,7 @@
         $("#id_program_bimbel").val("")
         $("#form-program")[0].reset()
         $('.modal-title').html("Tambah Program Bimbel")
-        $("#act").html("SIMPAN")
+        $("#act_program").html("SIMPAN")
 
         $.ajax({
            type: "POST",
@@ -289,7 +288,7 @@
         $("#id_program_bimbel").val(id_program_bimbel)
         $("#form-program")[0].reset()
         $('.modal-title').html("Detail Program Bimbel")
-        $("#act").html("UPDATE")
+        $("#act_program").html("UPDATE")
 
         $.ajax({
             type: "POST",
@@ -328,19 +327,19 @@
         }
        return pertemuan
     };
-    function halo() {
-//        alert(hari_pertemuan())
-//        alert($("#sapi:checked").val())
-//        alert($("#form-program").serialize())
-//        $.ajax({
-//           type: "POST",
-//           url: "halo",
-//           data: {hari_pertemuan:$('[name="hari_pertemuan[]"]').val()},
-//           success: function (data) {
-//                alert(data)
-//           }
-//        });
-    };
+//    function halo() {
+////        alert(hari_pertemuan())
+////        alert($("#sapi:checked").val())
+////        alert($("#form-program").serialize())
+////        $.ajax({
+////           type: "POST",
+////           url: "halo",
+////           data: {hari_pertemuan:$('[name="hari_pertemuan[]"]').val()},
+////           success: function (data) {
+////                alert(data)
+////           }
+////        });
+//    };
     function save_program() {
         if ($('[name="program_bimbel"]').val() == ""){
             alert("Setiap Data Wajib Diisi !")
@@ -350,9 +349,9 @@
                 $.ajax({
                    type: "POST",
                    url: method,
-                   data: {program_bimbel:$('[name="program_bimbel"]').val(),biaya_total:$('[name="biaya_total"]').val(),id_pilihan_program:$('[name="id_pilihan_program"]').val(),materi_ajar:$('[name="materi_ajar"]').val(),lama_belajar:$('[name="lama_belajar"]').val(),jumlah_pertemuan:$('[name="jumlah_pertemuan"]').val(),hari_pertemuan:hari_pertemuan,jam_pertemuan:$('[name="jam_pertemuan"]').val(),keterangan:$('[name="keterangan"]').val()},
+                   data: {program_bimbel:$('[name="program_bimbel"]').val(),biaya_total:$('[name="biaya_total"]').val(),id_pilihan_program:$('[name="id_pilihan_program"]').val(),materi_ajar:$('[name="materi_ajar"]').val(),lama_belajar:$('[name="lama_belajar"]').val(),jumlah_pertemuan:$('[name="jumlah_pertemuan"]').val(),hari_pertemuan:hari_pertemuan,jam_pertemuan:$('[name="jam_pertemuan"]').val(),keterangan_program:$('[name="keterangan_program"]').val()},
                    success: function (data) {
-                       $("#sukma").html(data)
+                       alert(data)
                        if (data == 1){
                            $("#modal-program").modal("hide")
                            programbimbel_dt.ajax.reload(null,false)
@@ -375,15 +374,64 @@
         }
     };
     function add_pilihan() {
-
+        method = "add_pilihan"
+        id_update_pilihan = ""
+        $("#form-pilihan")[0].reset()
+        $('.modal-title').html("Tambah Pilihan Program")
+        $("#act_pilihan").html("SIMPAN")
+        $('#modal-pilihan').modal("show")
     };
-    function edit_pilihan() {
+    function edit_pilihan(id_pilihan_program) {
+        method = "update_pilihan"
+        id_update_pilihan = id_pilihan_program
+        $("#form-pilihan")[0].reset()
+        $('.modal-title').html("Detail Pilihan Program")
+        $("#act_pilihan").html("UPDATE")
 
+        $.ajax({
+            type: "POST",
+            url: "edit_pilihan",
+            dataType: "JSON",
+            data: {id_pilihan_program:id_pilihan_program},
+            success: function (data) {
+                $('[name="pilihan_program"]').val(data.pilihan_program)
+                $('[name="keterangan_pilihan"]').val(data.keterangan_pilihan)
+                $('#modal-pilihan').modal("show")
+            }
+        });
     };
-    function edit_pilihan() {
-
+    function save_pilihan() {
+        if ($('[name="pilihan_program"]').val() == ""){
+            alert("Pilihan Program Wajib Diisi !!!")
+        }else {
+            if (method == "add_pilihan"){
+                $.ajax({
+                  type: "POST",
+                  url: method,
+                  data: $("#form-pilihan").serialize(),
+                  success: function (data) {
+                      if (data == 1){
+                          $("#modal-pilihan").modal("hide")
+                          pilihanprogram_dt.ajax.reload(null,false)
+                      }
+                  }
+                });
+            }else if(method = "update_pilihan"){
+                $.ajax({
+                    type: "POST",
+                    url: method,
+                    data: {id_pilihan_program:id_update_pilihan,pilihan_program:$('[name="pilihan_program"]').val(),keterangan_pilihan:$('[name="keterangan_pilihan"]').val()},
+                    success: function (data) {
+                        if (data == 1){
+                            $("#modal-pilihan").modal("hide")
+                            pilihanprogram_dt.ajax.reload(null,false)
+                        }
+                    }
+                });
+            }
+        }
     };
-    function trash_pilihan(id_pilihan_program) {
+    function trash_pilihan(id_pilihan_program) {        
         if (confirm("Hapus Pilihan Program Permanen !!!")){
             $.ajax({
                 type: "POST",

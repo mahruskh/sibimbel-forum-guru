@@ -8,7 +8,7 @@ class ProgramPilihanModel extends CI_Model
         <button class="btn btn-sm" onclick="trash_program($1)"><i class="glyphicon glyphicon-trash"> </i></button>
     ';
     private $tools_pilihan = '
-        <button class="btn btn-sm"><i class="glyphicon glyphicon-edit"> </i></button> |
+        <button class="btn btn-sm" onclick="edit_pilihan($1)"><i class="glyphicon glyphicon-edit"> </i></button> |
         <button class="btn btn-sm" onclick="trash_pilihan($1)"><i class="glyphicon glyphicon-trash"> </i></button>
     ';
     public function show_data_program()
@@ -21,7 +21,6 @@ class ProgramPilihanModel extends CI_Model
     }
     public function show_pilihan_program()
     {
-
         return $this->db->get('tb_pilihan_program')->result();
     }
     public function add_program($data)
@@ -49,6 +48,21 @@ class ProgramPilihanModel extends CI_Model
         $this->datatables->from('tb_pilihan_program');
         $this->datatables->add_column('tools',$this->tools_pilihan,'id_pilihan_program');
         return $this->datatables->generate();
+    }
+
+    public function add_pilihan($data)
+    {
+        return $this->db->insert('tb_pilihan_program', $data);
+    }
+    public function edit_pilihan($id_pilihan_program)
+    {
+        $this->db->where('id_pilihan_program', $id_pilihan_program);
+        return $this->db->get('tb_pilihan_program')->row();
+    }
+    public function update_pilihan($data)
+    {
+        $this->db->where('id_pilihan_program', $data['id_pilihan_program']);
+        return $this->db->update('tb_pilihan_program', $data);
     }
     public function trash_pilihan($id_pilihan_program){
         $this->db->where('id_pilihan_program', $id_pilihan_program);

@@ -12,8 +12,7 @@
         echo link_tag('assets/plugins/datatables/dataTables.bootstrap.css');
   ?>
   <!-- Font Awesome -->
-  <?php //echo link_tag('assets/lte/plugins/font-awesome/css/font-awesome.min.css');?>
-  <?php echo link_tag('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'); ?>
+    <?php echo link_tag('assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css');?>
   <!-- Theme style -->
   <?php echo link_tag('assets/dist/css/AdminLTE.min.css'); ?>
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
@@ -101,9 +100,9 @@
         <li class="treeview">
           <a href="#"><i class="glyphicon glyphicon-cog"></i><span> SETUP</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
           <ul class="treeview-menu">
-            <li><a href=""><i class="glyphicon glyphicon-minus"></i> Program & Pilihan</a></li>
-            <li><a href=""><i class="glyphicon glyphicon-minus"></i> Biaya & Diskon</a></li>
-            <li><a href="<?php echo base_url('setup/tahun-ajaran')?>"><i class="glyphicon glyphicon-minus"></i> Tahun Ajaran</a></li>
+              <li><a href="<?php echo base_url('setup/program-pilihan/show')?>"><i class="glyphicon glyphicon-minus"></i> Program & Pilihan</a></li>
+              <li><a href="<?php echo base_url('setup/biaya-diskon/show')?>"><i class="glyphicon glyphicon-minus"></i> Biaya & Diskon</a></li>
+              <li><a href="<?php echo base_url('setup/tahun-ajaran/show')?>"><i class="glyphicon glyphicon-minus"></i> Tahun Ajaran</a></li>
           </ul>
         </li>
         <li><a href=""><i class="glyphicon glyphicon-file" aria-hidden="true"></i><span> LAPORAN - LAPORAN</span></a></li>
@@ -249,6 +248,7 @@
     });
     function add_wali() {
         method = "add_wali"
+        id_update_wali = ""
         $("#form-wali")[0].reset()
         $('.modal-title').html("Tambah Wali Siswa")
         $("#act").html("SIMPAN")

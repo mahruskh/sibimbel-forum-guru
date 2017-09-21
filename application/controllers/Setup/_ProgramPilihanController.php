@@ -14,6 +14,7 @@ class _ProgramPilihanController extends CI_Controller
         $data['title'] = "Setup Program & Pilihan";
         $this->load->view('SetupProgramPilihan/index',$data);
         $this->load->view('SetupProgramPilihan/modal-program');
+        $this->load->view('SetupProgramPilihan/modal-pilihan');
     }
     public function halo()
     {
@@ -50,8 +51,7 @@ class _ProgramPilihanController extends CI_Controller
     public function add_program()
     {
         if ($this->input->is_ajax_request()){
-//            echo $this->ProgramPilihanModel->add_program($this->input->post());
-            var_dump($this->input->post());
+            echo $this->ProgramPilihanModel->add_program($this->input->post());
         }
     }
     public function edit_program()
@@ -76,6 +76,26 @@ class _ProgramPilihanController extends CI_Controller
     {
         if ($this->input->is_ajax_request()){
             echo $this->ProgramPilihanModel->show_data_pilihan();
+        }
+    }
+
+    public function add_pilihan()
+    {
+        if ($this->input->is_ajax_request()){
+           echo $this->ProgramPilihanModel->add_pilihan($this->input->post());
+        }
+    }
+    public function edit_pilihan()
+    {
+        if ($this->input->is_ajax_request()){
+            echo json_encode($this->ProgramPilihanModel->edit_pilihan($this->input->post('id_pilihan_program')));
+
+        }
+    }
+    public function update_pilihan()
+    {
+        if ($this->input->is_ajax_request()){
+            echo $this->ProgramPilihanModel->update_pilihan($this->input->post());
         }
     }
     public function trash_pilihan()

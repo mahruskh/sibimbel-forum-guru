@@ -5,11 +5,8 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
     <?php echo link_tag('assets/bootstrap/css/bootstrap.min.css');  ?>
-    <!-- Font Awesome -->
-    <?php echo link_tag('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css'); ?>
     <!-- Theme style -->
     <?php echo link_tag('assets/dist/css/AdminLTE.min.css'); ?>
-
   </head>
   <body class="hold-transition login-page">
     <div class="login-box">

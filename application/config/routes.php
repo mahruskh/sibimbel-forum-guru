@@ -49,10 +49,10 @@ $route['setup/program-pilihan/show_pilihan_program'] = 'Setup/_ProgramPilihanCon
 $route['setup/program-pilihan/halo'] = 'Setup/_ProgramPilihanController/halo'; //percobaan
 
 $route['setup/program-pilihan/show_data_pilihan'] = 'Setup/_ProgramPilihanController/show_data_pilihan';
-$route['setup/program-pilihan/trash_pilihan'] = 'Setup/_ProgramPilihanController/trash_pilihan';
 $route['setup/program-pilihan/add_pilihan'] = 'Setup/_ProgramPilihanController/add_pilihan';
 $route['setup/program-pilihan/edit_pilihan'] = 'Setup/_ProgramPilihanController/edit_pilihan';
 $route['setup/program-pilihan/update_pilihan'] = 'Setup/_ProgramPilihanController/update_pilihan';
+$route['setup/program-pilihan/trash_pilihan'] = 'Setup/_ProgramPilihanController/trash_pilihan';
 
 
 $route['administrator/show'] = 'Administrator/_AdministratorController/index';

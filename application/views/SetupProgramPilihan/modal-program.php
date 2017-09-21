@@ -67,14 +67,14 @@
                     <div class="form-group">
                         <label for="" class="col-sm-3 control-label">Keterangan</label>
                         <div class="col-sm-8">
-                            <textarea class="form-control" rows="2" name="keterangan"></textarea>
+                            <textarea class="form-control" rows="2" name="keterangan_program"></textarea>
                         </div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Batal</button>
-                <button type="button" class="btn btn-primary" id="act" onclick="save_program()"></button>
+                <button type="button" class="btn btn-primary" id="act_program" onclick="save_program()"></button>
             </div>
         </div>
     </div>

@@ -86,15 +86,15 @@
         <li class="header">MENU</li>
         <!-- Optionally, you can add icons to the links -->
         <li><a href="<?php echo base_url('dashboard/show')?>"><i class="glyphicon glyphicon-dashboard"></i><span> DASHBOARD</span></a></li>
-        <li class="active treeview menu-open">
+        <li class="treeview">
           <a href="#"><i class="glyphicon glyphicon-book"></i><span> DATA PENDAFTARAN</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
           <ul class="treeview-menu">
-            <li class="active"><a href="<?php echo base_url('data/siswa/show')?>"><i class="glyphicon glyphicon-minus"></i> Siswa Bimbel</a></li>
+            <li><a href="<?php echo base_url('data/siswa/show')?>"><i class="glyphicon glyphicon-minus"></i> Siswa Bimbel</a></li>
             <li><a href="<?php echo base_url('data/wali/show')?>"><i class="glyphicon glyphicon-minus"></i> Wali / Orang Tua</a></li>
             <li><a href="<?php echo base_url('data/tentor/show')?>"><i class="glyphicon glyphicon-minus"></i> Tentor / Pengajar</a></li>
           </ul>
         </li>
-        <li><a href="<?php echo base_url('data/bimbel/show')?>"><i class="glyphicon glyphicon-tags" aria-hidden="true"></i><span> DATA BIMBEL</span></a></li>
+        <li class="active"><a href="<?php echo base_url('data/bimbel/show')?>"><i class="glyphicon glyphicon-tags" aria-hidden="true"></i><span> DATA BIMBEL</span></a></li>
         <li><a href=""><i class="glyphicon glyphicon-usd" aria-hidden="true"></i><span> PEMBAYARAN</span></a></li>
         <li><a href=""><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i><span> PENJADWALAN</span></a></li>
         <li class="treeview">
@@ -217,35 +217,8 @@
 </body>
 </html>
 <script type="text/javascript">
-    var siswabimbel_dt;
     $(document).ready(function (e) {
-        siswabimbel_dt = $("#siswabimbel-dt").DataTable({
-            "autoWidth": false,
-            "processing": true,
-            "serverSide": true,
-            "ajax": {"url":"show_data", "type":"POST"},
-            "columns": [
-                {"data":"nama"},
-                {"data":"asal_sekolah"},
-                {"data":"tools", "class": "text-center", "orderable":false}
-            ],
-        });
-        $("#modal-trash").click(function () {
-            $.ajax({
-                type: "POST",
-                url: "trash",
-                data: {id_trash:$("#id_trash").val()},
-                success: function (data) {
-                    if (data == 1){
-                        $("#modal-trash").modal("hide")
-                        siswabimbel_dt.ajax.reload(null,false);
-                    }
-                }
-            })
-        });
+
+
     });
-    function del(nis) {
-        $("#id_trash").val(nis)
-        $("#modal-trash").modal("show")
-    };
 </script>

@@ -10,6 +10,7 @@
   <?php echo link_tag('assets/bootstrap/css/bootstrap.min.css');
         echo link_tag('assets/plugins/datatables/jquery.dataTables.min.css"');
         echo link_tag('assets/plugins/datatables/dataTables.bootstrap.css');
+        echo link_tag('assets/plugins/jquerytimepicker/jquery.timepicker.min.css');
   ?>
   <!-- Font Awesome -->
     <?php echo link_tag('assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css');?>
@@ -94,7 +95,7 @@
             <li><a href="<?php echo base_url('data/tentor/show')?>"><i class="glyphicon glyphicon-minus"></i> Tentor / Pengajar</a></li>
           </ul>
         </li>
-        <li><a href=""><i class="glyphicon glyphicon-tags" aria-hidden="true"></i><span> DATA BIMBEL</span></a></li>
+        <li><a href="<?php echo base_url('data/bimbel/show')?>"><i class="glyphicon glyphicon-tags" aria-hidden="true"></i><span> DATA BIMBEL</span></a></li>
         <li><a href=""><i class="glyphicon glyphicon-usd" aria-hidden="true"></i><span> PEMBAYARAN</span></a></li>
         <li><a href=""><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i><span> PENJADWALAN</span></a></li>
         <li class="active treeview menu-open">
@@ -140,7 +141,7 @@
         </div>
       </div>
       <div class="row">
-          <div class="col-sm-6 col-md-12">
+          <div class="col-sm-6 col-md-8">
               <div class="box box-primary flat">
                   <div class="box-header with-border">
                       <h4 class="box-tittle">Program Jenjang Bimbingan Belajar</h4>
@@ -153,7 +154,7 @@
                           <table class="table table-bordered table-hover table-striped" id="programbimbel-dt">
                               <thead>
                               <tr class="info">
-                                  <th>Program Jenjang (Kelas)</th>
+                                  <th>Program Jenjang</th>
                                   <th>Jenis Program</th>
                                   <th>Biaya Total (Rp.)</th>
                                   <th>Tools</th>
@@ -166,7 +167,7 @@
                   </div>
               </div>
           </div>
-          <div class="col-sm-6 col-md-6">
+          <div class="col-sm-6 col-md-4">
               <div class="box box-primary flat">
                   <div class="box-header with-border">
                       <h4 class="box-tittle">Pilihan Program</h4>
@@ -216,8 +217,9 @@
 
 <!-- Bootstrap 3.3.6 -->
 <script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
-
 <script src="../../assets/plugins/datatables/jquery.dataTables.js"></script>
+<script src="../../assets/plugins/jquerytimepicker/jquery.timepicker.min.js"></script>
+
 
 
 <!-- AdminLTE App -->
@@ -252,6 +254,7 @@
                 {"data":"tools", "class": "text-center", "orderable":false}
             ],
         });
+        $("#jp_timepicker").timepicker({'timeFormat': 'H:i'})
     });
     function trash_program(id_program_bimbel) {
       if (confirm("Hapus Program Bimbel Permanen !!!")){
@@ -325,7 +328,7 @@
         if($('[name="Minggu"]:checked').val() != undefined){
             pertemuan[pertemuan.length] = $('[name="Minggu"]:checked').val()
         }
-       return pertemuan
+       return pertemuan.join()
     };
 //    function halo() {
 ////        alert(hari_pertemuan())
@@ -344,14 +347,12 @@
         if ($('[name="program_bimbel"]').val() == ""){
             alert("Setiap Data Wajib Diisi !")
         }else {
-            var hari_pertemuan = pertemuan()
             if (method == "add_program"){
                 $.ajax({
                    type: "POST",
                    url: method,
-                   data: {program_bimbel:$('[name="program_bimbel"]').val(),biaya_total:$('[name="biaya_total"]').val(),id_pilihan_program:$('[name="id_pilihan_program"]').val(),materi_ajar:$('[name="materi_ajar"]').val(),lama_belajar:$('[name="lama_belajar"]').val(),jumlah_pertemuan:$('[name="jumlah_pertemuan"]').val(),hari_pertemuan:hari_pertemuan,jam_pertemuan:$('[name="jam_pertemuan"]').val(),keterangan_program:$('[name="keterangan_program"]').val()},
+                   data: {program_bimbel:$('[name="program_bimbel"]').val(),biaya_total:$('[name="biaya_total"]').val(),id_pilihan_program:$('[name="id_pilihan_program"]').val(),materi_ajar:$('[name="materi_ajar"]').val(),lama_belajar:$('[name="lama_belajar"]').val(),jumlah_pertemuan:$('[name="jumlah_pertemuan"]').val(),hari_pertemuan:pertemuan(),jam_pertemuan:$('[name="jam_pertemuan"]').val(),keterangan_program:$('[name="keterangan_program"]').val()},
                    success: function (data) {
-                       alert(data)
                        if (data == 1){
                            $("#modal-program").modal("hide")
                            programbimbel_dt.ajax.reload(null,false)

@@ -28,6 +28,13 @@ $route['data/tentor/add_tentor'] = 'Data/_TentorController/add_tentor';
 $route['data/tentor/edit_tentor'] = 'Data/_TentorController/edit_tentor';
 $route['data/tentor/update_tentor'] = 'Data/_TentorController/update_tentor';
 
+$route['data/bimbel/show'] = 'Bimbel/_BimbelController/index';
+$route['data/bimbel/show_data_bimbel'] = 'Bimbel/_BimbelController/show_data_bimbel';
+$route['data/bimbel/trash_bimbel'] = 'Bimbel/_BimbelController/trash_bimbel';
+$route['data/bimbel/add_bimbel'] = 'Bimbel/_BimbelController/add_bimbel';
+$route['data/bimbel/edit_bimbel'] = 'Bimbel/_BimbelController/edit_bimbel';
+$route['data/bimbel/update_bimbel'] = 'Bimbel/_BimbelController/update_bimbel';
+
 $route['setup/biaya-diskon/show'] = 'Setup/_BiayaDiskonController/index';
 $route['setup/biaya-diskon/show_biaya_daftar'] = 'Setup/_BiayaDiskonController/show_biaya_daftar';
 $route['setup/biaya-diskon/update_biaya_daftar'] = 'Setup/_BiayaDiskonController/update_biaya_daftar';

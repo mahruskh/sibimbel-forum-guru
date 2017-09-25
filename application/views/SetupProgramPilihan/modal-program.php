@@ -60,8 +60,12 @@
                     </div>
                     <div class="form-group">
                         <label for="" class="col-sm-3 control-label">Jam Pertemuan</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" name="jam_pertemuan">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="" id="jp_timepicker" readonly="readonly">
+                                <div class="input-group-addon"> - </div>
+                                <input type="text" class="form-control" name="" id="jp_timepicker" readonly="readonly">
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">

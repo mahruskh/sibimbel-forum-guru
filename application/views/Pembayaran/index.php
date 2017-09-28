@@ -12,7 +12,7 @@
         echo link_tag('assets/plugins/datatables/dataTables.bootstrap.css');
   ?>
   <!-- Font Awesome -->
-    <?php echo link_tag('assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css');?>
+  <?php echo link_tag('assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css');?>
   <!-- Theme style -->
   <?php echo link_tag('assets/dist/css/AdminLTE.min.css'); ?>
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
@@ -28,7 +28,7 @@
     <!-- Logo -->
     <a href="<?php echo current_url();?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>BFG</b></span>
+        <span class="logo-mini"><b>BFG</b></span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg">Bimbel Forum Guru</span>
     </a>
@@ -95,13 +95,13 @@
           </ul>
         </li>
         <li><a href="<?php echo base_url('data/bimbel/show')?>"><i class="glyphicon glyphicon-tags" aria-hidden="true"></i><span> DATA BIMBEL</span></a></li>
-        <li><a href="<?php echo base_url('data/pembayaran/show')?>"><i class="glyphicon glyphicon-usd" aria-hidden="true"></i><span> PEMBAYARAN</span></a></li>
+        <li class="active"><a href="<?php echo base_url('data/pembayaran/show')?>"><i class="glyphicon glyphicon-usd" aria-hidden="true"></i><span> PEMBAYARAN</span></a></li>
         <li><a href=""><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i><span> PENJADWALAN</span></a></li>
-        <li class="active treeview menu-open">
+        <li class="treeview">
           <a href="#"><i class="glyphicon glyphicon-cog"></i><span> SETUP</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
           <ul class="treeview-menu">
             <li><a href="<?php echo base_url('setup/program-pilihan/show')?>"><i class="glyphicon glyphicon-minus"></i> Program & Pilihan</a></li>
-            <li class="active"><a href="<?php echo base_url('setup/biaya-diskon/show')?>"><i class="glyphicon glyphicon-minus"></i> Biaya & Diskon</a></li>
+            <li><a href="<?php echo base_url('setup/biaya-diskon/show')?>"><i class="glyphicon glyphicon-minus"></i> Biaya & Diskon</a></li>
             <li><a href="<?php echo base_url('setup/tahun-ajaran/show')?>"><i class="glyphicon glyphicon-minus"></i> Tahun Ajaran</a></li>
           </ul>
         </li>
@@ -133,29 +133,32 @@
     <!-- Main content -->
   <section class="content">
       <div class="box box-primary box-solid flat">
-        <div class="box-body">
-            <a href="<?php echo base_url('setup/program-pilihan/show')?>" class="btn btn-yahoo btn-flat">Program & Pilihan</a> |
-            <a href="<?php echo base_url('setup/biaya-diskon/show')?>" class="btn btn-yahoo btn-flat active">Biaya & Diskon</a> |
-            <a href="<?php echo base_url('setup/tahun-ajaran/show')?>" class="btn btn-yahoo btn-flat">Tahun Ajaran</a> |
-        </div>
+          <div class="box-body">
+              <a href="" class="btn btn-yahoo btn-flat">Pembayaran</a>
+          </div>
       </div>
-        <div class="row">
-            <div class="col-sm-6 col-md-4">
-                <div class="box box-primary flat">
-                    <div class="box-header with-border">
-                        <h4 class="box-tittle">Biaya Pendaftaran</h4>
-                        <div class="row">
-                            <div class="col-sm-6 col-md-9">
-                                    <div class="input-group">
-                                        <div class="input-group-addon">Rp.</div>
-                                        <input type="text" class="form-control text-bold" name="biaya_pendaftaran" readonly="readonly">
-                                    </div>
-                            </div>
-                            <button type="button" class="btn btn-primary" id="method_biaya_pendaftaran">UBAH</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="box box-primary flat">
+          <div class="box-header with-border">
+            <h4 class="box-tittle">Data Siswa Bimbel</h4>
+              <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-primary btn-sm" onclick="add()"><span class="glyphicon glyphicon-plus"></span> Data Siswa</button>
+              </div>
+          </div>
+          <div class="box-body">
+            <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped" id="siswabimbel-dt">
+                <thead>
+                  <tr class="info">
+                    <th>Nama Lengkap</th>
+                    <th>Asal Sekolah</th>
+                    <th>Tools</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+          </div>
+          </div>
         </div>
     </section>
     <!-- /.content -->
@@ -191,39 +194,7 @@
 </html>
 <script type="text/javascript">
     $(document).ready(function (e) {
-        show_biaya_daftar()
-        $("#method_biaya_pendaftaran").click(function() {
 
-            if ($("#method_biaya_pendaftaran").html() == "UBAH"){
-                $("#method_biaya_pendaftaran").html("SAVE")
-                $('[name="biaya_pendaftaran"]').attr("readonly", false)
-            }else if($("#method_biaya_pendaftaran").html() == "SAVE"){
-                if ($('[name="biaya_pendaftaran"]').val() == ""){
-                    alert("Biaya Daftar Wajib Diisi !!!")
-                }else {
-                    $("#method_biaya_pendaftaran").html("UBAH")
-                    $.ajax({
-                        type: "POST",
-                        url: "update_biaya_daftar",
-                        data: {biaya_daftar: $('[name="biaya_pendaftaran"]').val()},
-                        success: function (data) {
-                            if (data == 1){
-                                $('[name="biaya_pendaftaran"]').attr("readonly", "readonly")
-                                alert("Biaya Daftar Berhasil Diubah")
-                            }
-                        }
-                    });
-                }
-            }
-        });
+
     });
-    function show_biaya_daftar() {
-      $.ajax({
-         type: "POST",
-         url: "show_biaya_daftar",
-         success: function (data) {
-             $('[name="biaya_pendaftaran"]').val(data)
-         } 
-      });  
-    };
 </script>

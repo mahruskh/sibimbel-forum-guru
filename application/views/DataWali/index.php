@@ -95,7 +95,7 @@
           </ul>
         </li>
         <li><a href="<?php echo base_url('data/bimbel/show')?>"><i class="glyphicon glyphicon-tags" aria-hidden="true"></i><span> DATA BIMBEL</span></a></li>
-        <li><a href=""><i class="glyphicon glyphicon-usd" aria-hidden="true"></i><span> PEMBAYARAN</span></a></li>
+        <li><a href="<?php echo base_url('data/pembayaran/show')?>"><i class="glyphicon glyphicon-usd" aria-hidden="true"></i><span> PEMBAYARAN</span></a></li>
         <li><a href=""><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i><span> PENJADWALAN</span></a></li>
         <li class="treeview">
           <a href="#"><i class="glyphicon glyphicon-cog"></i><span> SETUP</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
@@ -204,16 +204,16 @@
 <!-- REQUIRED JS SCRIPTS -->
 
 <!-- jQuery 2.2.3 -->
-<script src="../../assets/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="<?php echo base_url('assets/plugins/jQuery/jquery-2.2.3.min.js')?>"></script>
 
 <!-- Bootstrap 3.3.6 -->
-<script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js')?>"></script>
 
-<script src="../../assets/plugins/datatables/jquery.dataTables.js"></script>
+<script src="<?php echo  base_url('assets/plugins/datatables/jquery.dataTables.min.js')?>"></script>
 
 
 <!-- AdminLTE App -->
-<script src="../../assets/dist/js/app.min.js"></script>
+<script src="<?php echo base_url('assets/dist/js/app.min.js')?>"></script>
 </body>
 </html>
 <script type="text/javascript">

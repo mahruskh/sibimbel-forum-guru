@@ -95,7 +95,7 @@
           </ul>
         </li>
         <li class="active"><a href="<?php echo base_url('data/bimbel/show')?>"><i class="glyphicon glyphicon-tags" aria-hidden="true"></i><span> DATA BIMBEL</span></a></li>
-        <li><a href=""><i class="glyphicon glyphicon-usd" aria-hidden="true"></i><span> PEMBAYARAN</span></a></li>
+        <li><a href="<?php echo base_url('data/pembayaran/show')?>"><i class="glyphicon glyphicon-usd" aria-hidden="true"></i><span> PEMBAYARAN</span></a></li>
         <li><a href=""><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i><span> PENJADWALAN</span></a></li>
         <li class="treeview">
           <a href="#"><i class="glyphicon glyphicon-cog"></i><span> SETUP</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
@@ -132,35 +132,11 @@
     </section>
     <!-- Main content -->
   <section class="content">
-    <div class="row">
-      <div class="col-sm-6 col-md-4">
-        <div class="info-box">
-          <span class="info-box-icon bg-green fa fa-check"></span>
-          <div class="info-box-content">
-            <span class="info-box-text">Taken</span>
-            <span class="info-box-number"><div id="taken"></div></span>
+      <div class="box box-primary box-solid flat">
+          <div class="box-body">
+              <a href="" class="btn btn-yahoo btn-flat">Program & Pilihan</a>
           </div>
-        </div>
       </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="info-box">
-          <span class="info-box-icon bg-blue fa fa-circle-o"></span>
-          <div class="info-box-content">
-            <span class="info-box-text">All</span>
-            <span class="info-box-number"><div id="all"></div></span>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="info-box">
-          <span class="info-box-icon bg-red fa fa-times"></span>
-          <div class="info-box-content">
-            <span class="info-box-text">Have Not Taken</span>
-            <span class="info-box-number"><div id="have_not_taken"></div></span>
-          </div>
-        </div>
-      </div>
-    </div>
         <div class="box box-primary flat">
           <div class="box-header with-border">
             <h4 class="box-tittle">Data Siswa Bimbel</h4>
@@ -204,16 +180,16 @@
 <!-- REQUIRED JS SCRIPTS -->
 
 <!-- jQuery 2.2.3 -->
-<script src="../../assets/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="<?php echo base_url('assets/plugins/jQuery/jquery-2.2.3.min.js')?>"></script>
 
 <!-- Bootstrap 3.3.6 -->
-<script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js') ?>"></script>
 
-<script src="../../assets/plugins/datatables/jquery.dataTables.js"></script>
+<script src="<?php echo base_url('assets/plugins/datatables/jquery.dataTables.min.js')?>"></script>
 
 
 <!-- AdminLTE App -->
-<script src="../../assets/dist/js/app.min.js"></script>
+<script src="<?php echo base_url('assets/dist/js/app.min.js')?>"></script>
 </body>
 </html>
 <script type="text/javascript">

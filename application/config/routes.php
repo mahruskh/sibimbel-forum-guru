@@ -35,6 +35,8 @@ $route['data/bimbel/add_bimbel'] = 'Bimbel/_BimbelController/add_bimbel';
 $route['data/bimbel/edit_bimbel'] = 'Bimbel/_BimbelController/edit_bimbel';
 $route['data/bimbel/update_bimbel'] = 'Bimbel/_BimbelController/update_bimbel';
 
+$route['data/pembayaran/show'] = 'Pembayaran/_PembayaranController/index';
+
 $route['setup/biaya-diskon/show'] = 'Setup/_BiayaDiskonController/index';
 $route['setup/biaya-diskon/show_biaya_daftar'] = 'Setup/_BiayaDiskonController/show_biaya_daftar';
 $route['setup/biaya-diskon/update_biaya_daftar'] = 'Setup/_BiayaDiskonController/update_biaya_daftar';

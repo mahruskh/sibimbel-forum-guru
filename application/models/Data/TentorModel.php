@@ -20,6 +20,11 @@ class TentorModel extends CI_Model
         $this->datatables->add_column('tools',$this->tools_tentor,'id_tentor');
         return $this->datatables->generate();
     }
+    public function edit_tentor($id_tentor)
+    {
+        $this->db->where('id_tentor', $id_tentor);
+        return $this->db->get('tb_tentor')->row();
+    }
     public function trash_tentor($id_tentor)
     {
         $this->db->where('id_tentor', $id_tentor);

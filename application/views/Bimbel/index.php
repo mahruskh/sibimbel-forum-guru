@@ -96,7 +96,7 @@
         </li>
         <li class="active"><a href="<?php echo base_url('data/bimbel/show')?>"><i class="glyphicon glyphicon-tags" aria-hidden="true"></i><span> DATA BIMBEL</span></a></li>
         <li><a href="<?php echo base_url('data/pembayaran/show')?>"><i class="glyphicon glyphicon-usd" aria-hidden="true"></i><span> PEMBAYARAN</span></a></li>
-        <li><a href=""><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i><span> PENJADWALAN</span></a></li>
+        <li><a href="<?php echo base_url('data/penjadwalan/show')?>"><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i><span> PENJADWALAN</span></a></li>
         <li class="treeview">
           <a href="#"><i class="glyphicon glyphicon-cog"></i><span> SETUP</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
           <ul class="treeview-menu">
@@ -134,7 +134,7 @@
   <section class="content">
       <div class="box box-primary box-solid flat">
           <div class="box-body">
-              <a href="" class="btn btn-yahoo btn-flat">Program & Pilihan</a>
+              <a href="" class="btn btn-yahoo btn-flat">Data Bimbel</a>
           </div>
       </div>
         <div class="box box-primary flat">

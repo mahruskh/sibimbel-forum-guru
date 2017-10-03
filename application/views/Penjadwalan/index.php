@@ -28,7 +28,7 @@
     <!-- Logo -->
     <a href="<?php echo current_url();?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>BFG</b></span>
+        <span class="logo-mini"><b>BFG</b></span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg">Bimbel Forum Guru</span>
     </a>
@@ -86,23 +86,23 @@
         <li class="header">MENU</li>
         <!-- Optionally, you can add icons to the links -->
         <li><a href="<?php echo base_url('dashboard/show')?>"><i class="glyphicon glyphicon-dashboard"></i><span> DASHBOARD</span></a></li>
-        <li class="active treeview menu-open">
+        <li class="treeview">
           <a href="#"><i class="glyphicon glyphicon-book"></i><span> DATA PENDAFTARAN</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
           <ul class="treeview-menu">
             <li><a href="<?php echo base_url('data/siswa/show')?>"><i class="glyphicon glyphicon-minus"></i> Siswa Bimbel</a></li>
             <li><a href="<?php echo base_url('data/wali/show')?>"><i class="glyphicon glyphicon-minus"></i> Wali / Orang Tua</a></li>
-            <li class="active"><a href="<?php echo base_url('data/tentor/show')?>"><i class="glyphicon glyphicon-minus"></i> Tentor / Pengajar</a></li>
+            <li><a href="<?php echo base_url('data/tentor/show')?>"><i class="glyphicon glyphicon-minus"></i> Tentor / Pengajar</a></li>
           </ul>
         </li>
         <li><a href="<?php echo base_url('data/bimbel/show')?>"><i class="glyphicon glyphicon-tags" aria-hidden="true"></i><span> DATA BIMBEL</span></a></li>
         <li><a href="<?php echo base_url('data/pembayaran/show')?>"><i class="glyphicon glyphicon-usd" aria-hidden="true"></i><span> PEMBAYARAN</span></a></li>
-        <li><a href="<?php echo base_url('data/penjadwalan/show')?>"><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i><span> PENJADWALAN</span></a></li>
+        <li class="active"><a href="<?php echo base_url('data/penjadwalan/show')?>"><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i><span> PENJADWALAN</span></a></li>
         <li class="treeview">
           <a href="#"><i class="glyphicon glyphicon-cog"></i><span> SETUP</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
           <ul class="treeview-menu">
-              <li><a href="<?php echo base_url('setup/program-pilihan/show')?>"><i class="glyphicon glyphicon-minus"></i> Program & Pilihan</a></li>
-              <li><a href="<?php echo base_url('setup/biaya-diskon/show')?>"><i class="glyphicon glyphicon-minus"></i> Biaya & Diskon</a></li>
-              <li><a href="<?php echo base_url('setup/tahun-ajaran/show')?>"><i class="glyphicon glyphicon-minus"></i> Tahun Ajaran</a></li>
+            <li><a href="<?php echo base_url('setup/program-pilihan/show')?>"><i class="glyphicon glyphicon-minus"></i> Program & Pilihan</a></li>
+            <li><a href="<?php echo base_url('setup/biaya-diskon/show')?>"><i class="glyphicon glyphicon-minus"></i> Biaya & Diskon</a></li>
+            <li><a href="<?php echo base_url('setup/tahun-ajaran/show')?>"><i class="glyphicon glyphicon-minus"></i> Tahun Ajaran</a></li>
           </ul>
         </li>
         <li><a href=""><i class="glyphicon glyphicon-file" aria-hidden="true"></i><span> LAPORAN - LAPORAN</span></a></li>
@@ -132,49 +132,25 @@
     </section>
     <!-- Main content -->
   <section class="content">
-    <div class="row">
-      <div class="col-sm-6 col-md-4">
-        <div class="info-box">
-          <span class="info-box-icon bg-green fa fa-check"></span>
-          <div class="info-box-content">
-            <span class="info-box-text">Taken</span>
-            <span class="info-box-number"><div id="taken"></div></span>
+      <div class="box box-primary box-solid flat">
+          <div class="box-body">
+              <a href="" class="btn btn-yahoo btn-flat">Penjadwalan</a>
           </div>
-        </div>
       </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="info-box">
-          <span class="info-box-icon bg-blue fa fa-circle-o"></span>
-          <div class="info-box-content">
-            <span class="info-box-text">All</span>
-            <span class="info-box-number"><div id="all"></div></span>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="info-box">
-          <span class="info-box-icon bg-red fa fa-times"></span>
-          <div class="info-box-content">
-            <span class="info-box-text">Have Not Taken</span>
-            <span class="info-box-number"><div id="have_not_taken"></div></span>
-          </div>
-        </div>
-      </div>
-    </div>
         <div class="box box-primary flat">
           <div class="box-header with-border">
-            <h4 class="box-tittle">Data Tentor / Pengajar</h4>
+            <h4 class="box-tittle">Data Siswa Bimbel</h4>
               <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-primary btn-sm" onclick="add_tentor()"><span class="glyphicon glyphicon-plus"></span> Data Tentor</button>
+                  <button type="button" class="btn btn-primary btn-sm" onclick="add()"><span class="glyphicon glyphicon-plus"></span> Data Siswa</button>
               </div>
           </div>
           <div class="box-body">
             <div class="table-responsive">
-            <table class="table table-bordered table-hover table-striped" id="tentor-dt">
+            <table class="table table-bordered table-hover table-striped" id="siswabimbel-dt">
                 <thead>
                   <tr class="info">
                     <th>Nama Lengkap</th>
-                    <th>Alamat</th>
+                    <th>Asal Sekolah</th>
                     <th>Tools</th>
                   </tr>
                 </thead>
@@ -207,7 +183,7 @@
 <script src="<?php echo base_url('assets/plugins/jQuery/jquery-2.2.3.min.js')?>"></script>
 
 <!-- Bootstrap 3.3.6 -->
-<script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js')?>"></script>
+<script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js') ?>"></script>
 
 <script src="<?php echo base_url('assets/plugins/datatables/jquery.dataTables.min.js')?>"></script>
 
@@ -217,82 +193,8 @@
 </body>
 </html>
 <script type="text/javascript">
-    var tentor_dt;
-    var method;
-    var id_update_tentor;
     $(document).ready(function (e) {
-        tentor_dt = $("#tentor-dt").DataTable({
-            "autoWidth": false,
-            "processing": true,
-            "serverSide": true,
-            "ajax": {"url":"show_data_tentor", "type":"POST"},
-            "columns": [
-                {"data":'nama'},
-                {"data":"alamat", "orderable":false},
-                {"data":"tools", "class": "text-center", "orderable":false}
-            ],
-        });
-        $("#trash_tentor").click(function () {
-            $.ajax({
-                type: "POST",
-                url: "trash_tentor",
-                data: {id_trash_tentor:$("#id_trash_tentor").val()},
-                success: function (data) {
-                    if (data == 1){
-                        $("#modal-trash-tentor").modal("hide")
-                        tentor_dt.ajax.reload(null,false);
-                    }
-                }
-            })
-        });
+
+
     });
-
-    function add_tentor() {
-        method = "add_tentor"
-        $("#form-tentor")[0].reset()
-        $('.modal-title').html("Tambah Tentor / Pengajar")
-        $("#act").html("SIMPAN")
-        $("#modal-tentor").modal("show")
-
-    };
-    function edit_tentor(id_tentor) {
-        method = "update_tentor"
-        id_update_tentor = id_tentor
-        $("#form-tentor")[0].reset()
-        $('.modal-title').html("Detail Tentor / Pengajar")
-        $("#act").html("UPDATE")
-
-        $.ajax({
-            type: "POST",
-            url: "edit_tentor",
-            dataType: "JSON",
-            data: {id_tentor:id_tentor},
-            success: function (data) {
-                $('[name="nama"]').val(data.nama)
-                $('[name="pekerjaan"]').val(data.pekerjaan)
-                $('[name="alamat"]').val(data.alamat)
-                $('[name="telepon"]').val(data.telepon)
-                $('[name="keterangan"]').val(data.keterangan)
-                $("#modal-tentor").modal("show")
-            }
-        });
-    };
-
-    function save_tentor() {
-        if($('[name="nama"]').val() == ""){
-            alert("Nama Tentor Wajib Diisi !!!")
-        }else {
-            if(method == "add_tentor"){
-                alert("ADD")
-            }else if(method == "update_tentor"){
-                alert("Update")
-            }
-        }
-
-    };
-    function del_tentor(id_tentor) {
-        $("#id_trash_tentor").val(id_tentor)
-        $("#modal-trash-tentor").modal("show")
-    };
-
 </script>

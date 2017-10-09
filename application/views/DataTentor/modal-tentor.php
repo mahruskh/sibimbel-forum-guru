@@ -13,6 +13,17 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label for="" class="col-sm-3 control-label">Status</label>
+                        <div class="col-sm-7">
+                            <label class="radio-inline">
+                                <input type="radio" name="status" value="Aktif" id="Aktif">Aktif
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="status" value="Tidak Aktif" id="Tidak-Aktif">Tidak Aktif
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label for="" class="col-sm-3 control-label">Pekerjaan</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" name="pekerjaan">

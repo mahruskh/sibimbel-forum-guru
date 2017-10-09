@@ -174,7 +174,8 @@
                 <thead>
                   <tr class="info">
                     <th>Nama Lengkap</th>
-                    <th>Alamat</th>
+                    <th>Status</th>
+                    <th>Telepon</th>
                     <th>Tools</th>
                   </tr>
                 </thead>
@@ -228,7 +229,8 @@
             "ajax": {"url":"show_data_tentor", "type":"POST"},
             "columns": [
                 {"data":'nama'},
-                {"data":"alamat", "orderable":false},
+                {"data":"status", "class": "text-center"},
+                {"data":"telepon", "orderable":false},
                 {"data":"tools", "class": "text-center", "orderable":false}
             ],
         });
@@ -249,6 +251,9 @@
 
     function add_tentor() {
         method = "add_tentor"
+        id_update_tentor = ""
+        $("#Aktif").attr('checked',true)
+        $("#Tidak-Aktif").attr('checked',false)
         $("#form-tentor")[0].reset()
         $('.modal-title').html("Tambah Tentor / Pengajar")
         $("#act").html("SIMPAN")
@@ -269,6 +274,14 @@
             data: {id_tentor:id_tentor},
             success: function (data) {
                 $('[name="nama"]').val(data.nama)
+                if (data.status == "Aktif") {
+                    $("#Aktif").attr('checked',true)
+                    $("#Tidak-Aktif").attr('checked',false)
+                }
+                else if(data.status == "Tidak Aktif") {
+                    $("#Aktif").attr('checked',false)
+                    $("#Tidak-Aktif").attr('checked',true)
+                }
                 $('[name="pekerjaan"]').val(data.pekerjaan)
                 $('[name="alamat"]').val(data.alamat)
                 $('[name="telepon"]').val(data.telepon)
@@ -277,18 +290,36 @@
             }
         });
     };
-
     function save_tentor() {
         if($('[name="nama"]').val() == ""){
             alert("Nama Tentor Wajib Diisi !!!")
         }else {
             if(method == "add_tentor"){
-                alert("ADD")
+                $.ajax({
+                   type: "POST",
+                   url: method,
+                   data: $("#form-tentor").serialize(),
+                   success: function (data) {
+                       if (data == 1){
+                           $("#modal-tentor").modal("hide")
+                           tentor_dt.ajax.reload(null,false)
+                       }
+                   } 
+                });
             }else if(method == "update_tentor"){
-                alert("Update")
+                $.ajax({
+                    type: "POST",
+                    url: method,
+                    data: {id_tentor:id_update_tentor,nama:$('[name="nama"]').val(),status:$('input:radio[name=status]:checked').val(),pekerjaan:$('[name="pekerjaan"]').val(),alamat:$('[name="alamat"]').val(),telepon:$('[name="telepon"]').val(),keterangan:$('[name="keterangan"]').val()},
+                    success: function (data) {
+                        if (data == 1){
+                            $("#modal-tentor").modal("hide")
+                            tentor_dt.ajax.reload(null,false)
+                        }
+                    }
+                });
             }
         }
-
     };
     function del_tentor(id_tentor) {
         $("#id_trash_tentor").val(id_tentor)

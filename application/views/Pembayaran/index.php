@@ -132,34 +132,64 @@
     </section>
     <!-- Main content -->
   <section class="content">
-      <div class="box box-primary box-solid flat">
+      <div class="box box-success box-solid flat">
           <div class="box-body">
-              <a href="" class="btn btn-yahoo btn-flat">Pembayaran</a>
+              <table class="table table-striped">
+                  <tr>
+                      <td><label>Tahun Ajaran :</label></td>
+                      <td>
+                          <select class="form-control">
+                              <option>All</option>
+                              <option>2017/2018</option>
+                              <option>2016/2017</option>
+                              <option>2015/2016</option>
+                          </select>
+                      </td>
+                      <td><label>Program Jenjang :</label></td>
+                      <td>
+                          <select class="form-control">
+                              <option>All</option>
+                              <option>SD/MI</option>
+                              <option>SMP/MTs</option>
+                              <option>SMA/MA/MTs</option>
+                          </select>
+                      </td>
+                      <td><label>Status Pembayaran :</label></td>
+                      <td>
+                          <select class="form-control">
+                              <option>All</option>
+                              <option>Lunas</option>
+                              <option>Belum Lunas</option>
+                          </select>
+                      </td>
+                      <td><button type="button" class="btn btn-success">Tampilkan</td>
+                  </tr>
+              </table>
           </div>
       </div>
-        <div class="box box-primary flat">
+      <div class="box box-primary flat">
           <div class="box-header with-border">
-            <h4 class="box-tittle">Data Siswa Bimbel</h4>
+              <h4 class="box-tittle">Data Pembayaran</h4>
               <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-primary btn-sm" onclick="add()"><span class="glyphicon glyphicon-plus"></span> Data Siswa</button>
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
               </div>
           </div>
           <div class="box-body">
-            <div class="table-responsive">
-            <table class="table table-bordered table-hover table-striped" id="siswabimbel-dt">
-                <thead>
-                  <tr class="info">
-                    <th>Nama Lengkap</th>
-                    <th>Asal Sekolah</th>
-                    <th>Tools</th>
-                  </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
+              <div class="table-responsive">
+                  <table class="table table-bordered table-hover table-striped" id="siswabimbel-dt">
+                      <thead>
+                      <tr class="info">
+                          <th>Nama Lengkap</th>
+                          <th>Asal Sekolah</th>
+                          <th>Tools</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      </tbody>
+                  </table>
+              </div>
           </div>
-          </div>
-        </div>
+      </div>
     </section>
     <!-- /.content -->
   </div>

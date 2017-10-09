@@ -132,16 +132,46 @@
     </section>
     <!-- Main content -->
   <section class="content">
-      <div class="box box-primary box-solid flat">
+      <div class="box box-success box-solid flat">
           <div class="box-body">
-              <a href="" class="btn btn-yahoo btn-flat">Data Bimbel</a>
+              <table class="table table-striped">
+                  <tr>
+                      <td><label>Tahun Ajaran :</label></td>
+                      <td>
+                          <select class="form-control">
+                              <option>All</option>
+                              <option>2018/2019</option>
+                              <option>2017/2018</option>
+                              <option>2016/2017</option>
+                          </select>
+                      </td>
+                      <td><label>Program Jenjang :</label></td>
+                      <td>
+                          <select class="form-control">
+                              <option>All</option>
+                              <option>SD/MI</option>
+                              <option>SMP/MTs</option>
+                              <<option>SMA/MA/SMK</option>
+                          </select>
+                      </td>
+                      <td><label>Tentor : </label></td>
+                      <td>
+                          <select class="form-control">
+                              <option>All</option>
+                              <option>LUNAS</option>
+                              <option>BELUM LUNAS</option>
+                          </select>
+                      </td>
+                      <td><button type="button" class="btn btn-success">Tampilkan</td>
+                  </tr>
+              </table>
           </div>
       </div>
-        <div class="box box-primary flat">
+      <div class="box box-primary flat">
           <div class="box-header with-border">
-            <h4 class="box-tittle">Data Siswa Bimbel</h4>
+            <h4 class="box-tittle">Data Bimbingan Belajar</h4>
               <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-primary btn-sm" onclick="add()"><span class="glyphicon glyphicon-plus"></span> Data Siswa</button>
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
               </div>
           </div>
           <div class="box-body">

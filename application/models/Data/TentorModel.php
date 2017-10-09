@@ -15,15 +15,24 @@ class TentorModel extends CI_Model
        </div>';
     public function show_data_tentor()
     {
-        $this->datatables->select('id_tentor,nama,alamat');
+        $this->datatables->select('id_tentor,nama,status,telepon');
         $this->datatables->from('tb_tentor');
         $this->datatables->add_column('tools',$this->tools_tentor,'id_tentor');
         return $this->datatables->generate();
+    }
+    public function add_tentor($data)
+    {
+        return $this->db->insert('tb_tentor', $data);
     }
     public function edit_tentor($id_tentor)
     {
         $this->db->where('id_tentor', $id_tentor);
         return $this->db->get('tb_tentor')->row();
+    }
+    public function update_tentor($data)
+    {
+        $this->db->where('id_tentor', $data['id_tentor']);
+        return $this->db->update('tb_tentor', $data);
     }
     public function trash_tentor($id_tentor)
     {

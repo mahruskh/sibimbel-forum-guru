@@ -21,10 +21,22 @@ class _TentorController extends CI_Controller
             echo $this->TentorModel->show_data_tentor();
         }
     }
+    public function add_tentor()
+    {
+        if ($this->input->is_ajax_request()){
+            echo $this->TentorModel->add_tentor($this->input->post());
+        }
+    }
     public function edit_tentor()
     {
         if ($this->input->is_ajax_request()){
             echo json_encode($this->TentorModel->edit_tentor($this->input->post('id_tentor')));
+        }
+    }
+    public function update_tentor()
+    {
+        if ($this->input->is_ajax_request()){
+            echo $this->TentorModel->update_tentor($this->input->post());
         }
     }
     public function trash_tentor()

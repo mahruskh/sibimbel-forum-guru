@@ -140,34 +140,32 @@
             <a href="<?php echo base_url('setup/tahun-ajaran/show')?>" class="btn btn-yahoo btn-flat">Tahun Ajaran</a> |
         </div>
       </div>
+        <div class="box box-primary flat">
+            <div class="box-header with-border">
+                <h4 class="box-tittle">Program Jenjang Bimbingan Belajar</h4>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-primary btn-sm" onclick="add_program()"><span class="glyphicon glyphicon-plus"></span> Program Bimbel</button>
+                </div>
+            </div>
+            <div class="box-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-striped" id="programbimbel-dt">
+                        <thead>
+                            <tr class="info">
+                                <th>Program Jenjang</th>
+                                <th>Jenis Program</th>
+                                <th>Biaya Total (Rp.)</th>
+                                <th>Tools</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                  </div>
+        </div>
       <div class="row">
-          <div class="col-sm-6 col-md-8">
-              <div class="box box-primary flat">
-                  <div class="box-header with-border">
-                      <h4 class="box-tittle">Program Jenjang Bimbingan Belajar</h4>
-                      <div class="box-tools pull-right">
-                          <button type="button" class="btn btn-primary btn-sm" onclick="add_program()"><span class="glyphicon glyphicon-plus"></span> Program Bimbel</button>
-                      </div>
-                  </div>
-                  <div class="box-body">
-                      <div class="table-responsive">
-                          <table class="table table-bordered table-hover table-striped" id="programbimbel-dt">
-                              <thead>
-                              <tr class="info">
-                                  <th>Program Jenjang</th>
-                                  <th>Jenis Program</th>
-                                  <th>Biaya Total (Rp.)</th>
-                                  <th>Tools</th>
-                              </tr>
-                              </thead>
-                              <tbody>
-                              </tbody>
-                          </table>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="col-sm-6 col-md-4">
+          <div class="col-sm-6 col-md-6">
               <div class="box box-primary flat">
                   <div class="box-header with-border">
                       <h4 class="box-tittle">Pilihan Program</h4>
@@ -178,22 +176,21 @@
                   <div class="box-body">
                       <div class="table-responsive">
                           <table class="table table-bordered table-hover table-striped" id="pilihanprogram-dt">
-                              <thead>
-                              <tr class="info">
-                                  <th>Pilihan Program</th>
-                                  <th>Tools</th>
-                              </tr>
-                              </thead>
-                              <tbody>
-                              </tbody>
+                                  <thead>
+                                    <tr class="info">
+                                      <th>Pilihan Program</th>
+                                      <th>Tools</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                  </tbody>
                           </table>
                       </div>
                   </div>
               </div>
           </div>
       </div>
-
-    </section>
+  </section>
     <!-- /.content -->
   </div>
 

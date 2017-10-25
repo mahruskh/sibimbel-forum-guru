@@ -12,6 +12,8 @@ class _PembayaranController extends CI_Controller
     public function index()
     {
         $data['title'] = "Data Pembayaran";
+        $data['tahun_ajaran'] = $this->PembayaranModel->filter_tahun_ajaran();
+        $data['program_bimbel'] = $this->PembayaranModel->filter_program_bimbel();
         $this->load->view('Pembayaran/index', $data);
     }
 

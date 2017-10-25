@@ -136,25 +136,31 @@
           <div class="box-body">
               <table class="table table-striped">
                   <tr>
-                      <td><label>Tahun Ajaran :</label></td>
+                      <td><label>Tahun Ajaran</label></td>
                       <td>
                           <select class="form-control">
                               <option>All</option>
-                              <option>2017/2018</option>
-                              <option>2016/2017</option>
-                              <option>2015/2016</option>
+                              <?php
+                              foreach ($tahun_ajaran as $row){ ?>
+                                  <option value="<?php echo $row->id_tahun_ajaran;?>"><?php echo $row->tahun_ajaran;?></option>
+                                  <?php
+                              }
+                              ?>
                           </select>
                       </td>
-                      <td><label>Program Jenjang :</label></td>
+                      <td><label>Program Jenjang</label></td>
                       <td>
                           <select class="form-control">
                               <option>All</option>
-                              <option>SD/MI</option>
-                              <option>SMP/MTs</option>
-                              <option>SMA/MA/MTs</option>
+                              <?php
+                              foreach ($program_bimbel as $row){ ?>
+                                  <option value="<?php echo $row->id_program_bimbel;?>"><?php echo $row->program_bimbel;?></option>
+                                  <?php
+                              }
+                              ?>
                           </select>
                       </td>
-                      <td><label>Status Pembayaran :</label></td>
+                      <td><label>Status Pembayaran</label></td>
                       <td>
                           <select class="form-control">
                               <option>All</option>

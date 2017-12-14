@@ -8,7 +8,7 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
   <?php echo link_tag('assets/bootstrap/css/bootstrap.min.css');
-        echo link_tag('assets/plugins/datatables/jquery.dataTables.min.css"');
+        echo link_tag('assets/plugins/datatables/jquery.dataTables.css"');
         echo link_tag('assets/plugins/datatables/dataTables.bootstrap.css');
         echo link_tag('assets/plugins/jquerytimepicker/jquery.timepicker.min.css');
   ?>

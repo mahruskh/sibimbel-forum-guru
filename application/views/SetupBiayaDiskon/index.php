@@ -156,6 +156,31 @@
                     </div>
                 </div>
             </div>
+            <div class="col-sm-6 col-md-8">
+                <div class="box box-primary flat">
+                    <div class="box-header with-border">
+                        <h4 class="box-tittle">Diskon & Potongan Harga</h4>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-primary btn-sm" onclick="add_diskon()"><span class="glyphicon glyphicon-plus"></span> Diskon</button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover table-striped" id="diskon-dt">
+                                <thead>
+                                <tr class="info">
+                                    <th>Kode Diskon</th>
+                                    <th>Jumlah Diskon (Rp.)</th>
+                                    <th>Tools</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <!-- /.content -->
@@ -190,10 +215,12 @@
 </body>
 </html>
 <script type="text/javascript">
+    var diskon_dt;
+    var method_diskon;
+    var id_update_diskon;
     $(document).ready(function (e) {
         show_biaya_daftar()
         $("#method_biaya_pendaftaran").click(function() {
-
             if ($("#method_biaya_pendaftaran").html() == "UBAH"){
                 $("#method_biaya_pendaftaran").html("SAVE")
                 $('[name="biaya_pendaftaran"]').attr("readonly", false)
@@ -216,14 +243,96 @@
                 }
             }
         });
+
+      diskon_dt = $("#diskon-dt").DataTable({
+          "autoWidth": false,
+          "processing": true,
+          "serverSide": true,
+          "ajax": {"url":"show_data_diskon", "type":"POST"},
+          "columns": [
+              {"data":"kode_diskon", "class": "text-center"},
+              {"data":"jml_diskon", "class": "text-center"},
+              {"data":"tools_diskon", "class": "text-center", "orderable":false}
+          ],
+      });
     });
     function show_biaya_daftar() {
-      $.ajax({
-         type: "POST",
-         url: "show_biaya_daftar",
-         success: function (data) {
-             $('[name="biaya_pendaftaran"]').val(data)
-         } 
-      });  
+        $.ajax({
+            type: "POST",
+            url: "show_biaya_daftar",
+            success: function (data) {
+                $('[name="biaya_pendaftaran"]').val(data)
+            }
+        });
     };
+    function add_diskon() {
+        method_diskon = "add_diskon"
+        id_update_diskon = ""
+        $("#form-diskon")[0].reset()
+        $("#act_diskon").html("SIMPAN");
+        $("#modal-diskon").modal("show");
+    }
+    function edit_diskon(id_diskon) {
+        method_diskon = "update_diskon"
+        id_update_diskon = id_diskon
+        $("#form-diskon")[0].reset()
+        $("#act_diskon").html("UPDATE");
+
+        $.ajax({
+            type: "POST",
+            url: "edit_diskon",
+            dataType: "JSON",
+            data: {id_diskon:id_diskon},
+            success: function (data) {
+                $('[name="kode_diskon"]').val(data.kode_diskon)
+                $('[name="jml_diskon"]').val(data.jml_diskon)
+                $("#modal-diskon").modal("show");
+            }
+        })
+    }
+    function del_diskon(id_diskon) {
+       if (confirm("Hapus Diskon !!!")){
+           $.ajax({
+               type: "POST",
+               url: "trash_diskon",
+               data: {id_diskon:id_diskon},
+               success: function (data) {
+                   if (data == 1){
+                       diskon_dt.ajax.reload(null,false)
+                   }
+               }
+           });
+       }
+    }
+    function save_diskon() {
+        if ($('[name="kode_diskon"]').val() == "" || $('[name="jml_diskon"]').val() == ""){
+            alert("Kode dan Jumlah Diskon Harus Di Isi !!!");
+        }else {
+            if (method_diskon == "add_diskon"){
+                $.ajax({
+                    type: "POST",
+                    url: method_diskon,
+                    data: $("#form-diskon").serialize(),
+                    success: function (data) {
+                        if (data == 1){
+                            $("#modal-diskon").modal("hide")
+                            diskon_dt.ajax.reload(null,false)
+                        }
+                    }
+                });
+            }else if(method_diskon == "update_diskon"){
+                $.ajax({
+                    type: "POST",
+                    url: method_diskon,
+                    data: {id_diskon:id_update_diskon,kode_diskon:$('[name="kode_diskon"]').val(),jml_diskon:$('[name="jml_diskon"]').val()},
+                    success: function (data) {
+                        if (data == 1){
+                            $("#modal-diskon").modal("hide")
+                            diskon_dt.ajax.reload(null,false)
+                        }
+                    }
+                });
+            }
+        }
+    }
 </script>

@@ -138,8 +138,8 @@
                   <tr>
                       <td><label>Tahun Ajaran</label></td>
                       <td>
-                          <select class="form-control">
-                              <option>All</option>
+                          <select class="form-control" id="tahun_ajaran">
+                              <option value="All">All</option>
                               <?php
                               foreach ($tahun_ajaran as $row){ ?>
                                   <option value="<?php echo $row->id_tahun_ajaran;?>"><?php echo $row->tahun_ajaran;?></option>
@@ -150,7 +150,7 @@
                       </td>
                       <td><label>Program Jenjang</label></td>
                       <td>
-                          <select class="form-control">
+                          <select class="form-control" id="program_bimbel">
                               <option>All</option>
                               <?php
                               foreach ($program_bimbel as $row){ ?>
@@ -162,13 +162,13 @@
                       </td>
                       <td><label>Status Pembayaran</label></td>
                       <td>
-                          <select class="form-control">
+                          <select class="form-control" id="status_pembayaran">
                               <option>All</option>
                               <option>Lunas</option>
                               <option>Belum Lunas</option>
                           </select>
                       </td>
-                      <td><button type="button" class="btn btn-success">Tampilkan</td>
+                      <td><button type="button" class="btn btn-success" onclick="show_data()">Tampilkan</td>
                   </tr>
               </table>
           </div>
@@ -233,4 +233,14 @@
 
 
     });
+    function show_data() {
+        $.ajax({
+            type: "POST",
+            url: "show_data",
+            data: {tahun_ajaran:$("#tahun_ajaran").val(),program_bimbel:$("#program_bimbel").val(),status_pembayaran:$("#status_pembayaran").val()},
+            success: function (data) {
+                alert(data)
+            }
+        });
+    }
 </script>

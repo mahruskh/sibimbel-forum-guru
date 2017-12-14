@@ -16,6 +16,10 @@ class _PembayaranController extends CI_Controller
         $data['program_bimbel'] = $this->PembayaranModel->filter_program_bimbel();
         $this->load->view('Pembayaran/index', $data);
     }
+    public function show_data()
+    {
+
+    }
 
 }
 

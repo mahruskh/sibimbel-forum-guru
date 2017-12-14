@@ -36,12 +36,20 @@ $route['data/bimbel/edit_bimbel'] = 'Bimbel/_BimbelController/edit_bimbel';
 $route['data/bimbel/update_bimbel'] = 'Bimbel/_BimbelController/update_bimbel';
 
 $route['data/pembayaran/show'] = 'Pembayaran/_PembayaranController/index';
+$route['data/pembayaran/show_data'] = 'Pembayaran/_PembayaranController/show_data';
+$route['data/pembayaran/coba'] = 'Pembayaran/_PembayaranController/coba';
 
 $route['data/penjadwalan/show'] = 'Penjadwalan/_PenjadwalanController/index';
 
 $route['setup/biaya-diskon/show'] = 'Setup/_BiayaDiskonController/index';
 $route['setup/biaya-diskon/show_biaya_daftar'] = 'Setup/_BiayaDiskonController/show_biaya_daftar';
 $route['setup/biaya-diskon/update_biaya_daftar'] = 'Setup/_BiayaDiskonController/update_biaya_daftar';
+
+$route['setup/biaya-diskon/show_data_diskon'] = 'Setup/_BiayaDiskonController/show_data_diskon';
+$route['setup/biaya-diskon/add_diskon'] = 'Setup/_BiayaDiskonController/add_diskon';
+$route['setup/biaya-diskon/edit_diskon'] = 'Setup/_BiayaDiskonController/edit_diskon';
+$route['setup/biaya-diskon/update_diskon'] = 'Setup/_BiayaDiskonController/update_diskon';
+$route['setup/biaya-diskon/trash_diskon'] = 'Setup/_BiayaDiskonController/trash_diskon';
 
 $route['setup/tahun-ajaran/show'] = 'Setup/_TahunAjaranController/index';
 $route['setup/tahun-ajaran/show_data_ajaran'] = 'Setup/_TahunAjaranController/show_data_ajaran';
@@ -69,5 +77,3 @@ $route['setup/program-pilihan/trash_pilihan'] = 'Setup/_ProgramPilihanController
 $route['administrator/show'] = 'Administrator/_AdministratorController/index';
 $route['administrator/profil'] = 'Administrator/_AdministratorController/profil';
 $route['administrator/coba'] = 'Administrator/_AdministratorController/coba';
-
-

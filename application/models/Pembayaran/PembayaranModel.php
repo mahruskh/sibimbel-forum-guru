@@ -15,6 +15,10 @@ class PembayaranModel extends CI_Model
         $this->db->order_by('id_program_bimbel', 'DESC');
         return $this->db->get('tb_program_bimbel')->result();
     }
+    public function show_data($data)
+    {
+     //   $this->datatables->select('')
+    }
 }
 
 ?>

@@ -49,7 +49,6 @@ class ProgramPilihanModel extends CI_Model
         $this->datatables->add_column('tools',$this->tools_pilihan,'id_pilihan_program');
         return $this->datatables->generate();
     }
-
     public function add_pilihan($data)
     {
         return $this->db->insert('tb_pilihan_program', $data);

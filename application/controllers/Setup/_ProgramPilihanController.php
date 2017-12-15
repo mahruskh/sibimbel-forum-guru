@@ -25,7 +25,6 @@ class _ProgramPilihanController extends CI_Controller
         if ($this->input->is_ajax_request()){
             echo $this->ProgramPilihanModel->show_data_program();
         }
-
     }
     public function show_pilihan_program()
     {
@@ -44,7 +43,6 @@ class _ProgramPilihanController extends CI_Controller
                 </select>
             </div>
         </div>
-
         <?php
         }
     }

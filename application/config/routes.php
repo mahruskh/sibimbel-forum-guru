@@ -76,4 +76,5 @@ $route['setup/program-pilihan/trash_pilihan'] = 'Setup/_ProgramPilihanController
 
 $route['administrator/show'] = 'Administrator/_AdministratorController/index';
 $route['administrator/profil'] = 'Administrator/_AdministratorController/profil';
+$route['administrator/setup-akun'] = 'Administrator/_AdministratorController/setup_akun';
 $route['administrator/coba'] = 'Administrator/_AdministratorController/coba';

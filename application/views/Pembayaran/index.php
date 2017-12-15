@@ -15,10 +15,7 @@
   <?php echo link_tag('assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css');?>
   <!-- Theme style -->
   <?php echo link_tag('assets/dist/css/AdminLTE.min.css'); ?>
-  <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
-        page. However, you can choose any other skin. Make sure you
-        apply the skin class to the body tag so the changes take effect.
-  -->
+
   <?php echo link_tag('assets/dist/css/skins/skin-blue.min.css'); ?>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -110,7 +107,7 @@
           <a href="#"><i class="glyphicon glyphicon-user"></i><span> ADMINISTRATOR</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
           <ul class="treeview-menu">
             <li><a href="<?php echo base_url('administrator/show')?>"><i class="glyphicon glyphicon-minus"></i> Data Administrator</a></li>
-            <li><a href=""><i class="glyphicon glyphicon-minus"></i> Setup Akun</a></li>
+            <li><a href="<?php echo base_url('administrator/setup-akun')?>"><i class="glyphicon glyphicon-minus"></i> Setup Akun</a></li>
           </ul>
         </li>
         <li><a href=""><i class="glyphicon glyphicon-log-out" aria-hidden="true"></i><span> LOGOUT</span></a></li>
@@ -132,6 +129,35 @@
     </section>
     <!-- Main content -->
   <section class="content">
+      <div class="row">
+          <div class="col-sm-6 col-md-4">
+              <div class="info-box">
+                  <span class="info-box-icon bg-green fa fa-check"></span>
+                  <div class="info-box-content">
+                      <span class="info-box-text">Lunas</span>
+                      <span class="info-box-number">33</span>
+                  </div>
+              </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+              <div class="info-box">
+                  <span class="info-box-icon bg-blue fa fa-circle-o"></span>
+                  <div class="info-box-content">
+                      <span class="info-box-text">All</span>
+                      <span class="info-box-number">32</span>
+                  </div>
+              </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+              <div class="info-box">
+                  <span class="info-box-icon bg-red fa fa-times"></span>
+                  <div class="info-box-content">
+                      <span class="info-box-text">Belum Lunas</span>
+                      <span class="info-box-number">32</span>
+                  </div>
+              </div>
+          </div>
+      </div>
       <div class="box box-success box-solid flat">
           <div class="box-body">
               <table class="table table-striped">
@@ -186,7 +212,9 @@
                       <thead>
                       <tr class="info">
                           <th>Nama Lengkap</th>
-                          <th>Asal Sekolah</th>
+                          <th>Program Jenjang</th>
+                          <th>Tahun Ajaran</th>
+                          <th>Status</th>
                           <th>Tools</th>
                       </tr>
                       </thead>
@@ -213,8 +241,6 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- REQUIRED JS SCRIPTS -->
-
 <!-- jQuery 2.2.3 -->
 <script src="<?php echo base_url('assets/plugins/jQuery/jquery-2.2.3.min.js')?>"></script>
 
@@ -223,14 +249,11 @@
 
 <script src="<?php echo base_url('assets/plugins/datatables/jquery.dataTables.min.js')?>"></script>
 
-
-<!-- AdminLTE App -->
 <script src="<?php echo base_url('assets/dist/js/app.min.js')?>"></script>
 </body>
 </html>
 <script type="text/javascript">
     $(document).ready(function (e) {
-
 
     });
     function show_data() {

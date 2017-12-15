@@ -109,8 +109,8 @@
             <li class="active treeview menu-open">
                 <a href="#"><i class="glyphicon glyphicon-user"></i><span> ADMINISTRATOR</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
                 <ul class="treeview-menu">
-                    <li class="active"><a href="<?php echo base_url('administrator/show')?>"><i class="glyphicon glyphicon-minus"></i> Data Administrator</a></li>
-                    <li><a href="<?php echo base_url('administrator/setup-akun')?>"><i class="glyphicon glyphicon-minus"></i> Setup Akun</a></li>
+                    <li><a href="<?php echo base_url('administrator/show')?>"><i class="glyphicon glyphicon-minus"></i> Data Administrator</a></li>
+                    <li class="active"><a href="<?php echo base_url('administrator/setup-akun')?>"><i class="glyphicon glyphicon-minus"></i> Setup Akun</a></li>
                 </ul>
             </li>
             <li><a href=""><i class="glyphicon glyphicon-log-out" aria-hidden="true"></i><span> LOGOUT</span></a></li>
@@ -135,36 +135,71 @@
     <div class="box box-primary box-solid flat">
         <div class="box-body">
             <a href="#" class="btn btn-yahoo btn-flat">Tambah Administrator</a> |
-            <a href="<?php echo base_url('administrator/show');?>" class="btn btn-yahoo btn-flat active">Data Adminsitrator</a> |
-            <a href="<?php echo base_url('administrator/setup-akun')?>" class="btn btn-yahoo btn-flat">Setup Akun</a>
+            <a href="<?php echo base_url('administrator/show');?>" class="btn btn-yahoo btn-flat">Data Adminsitrator</a> |
+            <a href="<?php echo base_url('administrator/setup-akun')?>" class="btn btn-yahoo btn-flat active">Setup Akun</a>
         </div>
     </div>
-    <div class="row">
-        <?php
-        foreach ($profil as $row) { ?>
-            <div class="col-sm-6 col-md-3">
-                <div class="box box-primary flat">
-                    <div class="box-body box-profile">
-                        <img class="profile-user-img img-responsive img-circle" src="http://localhost/sibimbel-forum-guru/assets/images/mahruskh.jpg" alt="User profile picture">
-                        <h3 class="profile-username text-center"><?php echo $row->nama; ?></h3>
-                        <p class="text-muted text-center">
-                            <?php
-                            if ($row->status == 1){
-                                echo '<span class="label label-success">Aktif</span>';
-                            }elseif ($row->status == 0){
-                                echo '<span class="label label-danger">Tidak Aktif</span>';
-                            }
-                            ?>
-                        </p>
-                        <ul class="list-group list-group-unbordered">
-                            <li class="list-group-item"><b>Last Login</b> <a class="pull-right">tanggal</a></li>
-                        </ul>
-                        <a href="#" class="btn btn-primary btn-block btn-sm"><b>Detail</b></a>
-                    </div>
-                </div>
-            </div>
-        <?php } ?>
-    </div>
+      <div class="box box-primary flat">
+          <div class="box-header with-border">
+              <h4 class="box-tittle">Setup Akun</h4>
+          </div>
+          <div class="box-body">
+              <div class="row">
+                  <div class="col-md-7">
+                      <form class="form-horizontal">
+                          <div class="box-body">
+                              <div class="form-group">
+                                  <label class="col-sm-3 control-label">Username</label>
+                                  <div class="col-sm-6">
+                                      <input type="text" class="form-control" placeholder="Username">
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <label class="col-sm-3 control-label">Password</label>
+                                  <div class="col-sm-6">
+                                      <input type="password" class="form-control" placeholder="Password">
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <label for="inputPassword3" class="col-sm-3 control-label">Nama Lengkap</label>
+                                  <div class="col-sm-9">
+                                      <input type="text" class="form-control" placeholder="Nama">
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <label for="inputPassword3" class="col-sm-3 control-label">Foto</label>
+                                  <div class="col-sm-5">
+                                      <input type="file" class="form-control">
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <label for="inputPassword3" class="col-sm-3 control-label">Alamat</label>
+                                  <div class="col-sm-9">
+                                     <textarea class="form-control" row="3" placeholder="Alamat Lengkap"></textarea>
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <label for="inputPassword3" class="col-sm-3 control-label">No. HP</label>
+                                  <div class="col-sm-5">
+                                      <input type="number" class="form-control" placeholder="No.HP / Telepon">
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <label for="inputPassword3" class="col-sm-3 control-label">Keterangan</label>
+                                  <div class="col-sm-9">
+                                      <textarea class="form-control" row="3" placeholder="Keterangan"></textarea>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="box-footer">
+                              <button type="submit" class="btn btn-default">Cancel</button>
+                              <button type="submit" class="btn btn-info pull-right">Sign in</button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
     </section>
     <!-- /.content -->
   </div>

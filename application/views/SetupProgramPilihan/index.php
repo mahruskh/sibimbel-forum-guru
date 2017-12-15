@@ -111,7 +111,7 @@
           <a href="#"><i class="glyphicon glyphicon-user"></i><span> ADMINISTRATOR</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
           <ul class="treeview-menu">
             <li><a href="<?php echo base_url('administrator/show')?>"><i class="glyphicon glyphicon-minus"></i> Data Administrator</a></li>
-            <li><a href=""><i class="glyphicon glyphicon-minus"></i> Setup Akun</a></li>
+            <li><a href="<?php echo base_url('administrator/setup-akun')?>"><i class="glyphicon glyphicon-minus"></i> Setup Akun</a></li>
           </ul>
         </li>
         <li><a href=""><i class="glyphicon glyphicon-log-out" aria-hidden="true"></i><span> LOGOUT</span></a></li>
@@ -162,7 +162,7 @@
                         </tbody>
                     </table>
                 </div>
-                  </div>
+            </div>
         </div>
       <div class="row">
           <div class="col-sm-6 col-md-6">
@@ -193,7 +193,6 @@
   </section>
     <!-- /.content -->
   </div>
-
   <!-- /.content-wrapper -->
   <!-- Main Footer -->
   <footer class="main-footer">
@@ -207,8 +206,6 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- REQUIRED JS SCRIPTS -->
-
 <!-- jQuery 2.2.3 -->
 <script src="<?php echo base_url('assets/plugins/jQuery/jquery-2.2.3.min.js')?>"></script>
 
@@ -216,8 +213,6 @@
 <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js')?>"></script>
 <script src="<?php echo base_url('assets/plugins/datatables/jquery.dataTables.min.js')?>"></script>
 <script src="../../assets/plugins/jquerytimepicker/jquery.timepicker.min.js"></script>
-
-
 
 <!-- AdminLTE App -->
 <script src="<?php echo base_url('assets/dist/js/app.min.js')?>"></script>
@@ -297,6 +292,7 @@
             data: {id_program_bimbel:$("#id_program_bimbel").val()},
             success: function (data) {
                 $('[name="program_bimbel"]').val(data.program_bimbel)
+                $('[name="biaya_total"]').val(data.biaya_total)
                 $('[name="materi_ajar"]').val(data.materi_ajar)
                 $("#modal-program").modal("show")
             }

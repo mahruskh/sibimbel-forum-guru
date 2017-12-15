@@ -18,7 +18,7 @@ class _PembayaranController extends CI_Controller
     }
     public function show_data()
     {
-
+        var_dump($this->input->post());
     }
 
 }

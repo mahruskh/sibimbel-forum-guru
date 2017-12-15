@@ -14,6 +14,12 @@ class _AdministratorController extends CI_Controller
     $data['profil'] = $this->AdministratorModel->show_profil();
     $this->load->view('Administrator/index',$data);
   }
+  public function setup_akun()
+  {
+    $data['title'] = "Setup Akun";
+    $this->load->view('Administrator/setup_akun',$data);
+  }
+
   public function coba()
   {
     var_dump($this->AdministratorModel->show_profil());

@@ -4,16 +4,21 @@
     <list default="true" id="14254557-9307-41d3-a8a3-bf5fc205021c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/application/config/routes.php" afterPath="$PROJECT_DIR$/application/config/routes.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Administrator/_AdministratorController.php" afterPath="$PROJECT_DIR$/application/controllers/Administrator/_AdministratorController.php" />
       <change beforePath="$PROJECT_DIR$/application/controllers/Pembayaran/_PembayaranController.php" afterPath="$PROJECT_DIR$/application/controllers/Pembayaran/_PembayaranController.php" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Setup/_BiayaDiskonController.php" afterPath="$PROJECT_DIR$/application/controllers/Setup/_BiayaDiskonController.php" />
-      <change beforePath="$PROJECT_DIR$/application/models/Pembayaran/PembayaranModel.php" afterPath="$PROJECT_DIR$/application/models/Pembayaran/PembayaranModel.php" />
-      <change beforePath="$PROJECT_DIR$/application/models/Setup/BiayaDiskonModel.php" afterPath="$PROJECT_DIR$/application/models/Setup/BiayaDiskonModel.php" />
-      <change beforePath="$PROJECT_DIR$/application/models/Setup/ProgramPilihanModel.php" afterPath="$PROJECT_DIR$/application/models/Setup/ProgramPilihanModel.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/DataTentor/modal-tentor.php" afterPath="$PROJECT_DIR$/application/views/DataTentor/modal-tentor.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/DataWali/modal-wali.php" afterPath="$PROJECT_DIR$/application/views/DataWali/modal-wali.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Setup/_ProgramPilihanController.php" afterPath="$PROJECT_DIR$/application/controllers/Setup/_ProgramPilihanController.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/Administrator/AdministratorModel.php" afterPath="$PROJECT_DIR$/application/models/Administrator/AdministratorModel.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/Administrator/index.php" afterPath="$PROJECT_DIR$/application/views/Administrator/index.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/Bimbel/index.php" afterPath="$PROJECT_DIR$/application/views/Bimbel/index.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/DataSiswa/index.php" afterPath="$PROJECT_DIR$/application/views/DataSiswa/index.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/DataTentor/index.php" afterPath="$PROJECT_DIR$/application/views/DataTentor/index.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/DataWali/index.php" afterPath="$PROJECT_DIR$/application/views/DataWali/index.php" />
       <change beforePath="$PROJECT_DIR$/application/views/Pembayaran/index.php" afterPath="$PROJECT_DIR$/application/views/Pembayaran/index.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/Penjadwalan/index.php" afterPath="$PROJECT_DIR$/application/views/Penjadwalan/index.php" />
       <change beforePath="$PROJECT_DIR$/application/views/SetupBiayaDiskon/index.php" afterPath="$PROJECT_DIR$/application/views/SetupBiayaDiskon/index.php" />
       <change beforePath="$PROJECT_DIR$/application/views/SetupProgramPilihan/index.php" afterPath="$PROJECT_DIR$/application/views/SetupProgramPilihan/index.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/SetupTahunAjaran/index.php" afterPath="$PROJECT_DIR$/application/views/SetupTahunAjaran/index.php" />
+      <change beforePath="$PROJECT_DIR$/kon&quot;).modal(&quot;hide&quot;)" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -46,31 +51,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BiayaDiskonModel.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/Setup/BiayaDiskonModel.php">
+      <file leaf-file-name="AdministratorModel.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/Administrator/AdministratorModel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="39" column="52" lean-forward="false" selection-start-line="39" selection-start-column="52" selection-end-line="39" selection-end-column="52" />
+            <state relative-caret-position="231">
+              <caret line="11" column="2" lean-forward="true" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_BiayaDiskonController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/Setup/_BiayaDiskonController.php">
+      <file leaf-file-name="_AdministratorController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Administrator/_AdministratorController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="52" column="78" lean-forward="false" selection-start-line="52" selection-start-column="78" selection-end-line="52" selection-end-column="78" />
+            <state relative-caret-position="84">
+              <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/SetupBiayaDiskon/index.php">
+      <file leaf-file-name="setup_akun.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/Administrator/setup_akun.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="336" column="5" lean-forward="false" selection-start-line="336" selection-start-column="5" selection-end-line="336" selection-end-column="5" />
+            <state relative-caret-position="359">
+              <caret line="193" column="30" lean-forward="false" selection-start-line="193" selection-start-column="30" selection-end-line="193" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/DataTentor/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="861">
+              <caret line="162" column="7" lean-forward="false" selection-start-line="162" selection-start-column="7" selection-end-line="162" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -80,11 +95,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>wali</find>
-      <find>id_u</find>
-      <find>id_pilihan_program</find>
-      <find>id_tahun_ajaran</find>
-      <find>#id_tahun_ajaran</find>
       <find>SIMPAN</find>
       <find>halo</find>
       <find>var</find>
@@ -110,6 +120,11 @@
       <find>index</find>
       <find>act</find>
       <find>pilihan</find>
+      <find>http</find>
+      <find>setup s</find>
+      <find>setu</find>
+      <find>data ad</find>
+      <find>show_pilihan</find>
     </findStrings>
     <replaceStrings>
       <replace>program</replace>
@@ -138,9 +153,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/views/PendaftaranWali/modal-trash.php" />
-        <option value="$PROJECT_DIR$/application/views/PendaftaranWali/modal-wali.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Setup/_BiayaController.php" />
         <option value="$PROJECT_DIR$/application/views/PendaftaranTentor/modal-wali.php" />
         <option value="$PROJECT_DIR$/application/models/Pendaftaran/SiswaBimbelModel.php" />
         <option value="$PROJECT_DIR$/application/models/Pendaftaran/WaliSiswaModel.php" />
@@ -154,41 +166,44 @@
         <option value="$PROJECT_DIR$/application/controllers/Pendaftaran/_WaliController.php" />
         <option value="$PROJECT_DIR$/application/views/SetupProgramPilihan/modal-pilihan.php" />
         <option value="$PROJECT_DIR$/application/views/SetupTahunAjaran/modal-ajaran.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Setup/_ProgramPilihanController.php" />
         <option value="$PROJECT_DIR$/application/views/SetupProgramPilihan/modal-program.php" />
-        <option value="$PROJECT_DIR$/application/views/Penjadwalan/index.php" />
-        <option value="$PROJECT_DIR$/application/views/Administrator/index.php" />
         <option value="$PROJECT_DIR$/application/views/Dashboard/index.php" />
-        <option value="$PROJECT_DIR$/application/views/DataSiswa/index.php" />
-        <option value="$PROJECT_DIR$/application/views/DataWali/index.php" />
-        <option value="$PROJECT_DIR$/application/views/SetupTahunAjaran/index.php" />
         <option value="$PROJECT_DIR$/application/controllers/Penjadwalan/_PembayaranController.php" />
         <option value="$PROJECT_DIR$/application/models/Penjadwalan/PembayaranModel.php" />
         <option value="$PROJECT_DIR$/application/controllers/Data/_TentorController.php" />
         <option value="$PROJECT_DIR$/application/models/Data/TentorModel.php" />
-        <option value="$PROJECT_DIR$/application/views/DataTentor/index.php" />
         <option value="$PROJECT_DIR$/application/views/Contoh/contoh.php" />
         <option value="$PROJECT_DIR$/application/views/Contoh/Contoh.php" />
         <option value="$PROJECT_DIR$/application/models/Bimbel/BimbelModel.php" />
         <option value="$PROJECT_DIR$/application/controllers/Bimbel/_BimbelController.php" />
-        <option value="$PROJECT_DIR$/application/views/Pembayaran/index.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Pembayaran/_PembayaranController.php" />
         <option value="$PROJECT_DIR$/application/models/Pembayaran/PembayaranModel.php" />
         <option value="$PROJECT_DIR$/application/models/Setup/ProgramPilihanModel.php" />
         <option value="$PROJECT_DIR$/assets/plugins/datatables/jquery.dataTables.css" />
         <option value="$PROJECT_DIR$/assets/plugins/datatables/dataTables.bootstrap.css" />
         <option value="$PROJECT_DIR$/assets/plugins/datatables/dataTables.bootstrap.min.css" />
         <option value="$PROJECT_DIR$/assets/bootstrap/css/bootstrap.css" />
-        <option value="$PROJECT_DIR$/application/views/SetupProgramPilihan/index.php" />
         <option value="$PROJECT_DIR$/application/views/Login/index.php" />
-        <option value="$PROJECT_DIR$/application/views/Bimbel/index.php" />
         <option value="$PROJECT_DIR$/application/views/SetupBiayaDiskon/modal-diskon.php" />
-        <option value="$PROJECT_DIR$/application/config/routes.php" />
         <option value="$PROJECT_DIR$/application/controllers/Setup/_BiayaDiskonController.php" />
         <option value="$PROJECT_DIR$/application/models/Setup/BiayaDiskonModel.php" />
         <option value="$PROJECT_DIR$/application/views/DataTentor/modal-tentor.php" />
         <option value="$PROJECT_DIR$/application/views/DataWali/modal-wali.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Pembayaran/_PembayaranController.php" />
+        <option value="$PROJECT_DIR$/application/config/routes.php" />
+        <option value="$PROJECT_DIR$/application/models/Administrator/AdministratorModel.php" />
+        <option value="$PROJECT_DIR$/application/views/SetupProgramPilihan/index.php" />
+        <option value="$PROJECT_DIR$/application/views/Bimbel/index.php" />
+        <option value="$PROJECT_DIR$/application/views/DataSiswa/index.php" />
+        <option value="$PROJECT_DIR$/application/views/DataTentor/index.php" />
+        <option value="$PROJECT_DIR$/application/views/DataWali/index.php" />
+        <option value="$PROJECT_DIR$/application/views/Pembayaran/index.php" />
+        <option value="$PROJECT_DIR$/application/views/Penjadwalan/index.php" />
         <option value="$PROJECT_DIR$/application/views/SetupBiayaDiskon/index.php" />
+        <option value="$PROJECT_DIR$/application/views/SetupTahunAjaran/index.php" />
+        <option value="$PROJECT_DIR$/application/views/Administrator/index.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Setup/_ProgramPilihanController.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Administrator/_AdministratorController.php" />
+        <option value="$PROJECT_DIR$/application/views/Administrator/setup_akun.php" />
       </list>
     </option>
   </component>
@@ -223,6 +238,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -245,7 +261,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
@@ -284,18 +299,18 @@
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/assets/plugins/datatables" />
-      <recent name="$PROJECT_DIR$/application/models" />
-      <recent name="$PROJECT_DIR$/application/controllers" />
-      <recent name="$PROJECT_DIR$/application/views" />
-      <recent name="$PROJECT_DIR$/application/views/SetupProgramPilihan" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/assets/plugins/datatables" />
       <recent name="$PROJECT_DIR$/application/controllers/Pendaftaran" />
       <recent name="$PROJECT_DIR$/application/controllers/Setup" />
       <recent name="$PROJECT_DIR$/application/views/PendaftaranSiswa" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/application/views/Administrator" />
+      <recent name="$PROJECT_DIR$/assets/plugins/datatables" />
+      <recent name="$PROJECT_DIR$/application/models" />
+      <recent name="$PROJECT_DIR$/application/controllers" />
+      <recent name="$PROJECT_DIR$/application/views" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -396,28 +411,32 @@
       <workItem from="1511616014988" duration="14000" />
       <workItem from="1512355847618" duration="34000" />
       <workItem from="1512380856997" duration="179000" />
-      <workItem from="1513224596424" duration="8990000" />
+      <workItem from="1513224596424" duration="10384000" />
+      <workItem from="1513245261416" duration="3858000" />
+      <workItem from="1513303781726" duration="1272000" />
+      <workItem from="1513316923327" duration="764000" />
+      <workItem from="1513339746018" duration="5718000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="170780000" />
+    <option name="totallyTimeSpent" value="183786000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="43" y="-4" width="1323" height="772" extended-state="6" />
+    <frame x="34" y="273" width="1325" height="780" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15721844" sideWeight="0.49455675" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3243243" sideWeight="0.5027408" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18010963" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937685" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937685" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3108108" sideWeight="0.4972592" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39968896" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3108108" sideWeight="0.4972592" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19577134" sideWeight="0.5054432" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39968896" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -466,73 +485,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/Dashboard/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1764">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/SetupTahunAjaran/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="98" column="67" lean-forward="false" selection-start-line="98" selection-start-column="67" selection-end-line="98" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Penjadwalan/PenjadwalanModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="12" lean-forward="true" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Penjadwalan/_PenjadwalanController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="19" column="2" lean-forward="false" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1428">
-          <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Welcome.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/SetupProgramPilihan/modal-program.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/tables.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="221" column="16" lean-forward="false" selection-start-line="221" selection-start-column="16" selection-end-line="221" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/Contoh/Contoh.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
           <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Pembayaran/_PembayaranController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -541,27 +497,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="19" column="7" lean-forward="false" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/Pembayaran/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="241" column="22" lean-forward="false" selection-start-line="241" selection-start-column="22" selection-end-line="241" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Setup/_ProgramPilihanController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1806">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/Penjadwalan/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2058">
-          <caret line="98" column="82" lean-forward="false" selection-start-line="98" selection-start-column="36" selection-end-line="98" selection-end-column="82" />
         </state>
       </provider>
     </entry>
@@ -676,18 +611,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/Bimbel/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4158">
-          <caret line="198" column="20" lean-forward="false" selection-start-line="198" selection-start-column="20" selection-end-line="198" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Data/_SiswaBimbelController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -695,23 +622,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
           <caret line="4" column="1" lean-forward="false" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/SetupProgramPilihan/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="71" column="18" lean-forward="false" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Bimbel/BimbelModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="13" column="60" lean-forward="false" selection-start-line="13" selection-start-column="60" selection-end-line="13" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -719,19 +629,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="244">
           <caret line="16" column="31" lean-forward="false" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
-          <folding>
-            <marker date="1505650881758" expanded="true" signature="162:698" ph="..." />
-            <marker date="1505650881758" expanded="true" signature="325:402" ph="..." />
-            <marker date="1505650881758" expanded="true" signature="481:684" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/DataSiswa/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="115" column="36" lean-forward="false" selection-start-line="115" selection-start-column="36" selection-end-line="115" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -739,19 +636,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="8" column="18" lean-forward="false" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-          <folding>
-            <marker date="1505650881798" expanded="true" signature="159:721" ph="..." />
-            <marker date="1505650881798" expanded="true" signature="322:399" ph="..." />
-            <marker date="1505650881798" expanded="true" signature="478:707" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Setup/ProgramPilihanModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="40" column="5" lean-forward="false" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -759,15 +643,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="18" column="23" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -775,11 +650,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="244">
           <caret line="31" column="38" lean-forward="false" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
-          <folding>
-            <marker date="1507461120519" expanded="true" signature="158:724" ph="..." />
-            <marker date="1507461120519" expanded="true" signature="321:398" ph="..." />
-            <marker date="1507461120519" expanded="true" signature="477:710" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -787,7 +657,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="426">
           <caret line="25" column="10" lean-forward="true" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -795,6 +664,144 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
           <caret line="25" column="45" lean-forward="true" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/DataTentor/modal-tentor.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="71" column="6" lean-forward="false" selection-start-line="71" selection-start-column="6" selection-end-line="71" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/DataSiswa/modal-trash.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/DataWali/modal-wali.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="60" column="6" lean-forward="false" selection-start-line="60" selection-start-column="6" selection-end-line="60" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Setup/BiayaDiskonModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="39" column="52" lean-forward="false" selection-start-line="39" selection-start-column="52" selection-end-line="39" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/block.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="245" column="15" lean-forward="false" selection-start-line="245" selection-start-column="15" selection-end-line="245" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Pembayaran/_PembayaranController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="30" lean-forward="false" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Bimbel/BimbelModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="5" lean-forward="true" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="56" column="45" lean-forward="false" selection-start-line="56" selection-start-column="45" selection-end-line="56" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/Bimbel/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="112" column="74" lean-forward="false" selection-start-line="112" selection-start-column="74" selection-end-line="112" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/Dashboard/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="113" column="37" lean-forward="false" selection-start-line="113" selection-start-column="37" selection-end-line="113" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/DataSiswa/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="112" column="74" lean-forward="false" selection-start-line="112" selection-start-column="74" selection-end-line="112" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/DataWali/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="112" column="74" lean-forward="false" selection-start-line="112" selection-start-column="74" selection-end-line="112" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/Pembayaran/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="109" column="74" lean-forward="false" selection-start-line="109" selection-start-column="74" selection-end-line="109" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/Penjadwalan/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="112" column="74" lean-forward="false" selection-start-line="112" selection-start-column="74" selection-end-line="112" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/SetupBiayaDiskon/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="112" column="74" lean-forward="false" selection-start-line="112" selection-start-column="74" selection-end-line="112" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/SetupTahunAjaran/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="112" column="74" lean-forward="false" selection-start-line="112" selection-start-column="74" selection-end-line="112" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/Administrator/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="138" column="70" lean-forward="false" selection-start-line="138" selection-start-column="70" selection-end-line="138" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/SetupProgramPilihan/modal-program.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="863">
+          <caret line="47" column="50" lean-forward="true" selection-start-line="47" selection-start-column="50" selection-end-line="47" selection-end-column="50" />
           <folding />
         </state>
       </provider>
@@ -807,58 +814,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Setup/BiayaDiskonModel.php">
+    <entry file="file://$PROJECT_DIR$/application/views/SetupProgramPilihan/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="39" column="52" lean-forward="false" selection-start-line="39" selection-start-column="52" selection-end-line="39" selection-end-column="52" />
+        <state relative-caret-position="35">
+          <caret line="264" column="28" lean-forward="true" selection-start-line="264" selection-start-column="28" selection-end-line="264" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Setup/_ProgramPilihanController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Setup/ProgramPilihanModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="471">
+          <caret line="23" column="24" lean-forward="false" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Administrator/AdministratorModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="2" lean-forward="true" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Administrator/_AdministratorController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/DataTentor/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="318" column="21" lean-forward="true" selection-start-line="318" selection-start-column="21" selection-end-line="318" selection-end-column="21" />
+        <state relative-caret-position="861">
+          <caret line="162" column="7" lean-forward="false" selection-start-line="162" selection-start-column="7" selection-end-line="162" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/DataTentor/modal-tentor.php">
+    <entry file="file://$PROJECT_DIR$/application/views/Administrator/setup_akun.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="71" column="6" lean-forward="false" selection-start-line="71" selection-start-column="6" selection-end-line="71" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/DataSiswa/modal-trash.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/DataWali/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="300" column="62" lean-forward="false" selection-start-line="300" selection-start-column="62" selection-end-line="300" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/DataWali/modal-wali.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="60" column="6" lean-forward="false" selection-start-line="60" selection-start-column="6" selection-end-line="60" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/SetupBiayaDiskon/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="336" column="5" lean-forward="false" selection-start-line="336" selection-start-column="5" selection-end-line="336" selection-end-column="5" />
+        <state relative-caret-position="359">
+          <caret line="193" column="30" lean-forward="false" selection-start-line="193" selection-start-column="30" selection-end-line="193" selection-end-column="30" />
           <folding />
         </state>
       </provider>

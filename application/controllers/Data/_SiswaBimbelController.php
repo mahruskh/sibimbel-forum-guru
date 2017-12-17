@@ -27,6 +27,20 @@ class _SiswaBimbelController extends CI_Controller
             echo $this->SiswaBimbelModel->trash($this->input->post('id_trash'));
         }
     }
+    public function registration_siswa()
+    {
+        $data['title'] = "Pendaftaran Siswa Bimbel";
+        $this->load->view('DataSiswa/registration_siswa', $data);
+        $this->load->view('DataSiswa/modal-add-wali');
+    }
+    public function register_siswa()
+    {
+        if (!empty($this->input->post('daftar'))){
+            var_dump($this->input->post());
+        } else {
+            redirect('data/siswa/daftar');
+        }
+    }
 }
 
 ?>

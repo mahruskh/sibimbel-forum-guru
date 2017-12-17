@@ -15,6 +15,9 @@ class _PembayaranController extends CI_Controller
         $data['tahun_ajaran'] = $this->PembayaranModel->filter_tahun_ajaran();
         $data['program_bimbel'] = $this->PembayaranModel->filter_program_bimbel();
         $this->load->view('Pembayaran/index', $data);
+//
+//        $data['filter'] = $this->PembayaranModel->filter_pembayaran();
+//        $this->load->view('Contoh/Contoh',  $data);
     }
     public function show_data()
     {

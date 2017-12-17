@@ -223,6 +223,7 @@
     var pilihanprogram_dt;
     var method;
     var id_update_pilihan;
+    var id_update_program_bimbel;
     $(document).ready(function (e) {
         programbimbel_dt = $("#programbimbel-dt").DataTable({
             "autoWidth": false,
@@ -232,7 +233,7 @@
             "columns": [
                 {"data":'program_bimbel'},
                 {"data": 'pilihan_program', "class": "text-center"},
-                {"data": 'biaya_total'},
+                {"data": 'biaya_program'},
                 {"data":"tools", "class": "text-center", "orderable":false}
             ],
         });
@@ -264,40 +265,71 @@
     };
     function add_program() {
         method = "add_program"
+        id_update_program_bimbel = ""
         $("#id_program_bimbel").val("")
         $("#form-program")[0].reset()
         $('.modal-title').html("Tambah Program Bimbel")
         $("#act_program").html("SIMPAN")
-
-        $.ajax({
-           type: "POST",
-           url: "show_pilihan_program",
-           success: function (data) {
-              $("#pilihan_program").html(data)
-           }
-        });
+        hapus_hari_pertemuan()
         $("#modal-program").modal("show")
+
     };
     function edit_program(id_program_bimbel) {
         method ="update_program"
-        $("#id_program_bimbel").val(id_program_bimbel)
+        id_update_program_bimbel = id_program_bimbel
         $("#form-program")[0].reset()
-        $('.modal-title').html("Detail Program Bimbel")
         $("#act_program").html("UPDATE")
+        $('.modal-title').html("Detail Program Bimbel")
+        //$('input[type="checkbox"]').attr('checked',false);
+       // hapus_hari_pertemuan()
 
         $.ajax({
             type: "POST",
             url: "edit_program",
             dataType: "JSON",
-            data: {id_program_bimbel:$("#id_program_bimbel").val()},
+            data: {id_program_bimbel:id_program_bimbel},
             success: function (data) {
                 $('[name="program_bimbel"]').val(data.program_bimbel)
-                $('[name="biaya_total"]').val(data.biaya_total)
+                $('[name="biaya_program"]').val(data.biaya_program)
+                //pilihan program
                 $('[name="materi_ajar"]').val(data.materi_ajar)
+                $('[name="lama_belajar"]').val(data.lama_belajar)
+                $('[name="jumlah_pertemuan"]').val(data.jumlah_pertemuan)
+                cek_hari_pertemuan(data.hari_pertemuan) ///masih kurang saatu update yang lain, segera perbaiki
+                $('[name="jam_pertemuan"]').val(data.jam_pertemuan)
+                $('[name="keterangan_program"]').val(data.keterangan_program)
                 $("#modal-program").modal("show")
             }
         });
     };
+    function cek_hari_pertemuan(data) {
+        $.each(data.split(','),function () {
+            if(this == $('[name="Senin"]').val()){
+                $('[name="Senin"]').attr("checked", true)
+            } else if(this == $('[name="Selasa"]').val()){
+                $('[name="Selasa"]').attr("checked", true)
+            } else if(this == $('[name="Rabu"]').val()){
+                $('[name="Rabu"]').attr("checked", true)
+            } else if(this == $('[name="Kamis"]').val()){
+                $('[name="Kamis"]').attr("checked", true)
+            } else if(this == $('[name="Jumat"]').val()){
+                $('[name="Jumat"]').attr("checked", true)
+            } else if(this == $('[name="Sabtu"]').val()){
+                $('[name="Sabtu"]').attr("checked", true)
+            } else if(this == $('[name="Minggu"]').val()){
+                $('[name="Minggu"]').attr("checked", true)
+            }
+        });
+    }
+    function hapus_hari_pertemuan() {
+        $('[name="Senin"]').removeAttr("checked")
+        $('[name="Selasa"]').removeAttr("checked")
+        $('[name="Rabu"]').removeAttr("checked")
+        $('[name="Kamis"]').removeAttr("checked")
+        $('[name="Jumat"]').removeAttr("checked")
+        $('[name="Sabtu"]').removeAttr("checked")
+        $('[name="Minggu"]').removeAttr("checked")
+    }
     function pertemuan() {
         var pertemuan = []
         if($('[name="Senin"]:checked').val() != undefined){
@@ -344,7 +376,7 @@
                 $.ajax({
                    type: "POST",
                    url: method,
-                   data: {program_bimbel:$('[name="program_bimbel"]').val(),biaya_total:$('[name="biaya_total"]').val(),id_pilihan_program:$('[name="id_pilihan_program"]').val(),materi_ajar:$('[name="materi_ajar"]').val(),lama_belajar:$('[name="lama_belajar"]').val(),jumlah_pertemuan:$('[name="jumlah_pertemuan"]').val(),hari_pertemuan:pertemuan(),jam_pertemuan:$('[name="jam_pertemuan"]').val(),keterangan_program:$('[name="keterangan_program"]').val()},
+                   data: {program_bimbel:$('[name="program_bimbel"]').val(),biaya_program:$('[name="biaya_program"]').val(),id_pilihan_program:$('[name="id_pilihan_program"]').val(),materi_ajar:$('[name="materi_ajar"]').val(),lama_belajar:$('[name="lama_belajar"]').val(),jumlah_pertemuan:$('[name="jumlah_pertemuan"]').val(),hari_pertemuan:pertemuan(),jam_pertemuan:$('[name="jam_pertemuan"]').val(),keterangan_program:$('[name="keterangan_program"]').val()},
                    success: function (data) {
                        if (data == 1){
                            $("#modal-program").modal("hide")
@@ -356,7 +388,7 @@
                 $.ajax({
                     type: "POST",
                     url: method,
-                    data: {id_program_bimbel:$("#id_program_bimbel").val(),program_bimbel:$('[name="program_bimbel"]').val(),materi_ajar:$('[name="materi_ajar"]').val()},
+                    data: {id_program_bimbel:id_update_program_bimbel,program_bimbel:$('[name="program_bimbel"]').val(),biaya_program:$('[name="biaya_program"]').val(),id_pilihan_program:$('[name="id_pilihan_program"]').val(),materi_ajar:$('[name="materi_ajar"]').val(),lama_belajar:$('[name="lama_belajar"]').val(),jumlah_pertemuan:$('[name="jumlah_pertemuan"]').val(),hari_pertemuan:pertemuan(),jam_pertemuan:$('[name="jam_pertemuan"]').val(),keterangan_program:$('[name="keterangan_program"]').val()},
                     success: function (data) {
                      if (data == 1){
                          $("#modal-program").modal("hide")

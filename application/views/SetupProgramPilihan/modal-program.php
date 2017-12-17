@@ -5,7 +5,6 @@
                 <h3 class="modal-title"></h3>
             </div>
             <div class="modal-body">
-                <input type="text" id="id_program_bimbel" class="hidden" readonly="readonly">
                 <form action="#" class="form-horizontal" id="form-program">
                     <div class="form-group">
                         <label for="" class="col-sm-3 control-label">Program Jenjang</label>
@@ -18,11 +17,23 @@
                         <div class="col-sm-8">
                             <div class="input-group">
                                 <div class="input-group-addon">Rp.</div>
-                                <input type="number" class="form-control" name="biaya_total">
+                                <input type="number" class="form-control" name="biaya_program">
                             </div>
                         </div>
                     </div>
-                    <div id="pilihan_program"></div>
+                    <div class="form-group">
+                        <label for="" class="col-sm-3 control-label">Materi Ajar</label>
+                        <div class="col-sm-6">
+                            <select class="form-control" name="id_pilihan_program">
+                                <?php
+                                foreach ($pilihan_program as $pilihan){ ?>
+                                    <option value="<?php echo $pilihan->id_pilihan_program?>"><?php echo $pilihan->pilihan_program?></option>
+
+                                <?php }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label for="" class="col-sm-3 control-label">Materi Ajar</label>
                         <div class="col-sm-8">
@@ -62,9 +73,7 @@
                         <label for="" class="col-sm-3 control-label">Jam Pertemuan</label>
                         <div class="col-sm-6">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="" id="jp_timepicker" readonly="readonly">
-                                <div class="input-group-addon"> - </div>
-                                <input type="text" class="form-control" name="" id="jp_timepicker" readonly="readonly">
+                                <input type="text" class="form-control" name="jam_pertemuan">
                             </div>
                         </div>
                     </div>

@@ -14,6 +14,9 @@ $route['data/siswa/show'] = 'Data/_SiswaBimbelController/index';
 $route['data/siswa/show_data'] = 'Data/_SiswaBimbelController/show_data';
 $route['data/siswa/trash'] = 'Data/_SiswaBimbelController/trash';
 
+$route['data/siswa/daftar'] = 'Data/_SiswaBimbelController/registration_siswa';
+$route['data/siswa/register_siswa'] = 'Data/_SiswaBimbelController/register_siswa';
+
 $route['data/wali/show'] = 'Data/_WaliController/index';
 $route['data/wali/show_data_wali'] = 'Data/_WaliController/show_data_wali';
 $route['data/wali/trash_wali'] = 'Data/_WaliController/trash_wali';

@@ -129,35 +129,6 @@
     </section>
     <!-- Main content -->
   <section class="content">
-      <div class="row">
-          <div class="col-sm-6 col-md-4">
-              <div class="info-box">
-                  <span class="info-box-icon bg-green fa fa-check"></span>
-                  <div class="info-box-content">
-                      <span class="info-box-text">Lunas</span>
-                      <span class="info-box-number">33</span>
-                  </div>
-              </div>
-          </div>
-          <div class="col-sm-6 col-md-4">
-              <div class="info-box">
-                  <span class="info-box-icon bg-blue fa fa-circle-o"></span>
-                  <div class="info-box-content">
-                      <span class="info-box-text">All</span>
-                      <span class="info-box-number">32</span>
-                  </div>
-              </div>
-          </div>
-          <div class="col-sm-6 col-md-4">
-              <div class="info-box">
-                  <span class="info-box-icon bg-red fa fa-times"></span>
-                  <div class="info-box-content">
-                      <span class="info-box-text">Belum Lunas</span>
-                      <span class="info-box-number">32</span>
-                  </div>
-              </div>
-          </div>
-      </div>
       <div class="box box-success box-solid flat">
           <div class="box-body">
               <table class="table table-striped">

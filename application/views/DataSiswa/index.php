@@ -165,7 +165,7 @@
           <div class="box-header with-border">
             <h4 class="box-tittle">Data Siswa Bimbel</h4>
               <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-primary btn-sm" onclick="add()"><span class="glyphicon glyphicon-plus"></span> Data Siswa</button>
+                  <a href="<?php echo base_url('data/siswa/daftar')?>" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus"></span> Pendaftaran Siswa</a>
               </div>
           </div>
           <div class="box-body">

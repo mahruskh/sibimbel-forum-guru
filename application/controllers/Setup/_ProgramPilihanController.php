@@ -12,6 +12,7 @@ class _ProgramPilihanController extends CI_Controller
     public function index()
     {
         $data['title'] = "Setup Program & Pilihan";
+        $data['pilihan_program'] = $this->ProgramPilihanModel->show_pilihan_program();
         $this->load->view('SetupProgramPilihan/index',$data);
         $this->load->view('SetupProgramPilihan/modal-program');
         $this->load->view('SetupProgramPilihan/modal-pilihan');
@@ -24,26 +25,6 @@ class _ProgramPilihanController extends CI_Controller
     {
         if ($this->input->is_ajax_request()){
             echo $this->ProgramPilihanModel->show_data_program();
-        }
-    }
-    public function show_pilihan_program()
-    {
-        if ($this->input->is_ajax_request()){
-        ?>
-        <div class="form-group">
-            <label for="" class="col-sm-3 control-label">Jenis Program</label>
-            <div class="col-sm-6">
-                <select class="form-control" name="id_pilihan_program">
-                    <?php
-                    foreach ($this->ProgramPilihanModel->show_pilihan_program() as $row){ ?>
-                        <option value="<?php echo $row->id_pilihan_program?>"><?php echo $row->pilihan_program?></option>
-
-                 <?php   }
-                    ?>
-                </select>
-            </div>
-        </div>
-        <?php
         }
     }
     public function add_program()

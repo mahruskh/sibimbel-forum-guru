@@ -1,7 +1,10 @@
 <?php
 
-foreach ($kirim as $row){
-    foreach ($row as $siu){
-        echo $siu->id_tentor;
+var_dump($filter);
+echo "<br><br>";
+
+foreach ($filter as $satu){
+    foreach ($satu as $dua){
+        var_dump($dua);
     }
 }

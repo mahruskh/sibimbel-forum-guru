@@ -135,7 +135,7 @@
     <div class="box box-primary box-solid flat">
         <div class="box-body">
             <a href="#" class="btn btn-yahoo btn-flat">Tambah Administrator</a> |
-            <a href="<?php echo base_url('administrator/show');?>" class="btn btn-yahoo btn-flat active">Data Adminsitrator</a> |
+            <a href="<?php echo base_url('administrator/show');?>" class="btn btn-yahoo btn-flat active">Data Administrator</a> |
             <a href="<?php echo base_url('administrator/setup-akun')?>" class="btn btn-yahoo btn-flat">Setup Akun</a>
         </div>
     </div>

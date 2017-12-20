@@ -227,8 +227,8 @@
             "serverSide": true,
             "ajax": {"url":"show_data_wali", "type":"POST"},
             "columns": [
-                {"data":'nama'},
-                {"data":"alamat", "orderable":false},
+                {"data":'nama_wali'},
+                {"data":"alamat_wali", "orderable":false},
                 {"data":"tools", "class": "text-center", "orderable":false}
             ],
         });
@@ -269,17 +269,17 @@
             dataType: "JSON",
             data: {id_wali_siswa:id_wali_siswa},
             success: function (data) {
-                $('[name="nama"]').val(data.nama)
-                $('[name="pekerjaan"]').val(data.pekerjaan)
-                $('[name="alamat"]').val(data.alamat)
-                $('[name="telepon"]').val(data.telepon)
-                $('[name="keterangan"]').val(data.keterangan)
+                $('[name="nama_wali"]').val(data.nama_wali)
+                $('[name="pekerjaan_wali"]').val(data.pekerjaan_wali)
+                $('[name="alamat_wali"]').val(data.alamat_wali)
+                $('[name="telepon_wali"]').val(data.telepon_wali)
+                $('[name="keterangan_wali"]').val(data.keterangan_wali)
                 $("#modal-wali").modal("show")
             }
         });
     };
     function save_wali() {
-        if ($('[name="nama"]').val() == ""){
+        if ($('[name="nama_wali"]').val() == ""){
             alert("Nama Wali Siswa Wajib Diisi !!!")
         }else {
             if(method == "add_wali"){
@@ -298,7 +298,7 @@
                 $.ajax({
                     type: "POST",
                     url: method,
-                    data: {id_wali_siswa:id_update_wali,nama:$('[name="nama"]').val(),pekerjaan:$('[name="pekerjaan"]').val(),alamat:$('[name="alamat"]').val(),telepon:$('[name="telepon"]').val(),keterangan:$('[name="keterangan"]').val()},
+                    data: {id_wali_siswa:id_update_wali,nama_wali:$('[name="nama_wali"]').val(),pekerjaan_wali:$('[name="pekerjaan_wali"]').val(),alamat_wali:$('[name="alamat_wali"]').val(),telepon_wali:$('[name="telepon_wali"]').val(),keterangan_wali:$('[name="keterangan_wali"]').val()},
                     success: function (data) {
                         if (data == 1){
                             $("#modal-wali").modal("hide")

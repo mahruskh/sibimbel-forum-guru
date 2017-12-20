@@ -26,4 +26,28 @@ class SiswaBimbelModel extends CI_Model
         $this->db->where('id_siswa', $id_siswa);
         return $this->db->delete('tb_siswa');
     }
+    public function add_siswa($data)
+    {
+        return $this->db->insert('tb_siswa', $data);
+    }
+    public function save_wali($data)
+    {
+        return $this->db->insert('tb_wali_siswa', $data);
+    }
+    public function cari_wali($term)
+    {
+        $this->db->select('id_wali_siswa,nama_wali');
+        $this->db->like('nama_wali',$term,'after');
+        return $this->db->get('tb_wali_siswa')->result();
+    }
+    public function pilihan_default()
+    {
+        $this->db->select('id_tahun_ajaran,tahun_ajaran');
+        $this->db->order_by('tahun_ajaran', 'DESC');
+        $data ['mahrus'] = $this->db->get('tb_tahun_ajaran')->result();
+        $this->db->select('id_program_bimbel,program_bimbel');
+        $this->db->order_by('id_program_bimbel', 'DESC');
+        $data ['program_bimbel'] = $this->db->get('tb_program_bimbel')->result();
+        return $data;
+    }
 }

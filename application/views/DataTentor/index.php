@@ -174,8 +174,8 @@
                 <thead>
                   <tr class="info">
                     <th>Nama Lengkap</th>
-                    <th>Status</th>
                     <th>Telepon</th>
+                    <th>Status</th>
                     <th>Tools</th>
                   </tr>
                 </thead>
@@ -229,8 +229,8 @@
             "ajax": {"url":"show_data_tentor", "type":"POST"},
             "columns": [
                 {"data":'nama'},
-                {"data":"status", "class": "text-center"},
                 {"data":"telepon", "orderable":false},
+                {"data":"status", "class": "text-center"},
                 {"data":"tools", "class": "text-center", "orderable":false}
             ],
         });

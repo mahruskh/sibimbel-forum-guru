@@ -15,7 +15,7 @@ class WaliSiswaModel extends CI_Model
        </div>';
     public function show_data_wali()
     {
-        $this->datatables->select('id_wali_siswa,nama,alamat,');
+        $this->datatables->select('id_wali_siswa,nama_wali,alamat_wali');
         $this->datatables->from('tb_wali_siswa');
         $this->datatables->add_column('tools', $this->tools_wali, 'id_wali_siswa');
         return $this->datatables->generate();

@@ -148,7 +148,7 @@
                       <td><label>Program Jenjang</label></td>
                       <td>
                           <select class="form-control" id="program_bimbel">
-                              <option>All</option>
+                              <option value="All">All</option>
                               <?php
                               foreach ($program_bimbel as $row){ ?>
                                   <option value="<?php echo $row->id_program_bimbel;?>"><?php echo $row->program_bimbel;?></option>
@@ -160,12 +160,12 @@
                       <td><label>Status Pembayaran</label></td>
                       <td>
                           <select class="form-control" id="status_pembayaran">
-                              <option>All</option>
+                              <option value="All">All</option>
                               <option>Lunas</option>
                               <option>Belum Lunas</option>
                           </select>
                       </td>
-                      <td><button type="button" class="btn btn-success" onclick="show_data()">Tampilkan</td>
+                      <td><button type="button" class="btn btn-success" onclick="func_pembayaran_dt()">Tampilkan</td>
                   </tr>
               </table>
           </div>
@@ -179,7 +179,7 @@
           </div>
           <div class="box-body">
               <div class="table-responsive">
-                  <table class="table table-bordered table-hover table-striped" id="siswabimbel-dt">
+                  <table class="table table-bordered table-hover table-striped" id="pembayaran-dt">
                       <thead>
                       <tr class="info">
                           <th>Nama Lengkap</th>
@@ -224,17 +224,44 @@
 </body>
 </html>
 <script type="text/javascript">
+    var pembayaran_dt;
     $(document).ready(function (e) {
 
+
+
+
     });
-    function show_data() {
+    function show_data() { //percobaan liat data
         $.ajax({
             type: "POST",
             url: "show_data",
-            data: {tahun_ajaran:$("#tahun_ajaran").val(),program_bimbel:$("#program_bimbel").val(),status_pembayaran:$("#status_pembayaran").val()},
+            data: {id_tahun_ajaran:$("#tahun_ajaran").val(),id_program_bimbel:$("#program_bimbel").val(),status:$("#status_pembayaran").val()},
             success: function (data) {
-                alert(data)
+              alert(data)
             }
         });
+    }
+    function func_pembayaran_dt() {
+        pembayaran_dt = $("#pembayaran-dt").DataTable({
+            "autoWidth": false,
+            "processing": true,
+            "serverSide": true,
+            "destroy": true,
+            "ajax": {
+                url: "show_data",
+                type: "post",
+                data: {id_tahun_ajaran:$("#tahun_ajaran").val(),id_program_bimbel:$("#program_bimbel").val(),status:$("#status_pembayaran").val()}
+            },
+            "columns": [
+                {"data":'nama'},
+                {"data":"program_bimbel"},
+                {"data":"tahun_ajaran", "class": "text-center"},
+                {"data":"status", "class":"text-center"},
+                {"data":"tools_pembayaran", "class":"text-center", "orderable":false}
+            ],
+        });
+    }
+    function del_pembayaran(id_pembayaran) {
+        alert(id_pembayaran)
     }
 </script>

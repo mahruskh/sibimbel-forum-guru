@@ -11,6 +11,7 @@
     echo link_tag('assets/plugins/datatables/jquery.dataTables.min.css"');
     echo link_tag('assets/plugins/datatables/dataTables.bootstrap.css');
     echo link_tag('assets/plugins/datepicker/datepicker3.css');
+    echo link_tag('assets/plugins/select2/select2.min.css');
     ?>
     <!-- Font Awesome -->
     <?php echo link_tag('assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css'); ?>
@@ -172,7 +173,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">Nama Lengkap*</label>
                                             <div class="col-sm-8">
-                                                <input type="text" name="nama_siswa" class="form-control">
+                                                <input type="text" name="nama_siswa" class="form-control" maxlength="100" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -183,51 +184,58 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">Tmpt Tgl Lahir</label>
-                                            <div class="col-sm-5">
-                                                <input type="text" name="tmpt_lahir" class="form-control">
+                                            <div class="col-sm-4">
+                                                <input type="text" name="tmpt_lahir" class="form-control" maxlength="50" required>
                                             </div>
-                                            <div class="col-sm-3">
-                                                <input type="text" name="tgl_lahir" id="tgl_lahir" class="form-control" placeholder="dd-mm-yyyy" maxlength="10">
+                                            <div class="col-sm-4">
+                                                <input type="text" name="tgl_lahir" id="tgl_lahir" class="form-control" placeholder="Day Month Year" maxlength="1" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">Asal Sekolah*</label>
                                             <div class="col-sm-8">
-                                                <input type="text" name="asal_sekolah" class="form-control">
+                                                <input type="text" name="asal_sekolah" class="form-control" maxlength="100" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">Alamat*</label>
-                                            <div class="col-sm-8">
-                                                <textarea class="form-control" name="alamat_wali" row="3"></textarea>
+                                            <div class="col-sm-5">
+                                                <textarea class="form-control" name="alamat" row="3" maxlength="255" required></textarea>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="checkbox">
+                                                    <input type="checkbox" id="alamat" checked>Sama Orang Tua / Wali ?
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">No. HP</label>
-                                            <div class="col-sm-5">
-                                                <input type="number" name="telepon_siswa" class="form-control">
+                                            <div class="col-sm-4">
+                                                <input type="number" name="telepon_siswa" class="form-control" maxlength="15">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">Catatan</label>
                                             <div class="col-sm-8">
-                                                <textarea class="form-control" name="catatan" row="3"></textarea>
+                                                <textarea class="form-control" name="catatan" row="3" maxlength="255" required></textarea>
                                             </div>
                                         </div>
                                         <hr>
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">Nama Orang Tua Wali*</label>
                                             <div class="col-sm-6">
-                                                <input type="text" name="nama_wali" id="cari_wali_siswa"class="form-control" placeholder="Cari Nama">
+                                                <select class="form-control wali-select2">
+
+                                                </select>
                                             </div>
                                             <div class="col-sm-2">
-                                                <button type="button" class="btn btn-info" onclick="add_wali()">Tambah</button>
+                                                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-wali">Tambah</button>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">Alamat*</label>
                                             <div class="col-sm-8">
-                                                <textarea class="form-control" row="3" readonly="readonly"></textarea>
+                                                <textarea class="form-control" row="3" name="alamat_wali" readonly="readonly"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -248,26 +256,30 @@
                                                 <input type="text" name="program_bimbel" class="form-control">
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-5 control-label">Pilihan Program*</label>
-                                            <div class="col-sm-7">
-                                                <input type="text" name="tahun_ajaran" class="form-control">
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="box box-default flat">
                                     <div class="box-body">
                                         <div class="form-group">
                                             <label class="col-sm-5 control-label">Biaya Pendaftaran</label>
-                                            <div class="col-sm-7">
-                                                <input type="text" name="biaya_pendaftaran" class="form-control">
+                                            <div class="col-sm-6">
+                                                <input type="number" name="biaya_pendaftaran" class="form-control" readonly="readonly">
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <div class="checkbox">
+                                                   <input type="checkbox" id="biaya_pendaftaran" checked>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-5 control-label">Diskon</label>
-                                            <div class="col-sm-7">
+                                            <div class="col-sm-6">
                                                 <input type="text" name="diskon" class="form-control">
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <div class="checkbox">
+                                                    <input type="checkbox" id="diskon" checked>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -324,6 +336,7 @@
 
 <script src="<?php echo base_url('assets/plugins/datatables/jquery.dataTables.min.js') ?>"></script>
 <script src="<?php echo base_url('assets/plugins/datepicker/bootstrap-datepicker.js') ?>"></script>
+<script src="<?php echo base_url('assets/plugins/select2/select2.min.js') ?>"></script>
 
 
 <!-- AdminLTE App -->
@@ -333,21 +346,63 @@
 <script type="text/javascript">
     $(document).ready(function (e) {
 
-        $("#cari_wali_siswa").keyup(function () {
-            alert($("#cari_wali_siswa").val())
+       $(function () {
+           $('.wali-select2').select2({
+                minimumInputLength: 3,
+                allowClear: true,
+                placeholder: 'Cari Nama Orang tua Wali Siswa',
+                ajax: {
+                    type: "POST",
+                    dataType: 'json',
+                    url: 'daftar/cari_wali',
+                    delay: 800,
+                    data: function (params) {
+                        return {
+                            search: params.term
+                        }
+                    },
+                    proccessResults: function (data,page){
+                        return {
+                            results: data
+                        };
+                    },
+                }
+           }).on('select2:select', function (evt) {
+               var data = $(".wali-select2 option:selected").text();
+               alert("Data yang dipilih adalah "+data);
+           });
+       });
+
+
+
+        $("#biaya_pendaftaran").click(function () {
+
         });
 
         $("#tgl_lahir").datepicker({
             autoclose: true,
-            format: 'dd-mm-yyyy'
+            format: 'dd MM yyyy'
         })
-
     });
 
-    function add_wali() {
-        $("#modal-wali").modal("show")
+    function save_wali(){
+        if ($('[name="nama_wali"]').val() == ""){
+            alert("Nama Wali Siswa Wajib Di Isi !!!")
+        } else {
+            $.ajax({
+                type: "POST",
+                url: "daftar/save_wali",
+                data: $("#form-wali").serialize(),
+                success: function (data) {
+                    if (data == 1){
+                        $("#form-wali")[0].reset()
+                        $("#modal-wali").modal("hide")
+                    }
+                }
+            });
+        }
     }
-    
+
     function lihat() {
        // alert($("#form-pendaftaran").serialize());
 

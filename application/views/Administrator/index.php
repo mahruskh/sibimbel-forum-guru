@@ -134,14 +134,14 @@
   <section class="content">
     <div class="box box-primary box-solid flat">
         <div class="box-body">
-            <a href="#" class="btn btn-yahoo btn-flat">Tambah Administrator</a> |
+            <a href="<?php echo base_url('administrator/add-admin');?>" class="btn btn-yahoo btn-flat">Tambah Administrator</a> |
             <a href="<?php echo base_url('administrator/show');?>" class="btn btn-yahoo btn-flat active">Data Administrator</a> |
             <a href="<?php echo base_url('administrator/setup-akun')?>" class="btn btn-yahoo btn-flat">Setup Akun</a>
         </div>
     </div>
     <div class="row">
         <?php
-        foreach ($profil as $row) { ?>
+        foreach ($admin as $row) { ?>
             <div class="col-sm-6 col-md-3">
                 <div class="box box-primary flat">
                     <div class="box-body box-profile">
@@ -157,9 +157,9 @@
                             ?>
                         </p>
                         <ul class="list-group list-group-unbordered">
-                            <li class="list-group-item"><b>Last Login</b> <a class="pull-right">tanggal</a></li>
+                            <li class="list-group-item"><b>Last Login</b> <a class="pull-right"><?php echo date('d/m/Y, h:i', strtotime($row->last_login))?></a></li>
                         </ul>
-                        <a href="#" class="btn btn-primary btn-block btn-sm"><b>Detail</b></a>
+                        <button class="btn btn-primary btn-sm btn-block text-bold" onclick="detail_admin(<?php echo $row->id_admin;?>)">Detail</button>
                     </div>
                 </div>
             </div>
@@ -193,8 +193,22 @@
 </body>
 </html>
 <script type="text/javascript">
-    var siswabimbel_dt;
     $(document).ready(function (e) {
 
     });
+    function detail_admin(id_admin) {
+        $.ajax({
+            type: "POST",
+            url: "detail_admin",
+            dataType: "JSON",
+            data: {id_admin:id_admin},
+            success: function (data) {
+                $('[name="nama"]').val(data.nama)
+                $('[name="status"]').val(data.status)
+                $('[name="alamat"]').val(data.alamat)
+                $('[name="telepon"]').val(data.telepon)
+                $("#modal-admin").modal("show")
+            }
+        });
+    }
 </script>

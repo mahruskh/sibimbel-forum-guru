@@ -164,21 +164,21 @@
                 <div class="box-header with-border">
                     <h4 class="box-tittle text-center">Pendaftaran Siswa Bimbel</h4>
                 </div>
-                <form class="form-horizontal" action="register_siswa" method="POST" id="form-pendaftaran">
+                <form class="form-horizontal" action="register_siswa" method="POST">
                     <div class="box-body">
                         <div class="row">
                             <div class="col-md-7">
                                 <div class="box box-default flat">
                                     <div class="box-body">
                                         <div class="form-group">
-                                            <label class="col-sm-3 control-label">Nama Lengkap*</label>
+                                            <label class="col-sm-3 control-label">Nama Siswa*</label>
                                             <div class="col-sm-8">
                                                 <input type="text" name="nama_siswa" class="form-control" maxlength="100" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-sm-3 control-label">Foto (*.jpg/png)</label>
-                                            <div class="col-sm-5">
+                                            <label class="col-sm-3 control-label">Foto</label>
+                                            <div class="col-sm-6">
                                                 <input type="file" name="foto" class="form-control">
                                             </div>
                                         </div>
@@ -199,13 +199,11 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">Alamat*</label>
-                                            <div class="col-sm-5">
-                                                <textarea class="form-control" name="alamat" row="3" maxlength="255" required></textarea>
-                                            </div>
-                                            <div class="col-sm-3">
+                                            <div class="col-sm-8">
                                                 <div class="checkbox">
-                                                    <input type="checkbox" id="alamat" checked>Sama Orang Tua / Wali ?
+                                                    <label><input type="checkbox" id="checked_alamat"> Sama dengan Orang Tua / Wali ? </label>
                                                 </div>
+                                                <textarea class="form-control" name="alamat" row="3" maxlength="255" required></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -224,12 +222,10 @@
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">Nama Orang Tua Wali*</label>
                                             <div class="col-sm-6">
-                                                <select class="form-control wali-select2">
-
-                                                </select>
+                                                <select class="form-control wali-select2"></select>
                                             </div>
                                             <div class="col-sm-2">
-                                                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-wali">Tambah</button>
+                                                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-wali">BARU</button>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -247,13 +243,24 @@
                                         <div class="form-group">
                                             <label class="col-sm-5 control-label">Tahun Ajaran*</label>
                                             <div class="col-sm-7">
-                                                <input type="text" name="tahun_ajaran" class="form-control">
+                                                <select class="form-control tahun-ajaran-select2">
+                                                    <?php foreach ($def_tahun_ajaran as $row) { ?>
+                                                        <option value="<?php echo $row->id_tahun_ajaran;?>"><?php echo $row->tahun_ajaran;?></option>
+                                                    <?php
+                                                    } ?>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-5 control-label">Program Bimbel*</label>
                                             <div class="col-sm-7">
-                                                <input type="text" name="program_bimbel" class="form-control">
+                                                <select class="form-control program-bimbel-select2" id="change-program-bimbel">
+                                                    <option value="Pilih"> -- Pilih Program Bimbel -- </option>
+                                                    <?php foreach ($def_program_bimbel as $row) { ?>
+                                                        <option value="<?php echo $row->id_program_bimbel;?>"><?php echo $row->program_bimbel;?></option>
+                                                        <?php
+                                                    } ?>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -263,35 +270,42 @@
                                         <div class="form-group">
                                             <label class="col-sm-5 control-label">Biaya Pendaftaran</label>
                                             <div class="col-sm-6">
-                                                <input type="number" name="biaya_pendaftaran" class="form-control" readonly="readonly">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">Rp.</span>
+                                                    <input type="number" name="biaya_pendaftaran" value="<?php foreach ($def_biaya_daftar as $row) { echo $row->biaya_daftar; }?>" class="form-control" readonly="readonly">
+                                                </div>
                                             </div>
                                             <div class="col-sm-1">
                                                 <div class="checkbox">
-                                                   <input type="checkbox" id="biaya_pendaftaran" checked>
+                                                    <input type="checkbox" id="checked_biaya_pendaftaran" checked>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-5 control-label">Diskon</label>
-                                            <div class="col-sm-6">
-                                                <input type="text" name="diskon" class="form-control">
+                                            <div class="col-sm-3">
+                                                <input type="text" name="kode_diskon" class="form-control" placeholder="Kode Diskon">
                                             </div>
-                                            <div class="col-sm-1">
-                                                <div class="checkbox">
-                                                    <input type="checkbox" id="diskon" checked>
-                                                </div>
+                                            <div class="col-sm-4">
+                                                <input type="number" name="jml_diskon" class="form-control" placeholder="Jumlah Diskon">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-5 control-label">Biaya Program*</label>
                                             <div class="col-sm-7">
-                                                <input type="text" name="b" class="form-control">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">Rp.</span>
+                                                    <input type="text" name="biaya_program" id="biaya_program" class="form-control" readonly="readonly">
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-sm-5 control-label">Total Pembayaran*</label>
+                                            <label class="col-sm-5 control-label">Total Biaya*</label>
                                             <div class="col-sm-7">
-                                                <input type="text" name="total_pembayaran" class="form-control">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">Rp.</span>
+                                                    <input type="text" name="total_biaya" class="form-control" readonly="readonly">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -302,11 +316,9 @@
                                         <br>
                                         *Pastikan Telah Terisi dengan Benar !
                                         <input type="reset" class="btn btn-default btn-sm pull-right">
-                                        <button type="button" class="btn btn-success" onclick="lihat()">LIHAT</button>
                                     </div>
                                 </div>
                             </div>
-
                 </form>
             </div>
     </div>
@@ -315,7 +327,6 @@
 <!-- /.content -->
 </div>
 
-<!-- /.content-wrapper -->
 <!-- Main Footer -->
 <footer class="main-footer">
     <!-- To the right -->
@@ -346,37 +357,60 @@
 <script type="text/javascript">
     $(document).ready(function (e) {
 
-       $(function () {
            $('.wali-select2').select2({
-                minimumInputLength: 3,
-                allowClear: true,
                 placeholder: 'Cari Nama Orang tua Wali Siswa',
+                minimumInputLength: 3,
                 ajax: {
-                    type: "POST",
-                    dataType: 'json',
                     url: 'daftar/cari_wali',
-                    delay: 800,
-                    data: function (params) {
+                    dataType: 'json',
+                    delay: 250,
+                    processResults: function (data) {
                         return {
-                            search: params.term
-                        }
-                    },
-                    proccessResults: function (data,page){
-                        return {
-                            results: data
+                            results: data.nama_wali
                         };
                     },
+                    cache: true
                 }
-           }).on('select2:select', function (evt) {
-               var data = $(".wali-select2 option:selected").text();
-               alert("Data yang dipilih adalah "+data);
            });
-       });
 
 
 
-        $("#biaya_pendaftaran").click(function () {
 
+
+           $('.tahun-ajaran-select2,.program-bimbel-select2').select2()
+
+        $("#change-program-bimbel").change(function () {
+            if ($("#change-program-bimbel").val() != "Pilih") {
+                $.ajax({
+                   type: "POST",
+                   url: "daftar/change_program_bimbel",
+                   dataType: "JSON",
+                   data: {id_program_bimbel:this.value},
+                   success: function (data) {
+                       $('[name="biaya_program"]').val(data.biaya_program)
+                   }
+                });
+            } else if ($("#change-program-bimbel").val() == "Pilih") {
+                $('[name="biaya_program"]').val("")
+            }
+        });
+
+        $("#checked_alamat").click(function () {
+            if ($("#checked_alamat").is(':checked')) {
+                $('[name="alamat"]').val($('[name="alamat_wali"]').val())
+                $('[name="alamat"]').attr('readonly',true)
+            } else {
+                $('[name="alamat"]').val("")
+                $('[name="alamat"]').attr('readonly',false)
+            }
+        });
+
+        $("#checked_biaya_pendaftaran").click(function () {
+            if ($("#checked_biaya_pendaftaran").is(':checked')) {
+                $('[name="biaya_pendaftaran"]').attr('readonly',true)
+            } else {
+                $('[name="biaya_pendaftaran"]').attr('readonly',false)
+            }
         });
 
         $("#tgl_lahir").datepicker({
@@ -402,11 +436,4 @@
             });
         }
     }
-
-    function lihat() {
-       // alert($("#form-pendaftaran").serialize());
-
-
-    }
-
 </script>

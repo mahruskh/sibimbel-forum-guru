@@ -132,35 +132,35 @@
     </section>
     <!-- Main content -->
   <section class="content">
-      <div class="box box-primary box-solid flat">
-          <div class="box-body">
-              <a href="" class="btn btn-yahoo btn-flat">Penjadwalan</a>
-          </div>
-      </div>
-        <div class="box box-primary flat">
-          <div class="box-header with-border">
-            <h4 class="box-tittle">Data Siswa Bimbel</h4>
-              <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-primary btn-sm" onclick="add()"><span class="glyphicon glyphicon-plus"></span> Data Siswa</button>
+      <div class="row">
+          <div class="col-md-6">
+              <div class="box box-primary flat">
+                  <div class="box-header with-border">
+                      <h4 class="box-tittle">Data Siswa Bimbel</h4>
+                      <div class="box-tools pull-right">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="add()"><span class="glyphicon glyphicon-plus"></span> Data Siswa</button>
+                      </div>
+                  </div>
+                  <div class="box-body">
+                      <div class="table-responsive">
+                          <table class="table table-bordered table-hover table-striped" id="siswabimbel-dt">
+                              <thead>
+                              <tr class="info">
+                                  <th>Nama Lengkap</th>
+                                  <th>Asal Sekolah</th>
+                                  <th>Tools</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
               </div>
           </div>
-          <div class="box-body">
-            <div class="table-responsive">
-            <table class="table table-bordered table-hover table-striped" id="siswabimbel-dt">
-                <thead>
-                  <tr class="info">
-                    <th>Nama Lengkap</th>
-                    <th>Asal Sekolah</th>
-                    <th>Tools</th>
-                  </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-          </div>
-          </div>
-        </div>
-    </section>
+      </div>
+
+  </section>
     <!-- /.content -->
   </div>
 

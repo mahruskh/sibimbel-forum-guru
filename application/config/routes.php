@@ -18,6 +18,7 @@ $route['data/siswa/daftar'] = 'Data/_SiswaBimbelController/registration_siswa';
 $route['data/siswa/register_siswa'] = 'Data/_SiswaBimbelController/register_siswa';
 $route['data/siswa/daftar/save_wali'] = 'Data/_SiswaBimbelController/save_wali';
 $route['data/siswa/daftar/cari_wali'] = 'Data/_SiswaBimbelController/cari_wali';
+$route['data/siswa/daftar/change_program_bimbel'] = 'Data/_SiswaBimbelController/change_program_bimbel';
 
 $route['data/wali/show'] = 'Data/_WaliController/index';
 $route['data/wali/show_data_wali'] = 'Data/_WaliController/show_data_wali';
@@ -25,6 +26,7 @@ $route['data/wali/trash_wali'] = 'Data/_WaliController/trash_wali';
 $route['data/wali/add_wali'] = 'Data/_WaliController/add_wali';
 $route['data/wali/edit_wali'] = 'Data/_WaliController/edit_wali';
 $route['data/wali/update_wali'] = 'Data/_WaliController/update_wali';
+$route['data/wali/perwalian/(:any)'] = 'Data/_WaliController/perwalian/$1';
 
 $route['data/tentor/show'] = 'Data/_TentorController/index';
 $route['data/tentor/show_data_tentor'] = 'Data/_TentorController/show_data_tentor';
@@ -32,9 +34,10 @@ $route['data/tentor/trash_tentor'] = 'Data/_TentorController/trash_tentor';
 $route['data/tentor/add_tentor'] = 'Data/_TentorController/add_tentor';
 $route['data/tentor/edit_tentor'] = 'Data/_TentorController/edit_tentor';
 $route['data/tentor/update_tentor'] = 'Data/_TentorController/update_tentor';
+$route['data/tentor/count_tentor'] = 'Data/_TentorController/count_tentor';
 
 $route['data/bimbel/show'] = 'Bimbel/_BimbelController/index';
-$route['data/bimbel/show_data_bimbel'] = 'Bimbel/_BimbelController/show_data_bimbel';
+$route['data/bimbel/show_data'] = 'Bimbel/_BimbelController/show_data';
 $route['data/bimbel/trash_bimbel'] = 'Bimbel/_BimbelController/trash_bimbel';
 $route['data/bimbel/add_bimbel'] = 'Bimbel/_BimbelController/add_bimbel';
 $route['data/bimbel/edit_bimbel'] = 'Bimbel/_BimbelController/edit_bimbel';
@@ -42,6 +45,12 @@ $route['data/bimbel/update_bimbel'] = 'Bimbel/_BimbelController/update_bimbel';
 
 $route['data/pembayaran/show'] = 'Pembayaran/_PembayaranController/index';
 $route['data/pembayaran/show_data'] = 'Pembayaran/_PembayaranController/show_data';
+$route['data/pembayaran/trash_pembayaran'] = 'Pembayaran/_PembayaranController/trash_pembayaran';
+$route['data/pembayaran/detail/(:any)'] = 'Pembayaran/_PembayaranController/detail_pembayaran/$1';
+$route['data/pembayaran/detail/trash/detail_pembayaran'] = 'Pembayaran/_PembayaranController/trash_detail_pembayaran';
+$route['data/pembayaran/detail/add/detail_pembayaran'] = 'Pembayaran/_PembayaranController/add_detail_pembayaran';
+$route['data/pembayaran/detail/edit/detail_pembayaran'] = 'Pembayaran/_PembayaranController/edit_detail_pembayaran';
+$route['data/pembayaran/detail/update/detail_pembayaran'] = 'Pembayaran/_PembayaranController/update_detail_pembayaran';
 $route['data/pembayaran/coba'] = 'Pembayaran/_PembayaranController/coba';
 
 $route['data/penjadwalan/show'] = 'Penjadwalan/_PenjadwalanController/index';
@@ -80,6 +89,8 @@ $route['setup/program-pilihan/trash_pilihan'] = 'Setup/_ProgramPilihanController
 
 
 $route['administrator/show'] = 'Administrator/_AdministratorController/index';
-$route['administrator/profil'] = 'Administrator/_AdministratorController/profil';
 $route['administrator/setup-akun'] = 'Administrator/_AdministratorController/setup_akun';
+$route['administrator/detail_admin'] = 'Administrator/_AdministratorController/detail_admin';
+$route['administrator/add-admin'] = 'Administrator/_AdministratorController/add_admin';
+$route['administrator/add_new_admin'] = 'Administrator/_AdministratorController/add_new_admin';
 $route['administrator/coba'] = 'Administrator/_AdministratorController/coba';

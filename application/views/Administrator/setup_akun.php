@@ -160,7 +160,7 @@
         <section class="content">
             <div class="box box-primary box-solid flat">
                 <div class="box-body">
-                    <a href="#" class="btn btn-yahoo btn-flat">Tambah Administrator</a> |
+                    <a href="<?php echo base_url('administrator/add-admin');?>" class="btn btn-yahoo btn-flat">Tambah Administrator</a> |
                     <a href="<?php echo base_url('administrator/show'); ?>" class="btn btn-yahoo btn-flat">Data
                         Administrator</a> |
                     <a href="<?php echo base_url('administrator/setup-akun') ?>" class="btn btn-yahoo btn-flat active">Setup
@@ -223,12 +223,6 @@
                                         <label class="col-sm-3 control-label">No. HP*</label>
                                         <div class="col-sm-5">
                                             <input type="number" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label">Keterangan</label>
-                                        <div class="col-sm-8">
-                                            <textarea class="form-control" row="3"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">

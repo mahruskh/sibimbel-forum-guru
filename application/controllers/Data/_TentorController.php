@@ -45,6 +45,12 @@ class _TentorController extends CI_Controller
             echo $this->TentorModel->trash_tentor($this->input->post('id_trash_tentor'));
         }
     }
+    public function count_tentor()
+    {
+        if ($this->input->is_ajax_request()) {
+            echo json_encode($this->TentorModel->count_tentor());
+        }
+    }
 
 }
 

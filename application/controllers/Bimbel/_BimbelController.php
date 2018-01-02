@@ -17,6 +17,26 @@ class _BimbelController extends CI_Controller
       $data['tentor'] = $this->BimbelModel->filter_tentor();
       $this->load->view('Bimbel/index', $data);
     }
+    public function show_data()
+    {
+        if ($this->input->is_ajax_request()) {
+            $filter = array();
+//            foreach ($this->input->post() as $key => $id) {
+//                if ($id != "All") {
+//                    $filter[$key] = $id;
+//                }
+//            }
+            if ($this->input->post('id_tahun_ajaran') != "All"){ //BadCode harus di foreach array tapi bermasalah
+                $filter['id_tahun_ajaran'] = $this->input->post('id_tahun_ajaran');
+            }
+            if ($this->input->post('id_program_bimbel') != "All"){
+                $filter['id_program_bimbel'] = $this->input->post('id_program_bimbel');
+            }
+//            var_dump($filter);
+            echo $this->BimbelModel->show_data($filter);
+        }
+
+    }
 
 }
 ?>

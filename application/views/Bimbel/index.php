@@ -10,6 +10,7 @@
   <?php echo link_tag('assets/bootstrap/css/bootstrap.min.css');
         echo link_tag('assets/plugins/datatables/jquery.dataTables.min.css"');
         echo link_tag('assets/plugins/datatables/dataTables.bootstrap.css');
+        echo link_tag('assets/plugins/select2/select2.min.css');
   ?>
   <!-- Font Awesome -->
   <?php echo link_tag('assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css');?>
@@ -136,22 +137,20 @@
           <div class="box-body">
               <table class="table table-striped">
                   <tr>
-                      <td><label>Tahun Ajaran</label></td>
-                      <td>
-                          <select class="form-control">
-                              <option>All</option>
+                      <td>Tahun Ajaran :
+                          <select class="form-control" id="tahun_ajaran">
+                              <option value="All">All</option>
                               <?php
                               foreach ($tahun_ajaran as $row){ ?>
                                   <option value="<?php echo $row->id_tahun_ajaran;?>"><?php echo $row->tahun_ajaran;?></option>
-                              <?php
+                                  <?php
                               }
                               ?>
                           </select>
                       </td>
-                      <td><label>Program Jenjang</label></td>
-                      <td>
-                          <select class="form-control">
-                              <option>All</option>
+                      <td>Program Jenjang :
+                          <select class="form-control" id="program_bimbel">
+                              <option value="All">All</option>
                               <?php
                               foreach ($program_bimbel as $row){ ?>
                                   <option value="<?php echo $row->id_program_bimbel;?>"><?php echo $row->program_bimbel;?></option>
@@ -160,19 +159,16 @@
                               ?>
                           </select>
                       </td>
-                      <td><label>Tentor</label></td>
-                      <td>
-                          <select class="form-control">
-                              <option>All</option>
-                              <?php
-                              foreach ($tentor as $row){ ?>
-                                  <option value="<?php echo $row->id_tentor;?>"><?php echo $row->nama;?></option>
-                                  <?php
-                              }
-                              ?>
+                      <td>Tentor :
+                          <select class="form-control" id="tentor">
+                              <option value="All">All</option>
+                              <option>Tentor 1</option>
+                              <option>Tentorr 5</option>
                           </select>
                       </td>
-                      <td><button type="button" class="btn btn-success">Tampilkan</td>
+                      <td>Tools :
+                          <button type="button" class="btn btn-success" onclick="func_bimbel_dt()">Tampilkan
+                      </td>
                   </tr>
               </table>
           </div>
@@ -186,12 +182,14 @@
           </div>
           <div class="box-body">
             <div class="table-responsive">
-            <table class="table table-bordered table-hover table-striped" id="siswabimbel-dt">
+            <table class="table table-bordered table-hover table-striped" id="bimbel-dt">
                 <thead>
                   <tr class="info">
-                    <th>Nama Lengkap</th>
-                    <th>Asal Sekolah</th>
-                    <th>Tools</th>
+                      <th>Nama Lengkap</th>
+                      <th>Asal Sekolah</th>
+                      <th>Program Jenjang</th>
+                      <th>Tahun Ajaran</th>
+                      <th>Tools</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -226,6 +224,7 @@
 <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js') ?>"></script>
 
 <script src="<?php echo base_url('assets/plugins/datatables/jquery.dataTables.min.js')?>"></script>
+<script src="<?php echo base_url('assets/plugins/select2/select2.min.js') ?>"></script>
 
 
 <!-- AdminLTE App -->
@@ -233,8 +232,30 @@
 </body>
 </html>
 <script type="text/javascript">
+    var bimbel_dt;
     $(document).ready(function (e) {
 
-
+        $("#tahun_ajaran,#program_bimbel,#tentor").select2()
     });
+
+    function func_bimbel_dt() {
+        bimbel_dt = $("#bimbel-dt").DataTable({
+            "autoWidth": false,
+            "processing": true,
+            "serverSide": true,
+            "destroy": true,
+            "ajax": {
+                url: "show_data",
+                type: "post",
+                data: {id_tahun_ajaran:$("#tahun_ajaran").val(),id_program_bimbel:$("#program_bimbel").val()}
+            },
+            "columns": [
+                {"data":'nama'},
+                {"data":'asal_sekolah'},
+                {"data":"program_bimbel"},
+                {"data":"tahun_ajaran", "class": "text-center"},
+                {"data":"tools_bimbel", "class":"text-center", "orderable":false}
+            ],
+        });
+    }
 </script>

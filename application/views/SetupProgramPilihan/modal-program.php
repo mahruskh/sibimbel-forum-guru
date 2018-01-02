@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title"></h3>
+                <h3 class="modal-title text-center"></h3>
             </div>
             <div class="modal-body">
                 <form action="#" class="form-horizontal" id="form-program">
@@ -24,7 +24,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-3 control-label">Materi Ajar</label>
                         <div class="col-sm-6">
-                            <select class="form-control" name="id_pilihan_program">
+                            <select class="form-control" name="id_pilihan_program" id="pilihan_program_select2">
                                 <?php
                                 foreach ($pilihan_program as $pilihan){ ?>
                                     <option value="<?php echo $pilihan->id_pilihan_program?>"><?php echo $pilihan->pilihan_program?></option>
@@ -92,4 +92,3 @@
         </div>
     </div>
 </div>
-

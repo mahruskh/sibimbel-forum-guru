@@ -230,7 +230,7 @@
                 {"data":"tools", "class": "text-center", "orderable":false}
             ],
         });
-        $("#modal-trash").click(function () {
+        $("#trash-siswa").click(function () {
             $.ajax({
                 type: "POST",
                 url: "trash",

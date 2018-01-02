@@ -9,7 +9,7 @@ class WaliSiswaModel extends CI_Model
          </button>
          <ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
             <li onclick="edit_wali($1)"><a href="#">Detail & Edit</a></li>
-            <li><a href="#">Detail Perwalian</a></li>                    
+            <li><a href="perwalian/$1">Detail Perwalian</a></li>                    
             <li onclick="del_wali($1)"><a href="#">Hapus</a></li>
         </ul>
        </div>';
@@ -39,6 +39,19 @@ class WaliSiswaModel extends CI_Model
         $this->db->where('id_wali_siswa', $id_wali_siswa);
         return $this->db->delete('tb_wali_siswa');
     }
+    public function data_wali($id_wali_siswa)
+    {
+        $this->db->where('id_wali_siswa', $id_wali_siswa);
+        return $this->db->get('tb_wali_siswa')->result();
+    }
+    public function perwalian($id_wali_siswa)
+    {
+        $this->db->select('nama,asal_sekolah,telepon');
+        $this->db->from('tb_siswa');
+        $this->db->where('id_wali_siswa', $id_wali_siswa);
+        return $this->db->get()->result();
+    }
+
 }
 
 ?>

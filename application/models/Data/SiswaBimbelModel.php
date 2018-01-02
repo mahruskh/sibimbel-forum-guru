@@ -36,11 +36,11 @@ class SiswaBimbelModel extends CI_Model
     }
     public function cari_wali($term)
     {
-        $this->db->select('id_wali_siswa,nama_wali');
+        $this->db->select('nama_wali');
         $this->db->like('nama_wali',$term,'after');
         return $this->db->get('tb_wali_siswa')->result();
     }
-    public function pilihan_default()
+    public function pilihan_default() //belum berhasil
     {
         $this->db->select('id_tahun_ajaran,tahun_ajaran');
         $this->db->order_by('tahun_ajaran', 'DESC');
@@ -49,5 +49,30 @@ class SiswaBimbelModel extends CI_Model
         $this->db->order_by('id_program_bimbel', 'DESC');
         $data ['program_bimbel'] = $this->db->get('tb_program_bimbel')->result();
         return $data;
+    }
+    public function def_tahun_ajaran()
+    {
+        $this->db->select('id_tahun_ajaran,tahun_ajaran');
+        $this->db->order_by('tahun_ajaran','DESC');
+        return $this->db->get('tb_tahun_ajaran')->result();
+    }
+
+    public function def_program_bimbel()
+    {
+        $this->db->select('id_program_bimbel,program_bimbel');
+        $this->db->from('tb_program_bimbel');
+        return $this->db->get()->result();
+    }
+    public function def_biaya_daftar()
+    {
+        $this->db->select('biaya_daftar');
+        return $this->db->get('tb_biaya_daftar')->result();
+    }
+    public function change_program_bimbel($id_program_bimbel)
+    {
+        $this->db->select('biaya_program');
+        $this->db->from('tb_program_bimbel');
+        $this->db->where('id_program_bimbel', $id_program_bimbel);
+        return $this->db->get()->row();
     }
 }

@@ -39,6 +39,15 @@ class TentorModel extends CI_Model
         $this->db->where('id_tentor', $id_tentor);
         return $this->db->delete('tb_tentor');
     }
+    public function count_tentor()
+    {
+        $count["jml_tentor"] = $this->db->count_all('tb_tentor');
+        $this->db->where('status','Aktif');
+        $count['aktif_mengajar'] = $this->db->count_all_results('tb_tentor');
+        $this->db->where('status','Tidak Aktif');
+        $count['tidak_aktif_mengajar'] = $this->db->count_all_results('tb_tentor');
+        return $count;
+    }
 }
 
 ?>

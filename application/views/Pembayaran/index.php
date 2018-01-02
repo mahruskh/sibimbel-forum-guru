@@ -10,6 +10,7 @@
   <?php echo link_tag('assets/bootstrap/css/bootstrap.min.css');
         echo link_tag('assets/plugins/datatables/jquery.dataTables.min.css"');
         echo link_tag('assets/plugins/datatables/dataTables.bootstrap.css');
+        echo link_tag('assets/plugins/select2/select2.min.css');
   ?>
   <!-- Font Awesome -->
   <?php echo link_tag('assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css');?>
@@ -133,8 +134,7 @@
           <div class="box-body">
               <table class="table table-striped">
                   <tr>
-                      <td><label>Tahun Ajaran</label></td>
-                      <td>
+                      <td>Tahun Ajaran :
                           <select class="form-control" id="tahun_ajaran">
                               <option value="All">All</option>
                               <?php
@@ -145,8 +145,7 @@
                               ?>
                           </select>
                       </td>
-                      <td><label>Program Jenjang</label></td>
-                      <td>
+                      <td>Program Jenjang :
                           <select class="form-control" id="program_bimbel">
                               <option value="All">All</option>
                               <?php
@@ -157,15 +156,16 @@
                               ?>
                           </select>
                       </td>
-                      <td><label>Status Pembayaran</label></td>
-                      <td>
+                      <td>Status :
                           <select class="form-control" id="status_pembayaran">
                               <option value="All">All</option>
                               <option>Lunas</option>
                               <option>Belum Lunas</option>
                           </select>
                       </td>
-                      <td><button type="button" class="btn btn-success" onclick="func_pembayaran_dt()">Tampilkan</td>
+                      <td>Tools :
+                          <button type="button" class="btn btn-success" onclick="func_pembayaran_dt()">Tampilkan
+                      </td>
                   </tr>
               </table>
           </div>
@@ -219,6 +219,7 @@
 <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js')?>"></script>
 
 <script src="<?php echo base_url('assets/plugins/datatables/jquery.dataTables.min.js')?>"></script>
+<script src="<?php echo base_url('assets/plugins/select2/select2.min.js') ?>"></script>
 
 <script src="<?php echo base_url('assets/dist/js/app.min.js')?>"></script>
 </body>
@@ -227,7 +228,7 @@
     var pembayaran_dt;
     $(document).ready(function (e) {
 
-
+        $("#tahun_ajaran,#program_bimbel,#status_pembayaran").select2()
 
 
     });
@@ -261,7 +262,18 @@
             ],
         });
     }
-    function del_pembayaran(id_pembayaran) {
-        alert(id_pembayaran)
+    function del_pembayaran(id_bimbel) {
+        if (confirm("Data Bimbel dan Pembayaran Akan Dihapus Permanen !!!")) {
+            $.ajax({
+                type: "POST",
+                url : "trash_pembayaran",
+                data: {id_bimbel:id_bimbel},
+                success: function (data) {
+                    if (data == 1){
+                        pembayaran_dt.ajax.reload(null,false);
+                    }
+                }
+            });
+        }
     }
 </script>

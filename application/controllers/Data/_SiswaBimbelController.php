@@ -31,16 +31,12 @@ class _SiswaBimbelController extends CI_Controller
     public function registration_siswa()
     {
         $data['title'] = "Pendaftaran Siswa Bimbel";
-        $data['default'] = $this->SiswaBimbelModel->pilihan_default();
+        $data['def_tahun_ajaran'] = $this->SiswaBimbelModel->def_tahun_ajaran();
+        $data['def_program_bimbel'] = $this->SiswaBimbelModel->def_program_bimbel();
+        $data['def_biaya_daftar'] = $this->SiswaBimbelModel->def_biaya_daftar();
         $this->load->view('DataSiswa/registration_siswa', $data);
         $this->load->view('DataSiswa/modal-add-wali');
 
-//        foreach ($data['default'] as $row){
-//
-//            foreach ($row as $tiw){
-//                var_dump($tiw);
-//            }
-//        }
     }
     public function register_siswa()
     {
@@ -71,8 +67,15 @@ class _SiswaBimbelController extends CI_Controller
     public function cari_wali()
     {
        // if ($this->input->is_ajax_request()){
-            echo json_encode($this->SiswaBimbelModel->cari_wali("muh"));
+            echo json_encode($this->SiswaBimbelModel->cari_wali('muh'));
        // }
+    }
+    public function change_program_bimbel()
+    {
+        if ($this->input->is_ajax_request()){
+           echo json_encode($this->SiswaBimbelModel->change_program_bimbel($this->input->post('id_program_bimbel')));
+//            echo $this->SiswaBimbelModel->change_program_bimbel($this->input->post('id_program_bimbel'));
+        }
     }
 }
 

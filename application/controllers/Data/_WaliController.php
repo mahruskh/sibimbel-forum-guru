@@ -45,6 +45,18 @@ class _WaliController extends CI_Controller
             echo $this->WaliSiswaModel->trash_wali($this->input->post('id_trash_wali'));
         }
     }
+
+    public function perwalian($id_wali_siswa)
+    {
+        $data['data_perwalian'] = $this->WaliSiswaModel->data_wali($id_wali_siswa);
+        if (!empty($data['data_perwalian'])){
+            $data['title'] = "Detail Perwalian Siswa";
+            $data['perwalian'] = $this->WaliSiswaModel->perwalian($id_wali_siswa);
+            $this->load->view('DataWali/detail_perwalian', $data);
+        }else {
+            redirect(base_url('data/wali/show'));
+        }
+    }
 }
 
 ?>

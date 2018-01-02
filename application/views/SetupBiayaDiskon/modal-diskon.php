@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title"></h3>
+                <h3 class="modal-title text-center"></h3>
             </div>
             <div class="modal-body">
                 <input type="text" id="id_diskon" class="hidden" readonly="readonly">

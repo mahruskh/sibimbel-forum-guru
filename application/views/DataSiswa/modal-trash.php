@@ -7,7 +7,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-danger trash" id="trash">Delete</button>
+                <button type="button" class="btn btn-danger trash" id="trash-siswa">Delete</button>
               </div>
             </div>
           </div>

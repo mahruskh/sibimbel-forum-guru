@@ -12,7 +12,7 @@
         echo link_tag('assets/plugins/datatables/dataTables.bootstrap.css');
   ?>
   <!-- Font Awesome -->
-  <?php echo link_tag('assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css');?>
+    <?php echo link_tag('assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css');?>
   <!-- Theme style -->
   <?php echo link_tag('assets/dist/css/AdminLTE.min.css'); ?>
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
@@ -90,8 +90,8 @@
           <a href="#"><i class="glyphicon glyphicon-book"></i><span> DATA PENDAFTARAN</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
           <ul class="treeview-menu">
             <li><a href="<?php echo base_url('data/siswa/show')?>"><i class="glyphicon glyphicon-minus"></i> Siswa Bimbel</a></li>
-            <li><a href="<?php echo base_url('data/wali/show')?>"><i class="glyphicon glyphicon-minus"></i> Wali / Orang Tua</a></li>
-            <li class="active"><a href="<?php echo base_url('data/tentor/show')?>"><i class="glyphicon glyphicon-minus"></i> Tentor / Pengajar</a></li>
+            <li class="active"><a href="<?php echo base_url('data/wali/show')?>"><i class="glyphicon glyphicon-minus"></i> Wali / Orang Tua</a></li>
+            <li><a href="<?php echo base_url('data/tentor/show')?>"><i class="glyphicon glyphicon-minus"></i> Tentor / Pengajar</a></li>
           </ul>
         </li>
         <li><a href="<?php echo base_url('data/bimbel/show')?>"><i class="glyphicon glyphicon-tags" aria-hidden="true"></i><span> DATA BIMBEL</span></a></li>
@@ -132,59 +132,94 @@
     </section>
     <!-- Main content -->
   <section class="content">
-    <div class="row">
-      <div class="col-sm-6 col-md-4">
-        <div class="info-box">
-          <span class="info-box-icon bg-green fa fa-check"></span>
-          <div class="info-box-content">
-            <span class="info-box-text">Aktif Mengajar</span>
-            <span class="info-box-number"><div id="aktif_mengajar"></div></span>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="info-box">
-          <span class="info-box-icon bg-blue fa fa-circle-o"></span>
-          <div class="info-box-content">
-            <span class="info-box-text">Jumlah Tentor</span>
-            <span class="info-box-number"><div id="jml_tentor"></div></span>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="info-box">
-          <span class="info-box-icon bg-red fa fa-times"></span>
-          <div class="info-box-content">
-            <span class="info-box-text">Tidak Aktif Mengajar</span>
-            <span class="info-box-number"><div id="tidak_aktif_mengajar"></div></span>
-          </div>
-        </div>
-      </div>
-    </div>
-        <div class="box box-primary flat">
+      <div class="box box-primary flat">
           <div class="box-header with-border">
-            <h4 class="box-tittle">Data Tentor / Pengajar</h4>
-              <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-primary btn-sm" onclick="add_tentor()"><span class="glyphicon glyphicon-plus"></span> Data Tentor</button>
-              </div>
+              <h4 class="box-tittle text-center">Detail Perwalian Siswa</h4>
           </div>
-          <div class="box-body">
-            <div class="table-responsive">
-            <table class="table table-bordered table-hover table-striped" id="tentor-dt">
-                <thead>
-                  <tr class="info">
-                    <th>Nama Lengkap</th>
-                    <th>Telepon</th>
-                    <th>Status</th>
-                    <th>Tools</th>
-                  </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-          </div>
-          </div>
-        </div>
+              <div class="box-body">
+                  <div class="row">
+                      <div class="col-md-5">
+                          <div class="box box-default flat">
+                              <div class="box-header text-center">Data Orang Tua/Wali Siswa</div>
+                              <div class="box-body">
+                                  <form class="form-horizontal">
+                                  <?php foreach ($data_perwalian as $row) { ?>
+                                      <input type="text" name="id_wali_siswa" value="<?php echo $row->id_wali_siswa;?>" class="hidden" required>
+                                      <div class="form-group">
+                                          <label class="col-sm-3 control-label">Nama Wali Siswa*</label>
+                                          <div class="col-sm-8">
+                                              <input type="text" name="nama_wali" value="<?php echo $row->nama_wali;?>" class="form-control" maxlength="100" required>
+                                          </div>
+                                      </div>
+                                      <div class="form-group">
+                                          <label class="col-sm-3 control-label">Pekerjaan</label>
+                                          <div class="col-sm-8">
+                                              <input type="text" name="pekerjaan_wali" value="<?php echo $row->pekerjaan_wali;?>" class="form-control" maxlength="100">
+                                          </div>
+                                      </div>
+                                      <div class="form-group">
+                                          <label class="col-sm-3 control-label">Alamat*</label>
+                                          <div class="col-sm-8">
+                                              <textarea class="form-control" name="alamat_wali" row="3" maxlength="255" required><?php echo $row->alamat_wali;?></textarea>
+                                          </div>
+                                      </div>
+                                      <div class="form-group">
+                                          <label class="col-sm-3 control-label">Telepon*</label>
+                                          <div class="col-sm-6">
+                                              <input type="number" name="telepon_wali" value="<?php echo $row->telepon_wali;?>" class="form-control" maxlength="15" required>
+                                          </div>
+                                      </div>
+                                      <div class="form-group">
+                                          <label class="col-sm-3 control-label">Keterangan</label>
+                                          <div class="col-sm-8">
+                                              <textarea class="form-control" name="keterangan_wali" row="3" maxlength="255"><?php echo $row->keterangan_wali;?></textarea>
+                                          </div>
+                                      </div>
+                                      <div class="form-group">
+                                          <label class="col-sm-3 control-label"></label>
+                                          <div class="col-sm-8">
+                                              <button type="button" class="btn btn-primary" onclick="update_wali()">UPDATE</button>
+                                              <button type="button" class="btn btn-default pull-right" onclick="load_page()">Load</button>
+                                          </div>
+                                      </div>
+                                  <?php
+                                  }
+                                  ?>
+                                  </form>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-7">
+                          <div class="box box-default flat">
+                              <div class="box-header text-center">Perwalian Siswa</div>
+                              <div class="box-body">
+                                  <div class="table-responsive">
+                                      <table class="table table-hover table-striped table-bordered">
+                                          <thead>
+                                          <tr class="info">
+                                              <th>Nama Siswa</th>
+                                              <th>Asal Sekolah</th>
+                                              <th>No. HP</th>
+                                          </tr>
+                                          </thead>
+                                          <tbody>
+                                          <?php
+                                          foreach ($perwalian as $row) { ?>
+                                          <tr>
+                                              <td><?php echo $row->nama;?></td>
+                                              <td><?php echo $row->asal_sekolah;?></td>
+                                              <td><?php echo $row->telepon;?></td>
+                                              </tr>
+                                          <?php
+                                          }
+                                          ?>
+                                          </tbody>
+                                      </table>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                 </div>
     </section>
     <!-- /.content -->
   </div>
@@ -210,7 +245,7 @@
 <!-- Bootstrap 3.3.6 -->
 <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js')?>"></script>
 
-<script src="<?php echo base_url('assets/plugins/datatables/jquery.dataTables.min.js')?>"></script>
+<script src="<?php echo  base_url('assets/plugins/datatables/jquery.dataTables.min.js')?>"></script>
 
 
 <!-- AdminLTE App -->
@@ -218,128 +253,23 @@
 </body>
 </html>
 <script type="text/javascript">
-    var tentor_dt;
-    var method;
-    var id_update_tentor;
     $(document).ready(function (e) {
-        count_tentor()
-        tentor_dt = $("#tentor-dt").DataTable({
-            "autoWidth": false,
-            "processing": true,
-            "serverSide": true,
-            "ajax": {"url":"show_data_tentor", "type":"POST"},
-            "columns": [
-                {"data":'nama'},
-                {"data":"telepon", "orderable":false},
-                {"data":"status", "class": "text-center"},
-                {"data":"tools", "class": "text-center", "orderable":false}
-            ],
-        });
-        $("#trash_tentor").click(function () {
-            $.ajax({
-                type: "POST",
-                url: "trash_tentor",
-                data: {id_trash_tentor:$("#id_trash_tentor").val()},
-                success: function (data) {
-                    if (data == 1){
-                        $("#modal-trash-tentor").modal("hide")
-                        tentor_dt.ajax.reload(null,false);
-                        count_tentor()
-                    }
-                }
-            })
-        });
+
     });
-
-    function add_tentor() {
-        method = "add_tentor"
-        id_update_tentor = ""
-        $("#Aktif").attr('checked',true)
-        $("#Tidak-Aktif").attr('checked',false)
-        $("#form-tentor")[0].reset()
-        $('.modal-title').html("Tambah Tentor / Pengajar")
-        $("#act").html("SIMPAN")
-        $("#modal-tentor").modal("show")
-
-    };
-    function edit_tentor(id_tentor) {
-        method = "update_tentor"
-        id_update_tentor = id_tentor
-        $("#form-tentor")[0].reset()
-        $('.modal-title').html("Detail Tentor / Pengajar")
-        $("#act").html("UPDATE")
-
+    function update_wali() {
         $.ajax({
             type: "POST",
-            url: "edit_tentor",
-            dataType: "JSON",
-            data: {id_tentor:id_tentor},
+            url: "../update_wali",
+            data: {id_wali_siswa:$('[name="id_wali_siswa"]').val(),nama_wali:$('[name="nama_wali"]').val(),pekerjaan_wali:$('[name="pekerjaan_wali"]').val(),alamat_wali:$('[name="alamat_wali"]').val(),telepon_wali:$('[name="telepon_wali"]').val(),keterangan_wali:$('[name="keterangan_wali"]').val()},
             success: function (data) {
-                $('[name="nama"]').val(data.nama)
-                if (data.status == "Aktif") {
-                    $("#Aktif").attr('checked',true)
-                    $("#Tidak-Aktif").attr('checked',false)
+                if (data == 1){
+                    alert("Data Wali Siswa Diubah !")
+                    location.reload(true)
                 }
-                else if(data.status == "Tidak Aktif") {
-                    $("#Aktif").attr('checked',false)
-                    $("#Tidak-Aktif").attr('checked',true)
-                }
-                $('[name="pekerjaan"]').val(data.pekerjaan)
-                $('[name="alamat"]').val(data.alamat)
-                $('[name="telepon"]').val(data.telepon)
-                $('[name="keterangan"]').val(data.keterangan)
-                $("#modal-tentor").modal("show")
             }
         });
-    };
-    function save_tentor() {
-        if($('[name="nama"]').val() == ""){
-            alert("Nama Tentor Wajib Diisi !!!")
-        }else {
-            if(method == "add_tentor"){
-                $.ajax({
-                   type: "POST",
-                   url: method,
-                   data: $("#form-tentor").serialize(),
-                   success: function (data) {
-                       if (data == 1){
-                           $("#modal-tentor").modal("hide")
-                           tentor_dt.ajax.reload(null,false)
-                           count_tentor()
-                       }
-                   } 
-                });
-            }else if(method == "update_tentor"){
-                $.ajax({
-                    type: "POST",
-                    url: method,
-                    data: {id_tentor:id_update_tentor,nama:$('[name="nama"]').val(),status:$('input:radio[name=status]:checked').val(),pekerjaan:$('[name="pekerjaan"]').val(),alamat:$('[name="alamat"]').val(),telepon:$('[name="telepon"]').val(),keterangan:$('[name="keterangan"]').val()},
-                    success: function (data) {
-                        if (data == 1){
-                            $("#modal-tentor").modal("hide")
-                            tentor_dt.ajax.reload(null,false)
-                            count_tentor()
-                        }
-                    }
-                });
-            }
-        }
-    };
-    function del_tentor(id_tentor) {
-        $("#id_trash_tentor").val(id_tentor)
-        $("#modal-trash-tentor").modal("show")
-    };
-    function count_tentor() {
-        $.ajax({
-            type: "POST",
-            url: "count_tentor",
-            dataType: "json",
-            success: function (data) {
-                $("#aktif_mengajar").html(data.aktif_mengajar)
-                $("#jml_tentor").html(data.jml_tentor)
-                $("#tidak_aktif_mengajar").html(data.tidak_aktif_mengajar)
-            }
-        });
-    };
-
+    }
+    function load_page() {
+        location.reload(true)
+    }
 </script>

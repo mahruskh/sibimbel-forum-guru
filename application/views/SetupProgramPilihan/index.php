@@ -10,7 +10,6 @@
   <?php echo link_tag('assets/bootstrap/css/bootstrap.min.css');
         echo link_tag('assets/plugins/datatables/jquery.dataTables.css"');
         echo link_tag('assets/plugins/datatables/dataTables.bootstrap.css');
-        echo link_tag('assets/plugins/jquerytimepicker/jquery.timepicker.min.css');
   ?>
   <!-- Font Awesome -->
     <?php echo link_tag('assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css');?>
@@ -212,7 +211,6 @@
 <!-- Bootstrap 3.3.6 -->
 <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js')?>"></script>
 <script src="<?php echo base_url('assets/plugins/datatables/jquery.dataTables.min.js')?>"></script>
-<script src="../../assets/plugins/jquerytimepicker/jquery.timepicker.min.js"></script>
 
 <!-- AdminLTE App -->
 <script src="<?php echo base_url('assets/dist/js/app.min.js')?>"></script>
@@ -247,7 +245,6 @@
                 {"data":"tools", "class": "text-center", "orderable":false}
             ],
         });
-        $("#jp_timepicker").timepicker({'timeFormat': 'H:i'})
     });
     function trash_program(id_program_bimbel) {
       if (confirm("Hapus Program Bimbel Permanen !!!")){

@@ -8,6 +8,8 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['login/show'] = 'Login/_LoginController/index';
 
+$route['coba-pdf/show'] = 'CobaPdf/CobaPdfController/index';
+
 $route['dashboard/show'] = 'Dashboard/_DashboardController/index';
 
 $route['data/siswa/show'] = 'Data/_SiswaBimbelController/index';
@@ -18,6 +20,9 @@ $route['data/siswa/daftar'] = 'Data/_SiswaBimbelController/registration_siswa';
 $route['data/siswa/register_siswa'] = 'Data/_SiswaBimbelController/register_siswa';
 $route['data/siswa/daftar/save_wali'] = 'Data/_SiswaBimbelController/save_wali';
 $route['data/siswa/daftar/cari_wali'] = 'Data/_SiswaBimbelController/cari_wali';
+$route['data/siswa/daftar/get_alamat_wali'] = 'Data/_SiswaBimbelController/get_alamat_wali';
+$route['data/siswa/daftar/cari_kode_diskon'] = 'Data/_SiswaBimbelController/cari_kode_diskon';
+$route['data/siswa/daftar/get_jml_diskon'] = 'Data/_SiswaBimbelController/get_jml_diskon';
 $route['data/siswa/daftar/change_program_bimbel'] = 'Data/_SiswaBimbelController/change_program_bimbel';
 
 $route['data/wali/show'] = 'Data/_WaliController/index';
@@ -51,6 +56,7 @@ $route['data/pembayaran/detail/trash/detail_pembayaran'] = 'Pembayaran/_Pembayar
 $route['data/pembayaran/detail/add/detail_pembayaran'] = 'Pembayaran/_PembayaranController/add_detail_pembayaran';
 $route['data/pembayaran/detail/edit/detail_pembayaran'] = 'Pembayaran/_PembayaranController/edit_detail_pembayaran';
 $route['data/pembayaran/detail/update/detail_pembayaran'] = 'Pembayaran/_PembayaranController/update_detail_pembayaran';
+$route['data/pembayaran/detail/(:any)/(:any)'] = 'Pembayaran/_PembayaranController/print_kwitansi/$1/$2';
 $route['data/pembayaran/coba'] = 'Pembayaran/_PembayaranController/coba';
 
 $route['data/penjadwalan/show'] = 'Penjadwalan/_PenjadwalanController/index';

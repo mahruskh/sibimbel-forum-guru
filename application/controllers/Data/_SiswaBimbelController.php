@@ -66,9 +66,27 @@ class _SiswaBimbelController extends CI_Controller
     }
     public function cari_wali()
     {
-       // if ($this->input->is_ajax_request()){
-            echo json_encode($this->SiswaBimbelModel->cari_wali('muh'));
-       // }
+        if ($this->input->is_ajax_request()){
+            echo json_encode($this->SiswaBimbelModel->cari_wali($this->input->post('term')));
+        }
+    }
+    public function get_alamat_wali()
+    {
+        if ($this->input->is_ajax_request()){
+            echo json_encode($this->SiswaBimbelModel->get_alamat_wali($this->input->post('id_wali_siswa')));
+        }
+    }
+    public function cari_kode_diskon()
+    {
+        if ($this->input->is_ajax_request()){
+            echo json_encode($this->SiswaBimbelModel->cari_kode_diskon($this->input->post('term')));
+        }
+    }
+    public function get_jml_diskon()
+    {
+        if ($this->input->is_ajax_request()){
+            echo json_encode($this->SiswaBimbelModel->get_jml_diskon($this->input->post('id_diskon')));
+        }
     }
     public function change_program_bimbel()
     {

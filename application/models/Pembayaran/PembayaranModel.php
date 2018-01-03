@@ -79,6 +79,25 @@ class PembayaranModel extends CI_Model
         $this->db->order_by('tgl_pembayaran','DESC');
         return $this->db->get()->result();
     }
+    public function print_pembayaran($id_detail)
+    {
+        $this->db->select('nama,asal_sekolah,tahun_ajaran,program_bimbel,total_biaya,total_transaksi,status');
+        $this->db->from('tb_bimbel');
+        $this->db->join('tb_siswa','tb_bimbel.id_siswa = tb_siswa.id_siswa','left');
+        $this->db->join('tb_tahun_ajaran','tb_bimbel.id_tahun_ajaran = tb_tahun_ajaran.id_tahun_ajaran','left');
+        $this->db->join('tb_program_bimbel','tb_bimbel.id_tahun_ajaran = tb_program_bimbel.id_program_bimbel','left');
+        $this->db->where('id_bimbel', $id_detail);
+        return $this->db->get()->result();
+    }
+    public function print_rincian_pembayaran($id_bimbel, $id_detail_pembayaran)
+    {
+        $this->db->select('tb_admin.nama as admin,jml_pembayaran,tgl_pembayaran');
+        $this->db->from('tb_detail_pembayaran');
+        $this->db->join('tb_admin','tb_detail_pembayaran.id_admin = tb_admin.id_admin','left');
+        $this->db->where('id_detail_pembayaran', $id_detail_pembayaran);
+        $this->db->where('id_bimbel', $id_bimbel);
+        return $this->db->get()->result();
+    }
     public function count_total_transaksi($id_bimbel) {
         $this->db->select('SUM(jml_pembayaran) AS total_transaksi');
         $this->db->from('tb_detail_pembayaran');

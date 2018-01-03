@@ -10,7 +10,6 @@ $config['index_page'] = '';
 
 $config['uri_protocol']	= 'REQUEST_URI';
 
-
 $config['url_suffix'] = '';
 
 $config['language']	= 'english';
@@ -25,7 +24,7 @@ $config['enable_hooks'] = FALSE;
 $config['subclass_prefix'] = 'MY_';
 
 
-$config['composer_autoload'] = FALSE;
+$config['composer_autoload'] = "vendor/autoload.php";
 
 
 $config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';

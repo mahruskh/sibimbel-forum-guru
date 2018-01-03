@@ -36,9 +36,27 @@ class SiswaBimbelModel extends CI_Model
     }
     public function cari_wali($term)
     {
-        $this->db->select('nama_wali');
-        $this->db->like('nama_wali',$term,'after');
+        $this->db->select('id_wali_siswa,nama_wali');
+        $this->db->like('nama_wali',$term);
         return $this->db->get('tb_wali_siswa')->result();
+    }
+    public function get_alamat_wali($id_wali_siswa)
+    {
+        $this->db->select('alamat_wali');
+        $this->db->where('id_wali_siswa', $id_wali_siswa);
+        return $this->db->get('tb_wali_siswa')->row();
+    }
+    public function cari_kode_diskon($term)
+    {
+        $this->db->select('id_diskon,kode_diskon');
+        $this->db->like('kode_diskon',$term);
+        return $this->db->get('tb_diskon')->result();
+    }
+    public function get_jml_diskon($id_diskon)
+    {
+        $this->db->select('jml_diskon');
+        $this->db->where('id_diskon', $id_diskon);
+        return $this->db->get('tb_diskon')->row();
     }
     public function pilihan_default() //belum berhasil
     {

@@ -160,7 +160,7 @@
                                   <div class="col-sm-7">
                                       <div class="input-group">
                                           <span class="input-group-addon">Rp.</span>
-                                          <input type="number" name="total_biaya" value="<?php echo $row->total_biaya;?>" class="form-control" maxlength="15" readonly="readonly" required>
+                                          <input type="text" name="total_biaya" value="<?php echo number_format($row->total_biaya,0,'','.');?>" class="form-control" maxlength="15" readonly="readonly" required>
                                       </div>
                                   </div>
                               </div>
@@ -169,7 +169,7 @@
                                   <div class="col-sm-7">
                                       <div class="input-group">
                                           <span class="input-group-addon">Rp.</span>
-                                          <input type="number" name="total_transaksi" value="<?php echo $row->total_transaksi;?>" class="form-control" maxlength="15" readonly="readonly" required>
+                                          <input type="text" name="total_transaksi" value="<?php echo number_format($row->total_transaksi,0,'','.');?>" class="form-control" maxlength="15" readonly="readonly" required>
                                       </div>
                                   </div>
                               </div>
@@ -206,7 +206,7 @@
                               <tbody>
                               <?php foreach ($rincian_pembayaran as $row) { ?>
                               <tr>
-                                  <td>Rp. <?php echo $row->jml_pembayaran;?></td>
+                                  <td>Rp. <?php echo number_format($row->jml_pembayaran,0,'','.');?></td>
                                   <td class="text-center"><?php echo date('d/m/Y', strtotime($row->tgl_pembayaran));?></td>
                                   <td><?php echo $row->admin;?></td>
                                   <td class="text-center">
@@ -215,7 +215,7 @@
                                               <span class="glyphicon glyphicon-cog"></span>
                                           </button>
                                           <ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
-                                              <li><a href="#">Print Kwitansi</a></li>
+                                              <li><a href="<?php echo current_url() . "/" . $row->id_detail_pembayaran;?>" target="_blank">Print Kwitansi</a></li>
                                               <li onclick="edit_detail_pembayaran(<?php echo $row->id_detail_pembayaran;?>)"><a href="#">Update</a></li>
                                               <li onclick="del_detail_pembayaran(<?php echo $row->id_detail_pembayaran;?>)"><a href="#">Hapus !</a></li>
                                           </ul>

@@ -222,7 +222,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">Nama Orang Tua Wali*</label>
                                             <div class="col-sm-6">
-                                                <select class="form-control wali-select2"></select>
+                                                <select class="form-control wali-select2" name="id_wali_siswa"></select>
                                             </div>
                                             <div class="col-sm-2">
                                                 <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-wali">BARU</button>
@@ -231,7 +231,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">Alamat*</label>
                                             <div class="col-sm-8">
-                                                <textarea class="form-control" row="3" name="alamat_wali" readonly="readonly"></textarea>
+                                                <textarea class="form-control" row="3" name="alamat_get_wali" readonly="readonly"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -243,7 +243,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-5 control-label">Tahun Ajaran*</label>
                                             <div class="col-sm-7">
-                                                <select class="form-control tahun-ajaran-select2">
+                                                <select class="form-control tahun-ajaran-select2" required>
                                                     <?php foreach ($def_tahun_ajaran as $row) { ?>
                                                         <option value="<?php echo $row->id_tahun_ajaran;?>"><?php echo $row->tahun_ajaran;?></option>
                                                     <?php
@@ -254,7 +254,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-5 control-label">Program Bimbel*</label>
                                             <div class="col-sm-7">
-                                                <select class="form-control program-bimbel-select2" id="change-program-bimbel">
+                                                <select class="form-control program-bimbel-select2" id="change-program-bimbel" required>
                                                     <option value="Pilih"> -- Pilih Program Bimbel -- </option>
                                                     <?php foreach ($def_program_bimbel as $row) { ?>
                                                         <option value="<?php echo $row->id_program_bimbel;?>"><?php echo $row->program_bimbel;?></option>
@@ -272,7 +272,7 @@
                                             <div class="col-sm-6">
                                                 <div class="input-group">
                                                     <span class="input-group-addon">Rp.</span>
-                                                    <input type="number" name="biaya_pendaftaran" value="<?php foreach ($def_biaya_daftar as $row) { echo $row->biaya_daftar; }?>" class="form-control" readonly="readonly">
+                                                    <input type="number" name="biaya_pendaftaran" id="biaya_pendaftaran" value="<?php foreach ($def_biaya_daftar as $row) { echo $row->biaya_daftar; }?>" class="form-control" readonly="readonly">
                                                 </div>
                                             </div>
                                             <div class="col-sm-1">
@@ -282,12 +282,12 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-sm-5 control-label">Diskon</label>
-                                            <div class="col-sm-3">
-                                                <input type="text" name="kode_diskon" class="form-control" placeholder="Kode Diskon">
-                                            </div>
+                                            <label class="col-sm-5 control-label">Kode Diskon</label>
                                             <div class="col-sm-4">
-                                                <input type="number" name="jml_diskon" class="form-control" placeholder="Jumlah Diskon">
+                                                <select class="form-control kode-diskon-select2" name="id_diskon"></select>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <input type="number" name="jml_diskon" class="form-control" placeholder="Diskon">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -295,7 +295,7 @@
                                             <div class="col-sm-7">
                                                 <div class="input-group">
                                                     <span class="input-group-addon">Rp.</span>
-                                                    <input type="text" name="biaya_program" id="biaya_program" class="form-control" readonly="readonly">
+                                                    <input type="text" name="biaya_program" id="biaya_program" class="form-control" readonly="readonly" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -304,7 +304,7 @@
                                             <div class="col-sm-7">
                                                 <div class="input-group">
                                                     <span class="input-group-addon">Rp.</span>
-                                                    <input type="text" name="total_biaya" class="form-control" readonly="readonly">
+                                                    <input type="text" name="total_biaya" class="form-control" readonly="readonly" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -357,24 +357,73 @@
 <script type="text/javascript">
     $(document).ready(function (e) {
 
-           $('.wali-select2').select2({
-                placeholder: 'Cari Nama Orang tua Wali Siswa',
-                minimumInputLength: 3,
-                ajax: {
-                    url: 'daftar/cari_wali',
-                    dataType: 'json',
-                    delay: 250,
-                    processResults: function (data) {
-                        return {
-                            results: data.nama_wali
-                        };
-                    },
-                    cache: true
-                }
+           $(function () {
+               $('.wali-select2').select2({
+                   placeholder: 'Cari Nama Orang tua Wali Siswa',
+                   minimumInputLength: 3,
+                   ajax: {
+                       type: "POST",
+                       url: 'daftar/cari_wali',
+                       dataType: 'JSON',
+                       delay: 250,
+                       processResults: function (data) {
+                           return {
+                               results: $.map(data, function (item) {
+                                   return {
+                                       text: item.nama_wali,
+                                       id: item.id_wali_siswa
+                                   }
+                               })
+                           };
+                       },
+                       cache: true
+                   }
+               }).change(function () {
+                    $.ajax({
+                        type: "POST",
+                        url: 'daftar/get_alamat_wali',
+                        dataType: 'JSON',
+                        data: {id_wali_siswa:$('[name="id_wali_siswa"]').val()},
+                        success: function (data) {
+                            $('[name="alamat_get_wali"]').val(data.alamat_wali)
+                        }
+                    });
+               })
            });
 
-
-
+           $(function () {
+               $('.kode-diskon-select2').select2({
+                   placeholder: 'Cari',
+                   minimumInputLength: 2,
+                   ajax: {
+                       type: "POST",
+                       url: 'daftar/cari_kode_diskon',
+                       dataType: 'JSON',
+                       delay: 250,
+                       processResults: function (data) {
+                           return {
+                               results: $.map(data, function (item) {
+                                   return {
+                                       text: item.kode_diskon,
+                                       id: item.id_diskon
+                                   }
+                               })
+                           };
+                       },
+                       cache: true
+                   }
+               }).change (function () {
+                   $.ajax({
+                       type: "POST",
+                       url: 'daftar/get_jml_diskon',
+                       dataType: 'JSON',
+                       data: {id_diskon:$('[name="id_diskon"]').val()},
+                       success: function (data) {
+                           $('[name="jml_diskon"]').val(data.jml_diskon)
+                       }
+                   });
+               })
+           });
 
 
            $('.tahun-ajaran-select2,.program-bimbel-select2').select2()
@@ -388,21 +437,27 @@
                    data: {id_program_bimbel:this.value},
                    success: function (data) {
                        $('[name="biaya_program"]').val(data.biaya_program)
+                       count_total_biaya()
                    }
                 });
             } else if ($("#change-program-bimbel").val() == "Pilih") {
                 $('[name="biaya_program"]').val("")
+                count_total_biaya()
             }
         });
 
         $("#checked_alamat").click(function () {
             if ($("#checked_alamat").is(':checked')) {
-                $('[name="alamat"]').val($('[name="alamat_wali"]').val())
+                $('[name="alamat"]').val($('[name="alamat_get_wali"]').val())
                 $('[name="alamat"]').attr('readonly',true)
             } else {
                 $('[name="alamat"]').val("")
                 $('[name="alamat"]').attr('readonly',false)
             }
+        });
+
+        $("#biaya_pendaftaran").keydown(function () {
+            count_total_biaya()
         });
 
         $("#checked_biaya_pendaftaran").click(function () {
@@ -419,6 +474,10 @@
         })
     });
 
+    function count_total_biaya() {
+        $('[name="total_biaya"]').val(parseInt($('[name="biaya_pendaftaran"]').val()) + parseInt($('[name="biaya_program"]').val() + parseInt($('[name="jml_diskon"]').val())))
+    }
+    
     function save_wali(){
         if ($('[name="nama_wali"]').val() == ""){
             alert("Nama Wali Siswa Wajib Di Isi !!!")

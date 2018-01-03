@@ -98,6 +98,13 @@ class _PembayaranController extends CI_Controller
         }
 
     }
+    public function print_kwitansi($id_bimbel, $id_detail_pembayaran)
+    {
+        $this->load->library('PdfGenerator');
+        $data['pembayaran'] = $this->PembayaranModel->print_pembayaran($id_bimbel);
+        $data['detail_pembayaran'] = $this->PembayaranModel->print_rincian_pembayaran($id_bimbel, $id_detail_pembayaran);
+        $this->pdfgenerator->generate('Pembayaran/print_kwitansi_pembayaran', $data);
+    }
 
 }
 

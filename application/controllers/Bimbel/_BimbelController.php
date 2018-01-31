@@ -6,6 +6,8 @@ class _BimbelController extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->library('CheckSession');
+        $this->checksession->check_session($this->session->id_admin,$this->session->nama);
         $this->load->model('Bimbel/BimbelModel');
         $this->load->library('Datatables');
     }
@@ -35,7 +37,12 @@ class _BimbelController extends CI_Controller
 //            var_dump($filter);
             echo $this->BimbelModel->show_data($filter);
         }
-
+    }
+    public function trash_bimbel()
+    {
+        if ($this->input->is_ajax_request()) {
+            echo $this->BimbelModel->trash_bimbel($this->input->post('id_bimbel'));
+        }
     }
 
 }

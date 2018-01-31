@@ -8,8 +8,7 @@ class TentorModel extends CI_Model
             <span class="glyphicon glyphicon-cog"></span>
          </button>
          <ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
-            <li onclick="edit_tentor($1)"><a href="#">Detail & Edit</a></li>
-            <li><a href="#">Riwayat Mengajar</a></li>                    
+            <li onclick="edit_tentor($1)"><a href="#">Detail & Edit</a></li>               
             <li onclick="del_tentor($1)"><a href="#">Hapus</a></li>
         </ul>
        </div>';

@@ -45,19 +45,19 @@
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-               <img src="http://localhost/sibimbel-forum-guru/assets/images/mahruskh.jpg" class="user-image" alt="User Image"/>
-               <span class="hidden-xs">Mahrus Khomaini</span>
+               <img src="<?php echo base_url('assets/images/'.$this->session->foto);?>" class="user-image" alt="User Image"/>
+               <span class="hidden-xs"><?php echo $this->session->nama;?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="http://localhost/sibimbel-forum-guru/assets/images/mahruskh.jpg" class="img-circle" alt="User Image"/><p>
-                Mahrus Khomaini - Administrator</p>
+                <img src="<?php echo base_url('assets/images/'.$this->session->foto);?>" class="img-circle" alt="User Image"/><p>
+                <?php echo $this->session->nama;?> - Administrator</p>
               </li>
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-right">
-                   <a href="http://localhost/sibimbel-forum-guru/login/logout" class="btn btn-default btn-flat">Logout</a>
+                   <a href="<?php echo base_url('login/logout')?>" class="btn btn-default btn-flat">Logout</a>
                 </div>
               </li>
             </ul>
@@ -73,9 +73,9 @@
 
      <div class="user-panel">
        <div class="pull-left image">
-         <img src="http://localhost/sibimbel-forum-guru/assets/images/mahruskh.jpg" class="img-circle" alt="User Image" />s</div>
+         <img src="<?php echo base_url('assets/images/'.$this->session->foto);?>" class="img-circle" alt="User Image" />s</div>
        <div class="pull-left info">
-         <p>Mahrus Khomaini</p>
+         <p><?php echo $this->session->nama;?></p>
            <a href="#">Online</a>
        </div>
      </div>
@@ -103,7 +103,7 @@
             <li><a href="<?php echo base_url('setup/tahun-ajaran/show')?>"><i class="glyphicon glyphicon-minus"></i> Tahun Ajaran</a></li>
           </ul>
         </li>
-        <li><a href=""><i class="glyphicon glyphicon-file" aria-hidden="true"></i><span> LAPORAN - LAPORAN</span></a></li>
+        <li><a href="<?php echo base_url('laporan/bimbel-pembayaran')?>"><i class="glyphicon glyphicon-file" aria-hidden="true"></i><span> LAPORAN - LAPORAN</span></a></li>
         <li class="treeview">
           <a href="#"><i class="glyphicon glyphicon-user"></i><span> ADMINISTRATOR</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
           <ul class="treeview-menu">
@@ -111,7 +111,7 @@
             <li><a href="<?php echo base_url('administrator/setup-akun')?>"><i class="glyphicon glyphicon-minus"></i> Setup Akun</a></li>
           </ul>
         </li>
-        <li><a href=""><i class="glyphicon glyphicon-log-out" aria-hidden="true"></i><span> LOGOUT</span></a></li>
+        <li><a href="<?php echo base_url('login/logout')?>"><i class="glyphicon glyphicon-log-out" aria-hidden="true"></i><span> LOGOUT</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -177,6 +177,12 @@
                                   <label class="col-sm-4 control-label">Status</label>
                                   <div class="col-sm-4">
                                       <input type="text" name="status" value="<?php echo $row->status;?>" class="form-control" readonly="readonly" required>
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <label class="col-sm-4 control-label">Tgl Pendaftaran</label>
+                                  <div class="col-sm-4">
+                                      <input type="text" name="tgl_pendaftaran" value="<?php echo date('d/m/Y',strtotime($row->tgl_pendaftaran))?>" class="form-control" readonly="readonly" required>
                                   </div>
                               </div>
                           </form>

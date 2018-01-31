@@ -12,11 +12,11 @@ class PdfGenerator extends Dompdf
     {
         return get_instance();
     }
-    public function generate($view, $data)
+    public function generate($view, $data, $filename)
     {
         $this->setPaper('A4','potrait');
         $this->load_html($this->load_ci()->load->view($view,$data,TRUE));
         $this->render();
-        $this->stream('okeee', array("Attachment" => false));
+        $this->stream($filename, array("Attachment" => false));
     }
 }

@@ -6,6 +6,8 @@ class _SiswaBimbelController extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->library('CheckSession');
+        $this->checksession->check_session($this->session->id_admin,$this->session->nama);
         $this->load->model('Data/SiswaBimbelModel');
         $this->load->library('Datatables');
     }
@@ -42,21 +44,38 @@ class _SiswaBimbelController extends CI_Controller
     {
         $daftar = $this->input->post('daftar');
         if (isset($daftar)) {
-            var_dump($this->input->post());
-            echo "<br><br>";
-            $siswa['id_wali_siswa'] = "1"; //belum ada id nya
-            $siswa['nama'] = $this->input->post('nama_siswa');
-            $siswa['foto'] = "fotos"; //belum ada foto
-            $siswa['tmpt_lahir'] = $this->input->post('tmpt_lahir');
-            $siswa['tgl_lahir'] = date('Y-m-d', strtotime($this->input->post('tgl_lahir')));
-            $siswa['asal_sekolah'] = $this->input->post('asal_sekolah');
-            $siswa['alamat'] = $this->input->post('alamat_siswa');
-            $siswa['telepon'] = $this->input->post('telepon_siswa');
-            $siswa['catatan'] = $this->input->post('catatan');
-            echo $this->SiswaBimbelModel->add_siswa($siswa);
+            $siswa = array(
+                "nis_bimbel" => $this->generate_nisb($this->input->post('nama_siswa')),
+                "id_wali_siswa" => $this->input->post('id_wali_siswa'),
+                "nama" => $this->input->post('nama_siswa'),
+                "foto" => "fotos", //foto belum ada
+                "tmpt_lahir" => $this->input->post('tmpt_lahir'),
+                "tgl_lahir" => date('Y-m-d', strtotime($this->input->post('tgl_lahir'))),
+                "asal_sekolah" => $this->input->post('asal_sekolah'),
+                "alamat" => $this->input->post('alamat'),
+                "telepon" => $this->input->post('telepon_siswa'),
+                "catatan" => $this->input->post('catatan')
+            );
+            $this->SiswaBimbelModel->add_siswa($siswa);
+
+            $bimbel = array (
+                "nis_bimbel" => $siswa['nis_bimbel'],
+                "id_tahun_ajaran" => $this->input->post('id_tahun_ajaran'),
+                "id_program_bimbel" => $this->input->post('id_program_bimbel'),
+                "total_biaya" => $this->input->post('total_biaya'),
+                "total_transaksi" => 0,
+                "status" => "Belum Lunas",
+                "tgl_pendaftaran" => date('Y-m-d')
+            );
+            $this->SiswaBimbelModel->add_bimbel($bimbel);
+            redirect('data/siswa/show');
         } else {
             redirect('data/siswa/daftar');
         }
+    }
+    private function generate_nisb($nama) //generate nis bimbel dari beberapa data
+    {
+        return $nisb = substr(strtoupper($nama),0,3) . date('ymdhis');
     }
     public function save_wali()
     {
@@ -92,9 +111,39 @@ class _SiswaBimbelController extends CI_Controller
     {
         if ($this->input->is_ajax_request()){
            echo json_encode($this->SiswaBimbelModel->change_program_bimbel($this->input->post('id_program_bimbel')));
-//            echo $this->SiswaBimbelModel->change_program_bimbel($this->input->post('id_program_bimbel'));
+        }
+    }
+    public function detail_siswa($id_siswa)
+    {
+        $data['siswa'] = $this->SiswaBimbelModel->detail_siswa($id_siswa);
+        if (!empty($data['siswa'])) {
+            $data['title'] = "Detail Data Siswa";
+            $this->load->view('DataSiswa/detail_siswa', $data);
+
+        } else {
+            redirect(base_url('data/siswa/show'));
+        }
+    }
+    public function update_siswa()
+    {
+        $update = $this->input->post('update_siswa');
+        if (isset($update)) {
+            $siswa['id_siswa'] = $this->input->post('id_siswa');
+            $siswa['nis_bimbel'] = $this->input->post('nis_bimbel');
+            $siswa['id_wali_siswa'] = $this->input->post('id_wali_siswa');
+            $siswa['nama'] = $this->input->post('nama_siswa');
+            $siswa['foto'] = "fotos"; //belum fotonya
+            $siswa['tmpt_lahir'] = $this->input->post('tmpt_lahir');
+            $siswa['tgl_lahir'] = date('Y-m-d', strtotime($this->input->post('tgl_lahir')));
+            $siswa['asal_sekolah'] = $this->input->post('asal_sekolah');
+            $siswa['alamat'] = $this->input->post('alamat');
+            $siswa['telepon'] = $this->input->post('telepon_siswa');
+            $siswa['catatan'] = $this->input->post('catatan');
+            $this->SiswaBimbelModel->update_siswa($siswa);
+            redirect('data/siswa/show');
+        } else {
+            redirect('data/siswa/daftar');
         }
     }
 }
-
 ?>

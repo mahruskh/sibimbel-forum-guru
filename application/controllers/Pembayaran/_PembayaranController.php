@@ -6,6 +6,8 @@ class _PembayaranController extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->library('CheckSession');
+        $this->checksession->check_session($this->session->id_admin,$this->session->nama);
         $this->load->model('Pembayaran/PembayaranModel');
         $this->load->library('Datatables');
     }
@@ -96,14 +98,13 @@ class _PembayaranController extends CI_Controller
             $this->PembayaranModel->count_total_transaksi($this->input->post('id_bimbel'));
             echo TRUE;
         }
-
     }
     public function print_kwitansi($id_bimbel, $id_detail_pembayaran)
     {
         $this->load->library('PdfGenerator');
         $data['pembayaran'] = $this->PembayaranModel->print_pembayaran($id_bimbel);
         $data['detail_pembayaran'] = $this->PembayaranModel->print_rincian_pembayaran($id_bimbel, $id_detail_pembayaran);
-        $this->pdfgenerator->generate('Pembayaran/print_kwitansi_pembayaran', $data);
+        $this->pdfgenerator->generate('Pembayaran/print_kwitansi_pembayaran', $data, 'Kwitansi Bukti Pembayaran');
     }
 
 }

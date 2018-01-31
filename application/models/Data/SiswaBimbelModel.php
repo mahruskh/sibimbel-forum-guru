@@ -8,27 +8,30 @@ class SiswaBimbelModel extends CI_Model
             <span class="glyphicon glyphicon-cog"></span>
          </button>
          <ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
-            <li><a href="#">Detail & Edit</a></li>
-            <li><a href="#">Rincian Pembayaran</a></li>                     
+            <li><a href="detail/$1">Detail & Edit</a></li>                     
             <li onclick="del($1)"><a href="#">Hapus !</a></li>
         </ul>
        </div>';
 
     public function show_data()
     {
-        $this->datatables->select('id_siswa,nama,asal_sekolah');
+        $this->datatables->select('id_siswa,nis_bimbel,nama,asal_sekolah');
         $this->datatables->from('tb_siswa');
         $this->datatables->add_column('tools', $this->tools_siswa, 'id_siswa');
         return $this->datatables->generate();
     }
     public function trash($id_siswa)
     {
-        $this->db->where('id_siswa', $id_siswa);
+        $this->db->where('id_siswa  ', $id_siswa);
         return $this->db->delete('tb_siswa');
     }
-    public function add_siswa($data)
+    public function add_siswa($siswa)
     {
-        return $this->db->insert('tb_siswa', $data);
+        return $this->db->insert('tb_siswa', $siswa);
+    }
+    public function add_bimbel($bimbel)
+    {
+        return $this->db->insert('tb_bimbel', $bimbel);
     }
     public function save_wali($data)
     {
@@ -74,11 +77,12 @@ class SiswaBimbelModel extends CI_Model
         $this->db->order_by('tahun_ajaran','DESC');
         return $this->db->get('tb_tahun_ajaran')->result();
     }
-
     public function def_program_bimbel()
     {
-        $this->db->select('id_program_bimbel,program_bimbel');
+        $this->db->select('id_program_bimbel,program_bimbel,pilihan_program');
         $this->db->from('tb_program_bimbel');
+        $this->db->join('tb_pilihan_program','tb_program_bimbel.id_pilihan_program = tb_pilihan_program.id_pilihan_program','left');
+        $this->db->order_by('program_bimbel','ASC');
         return $this->db->get()->result();
     }
     public function def_biaya_daftar()
@@ -92,5 +96,20 @@ class SiswaBimbelModel extends CI_Model
         $this->db->from('tb_program_bimbel');
         $this->db->where('id_program_bimbel', $id_program_bimbel);
         return $this->db->get()->row();
+    }
+    public function detail_siswa($id_siswa)
+    {
+        $this->db->select('id_siswa,nis_bimbel,tb_siswa.id_wali_siswa as id_wali_siswa,alamat_wali,nama_wali,nama,foto,tmpt_lahir,tgl_lahir,asal_sekolah,alamat,telepon,catatan');
+        $this->db->from('tb_siswa');
+        $this->db->join('tb_wali_siswa','tb_siswa.id_wali_siswa = tb_wali_siswa.id_wali_siswa','left');
+        $this->db->where('id_siswa', $id_siswa);
+        return $this->db->get()->result();
+    }
+    public function update_siswa($siswa)
+    {
+        $this->db->where('id_siswa', $siswa['id_siswa']);
+        $this->db->where('nis_bimbel', $siswa['nis_bimbel']);
+        return $this->db->update('tb_siswa', $siswa);
+
     }
 }

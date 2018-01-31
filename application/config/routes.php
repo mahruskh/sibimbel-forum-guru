@@ -7,8 +7,9 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['login/show'] = 'Login/_LoginController/index';
-
-$route['coba-pdf/show'] = 'CobaPdf/CobaPdfController/index';
+$route['login/auth'] = 'Login/_LoginController/auth';
+$route['login/error'] = 'Login/_LoginController/alert_error';
+$route['login/logout'] = 'Login/_LoginController/logout';
 
 $route['dashboard/show'] = 'Dashboard/_DashboardController/index';
 
@@ -24,6 +25,9 @@ $route['data/siswa/daftar/get_alamat_wali'] = 'Data/_SiswaBimbelController/get_a
 $route['data/siswa/daftar/cari_kode_diskon'] = 'Data/_SiswaBimbelController/cari_kode_diskon';
 $route['data/siswa/daftar/get_jml_diskon'] = 'Data/_SiswaBimbelController/get_jml_diskon';
 $route['data/siswa/daftar/change_program_bimbel'] = 'Data/_SiswaBimbelController/change_program_bimbel';
+$route['data/siswa/detail/(:any)'] = 'Data/_SiswaBimbelController/detail_siswa/$1';
+$route['data/siswa/detail/update/siswa'] = 'Data/_SiswaBimbelController/update_siswa';
+
 
 $route['data/wali/show'] = 'Data/_WaliController/index';
 $route['data/wali/show_data_wali'] = 'Data/_WaliController/show_data_wali';
@@ -92,6 +96,9 @@ $route['setup/program-pilihan/add_pilihan'] = 'Setup/_ProgramPilihanController/a
 $route['setup/program-pilihan/edit_pilihan'] = 'Setup/_ProgramPilihanController/edit_pilihan';
 $route['setup/program-pilihan/update_pilihan'] = 'Setup/_ProgramPilihanController/update_pilihan';
 $route['setup/program-pilihan/trash_pilihan'] = 'Setup/_ProgramPilihanController/trash_pilihan';
+
+$route['laporan/bimbel-pembayaran'] = 'Laporan/_LaporanController/bimbel_pembayaran';
+$route['laporan/bimbel-pembayaran/print'] = 'Laporan/_LaporanController/print_bimbel_pembayaran';
 
 
 $route['administrator/show'] = 'Administrator/_AdministratorController/index';

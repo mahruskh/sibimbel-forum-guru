@@ -47,19 +47,19 @@
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-               <img src="http://localhost/sibimbel-forum-guru/assets/images/mahruskh.jpg" class="user-image" alt="User Image"/>
-               <span class="hidden-xs">Mahrus Khomaini</span>
+               <img src="<?php echo base_url('assets/images/'.$this->session->foto);?>" class="user-image" alt="User Image"/>
+               <span class="hidden-xs"><?php echo $this->session->nama;?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="http://localhost/sibimbel-forum-guru/assets/images/mahruskh.jpg" class="img-circle" alt="User Image"/><p>
-                Mahrus Khomaini - Administrator</p>
+                <img src="<?php echo base_url('assets/images/'.$this->session->foto);?>" class="img-circle" alt="User Image"/><p>
+                <?php echo $this->session->nama;?> - Administrator</p>
               </li>
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-right">
-                   <a href="http://localhost/sibimbel-forum-guru/login/logout" class="btn btn-default btn-flat">Logout</a>
+                   <a href="<?php echo base_url('login/logout')?>" class="btn btn-default btn-flat">Logout</a>
                 </div>
               </li>
             </ul>
@@ -75,9 +75,9 @@
 
      <div class="user-panel">
        <div class="pull-left image">
-         <img src="http://localhost/sibimbel-forum-guru/assets/images/mahruskh.jpg" class="img-circle" alt="User Image" />s</div>
+         <img src="<?php echo base_url('assets/images/'.$this->session->foto);?>" class="img-circle" alt="User Image" />s</div>
        <div class="pull-left info">
-         <p>Mahrus Khomaini</p>
+         <p><?php echo $this->session->nama;?></p>
            <a href="#">Online</a>
        </div>
      </div>
@@ -105,7 +105,7 @@
             <li><a href="<?php echo base_url('setup/tahun-ajaran/show')?>"><i class="glyphicon glyphicon-minus"></i> Tahun Ajaran</a></li>
           </ul>
         </li>
-        <li><a href=""><i class="glyphicon glyphicon-file" aria-hidden="true"></i><span> LAPORAN - LAPORAN</span></a></li>
+        <li><a href="<?php echo base_url('laporan/bimbel-pembayaran')?>"><i class="glyphicon glyphicon-file" aria-hidden="true"></i><span> LAPORAN - LAPORAN</span></a></li>
         <li class="treeview">
           <a href="#"><i class="glyphicon glyphicon-user"></i><span> ADMINISTRATOR</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
           <ul class="treeview-menu">
@@ -113,7 +113,7 @@
             <li><a href="<?php echo base_url('administrator/setup-akun')?>"><i class="glyphicon glyphicon-minus"></i> Setup Akun</a></li>
           </ul>
         </li>
-        <li><a href=""><i class="glyphicon glyphicon-log-out" aria-hidden="true"></i><span> LOGOUT</span></a></li>
+        <li><a href="<?php echo base_url('login/logout')?>"><i class="glyphicon glyphicon-log-out" aria-hidden="true"></i><span> LOGOUT</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -132,35 +132,6 @@
     </section>
     <!-- Main content -->
   <section class="content">
-    <div class="row">
-      <div class="col-sm-6 col-md-4">
-        <div class="info-box">
-          <span class="info-box-icon bg-green fa fa-check"></span>
-          <div class="info-box-content">
-            <span class="info-box-text">Taken</span>
-            <span class="info-box-number"><div id="taken"></div></span>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="info-box">
-          <span class="info-box-icon bg-blue fa fa-circle-o"></span>
-          <div class="info-box-content">
-            <span class="info-box-text">All</span>
-            <span class="info-box-number"><div id="all"></div></span>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="info-box">
-          <span class="info-box-icon bg-red fa fa-times"></span>
-          <div class="info-box-content">
-            <span class="info-box-text">Have Not Taken</span>
-            <span class="info-box-number"><div id="have_not_taken"></div></span>
-          </div>
-        </div>
-      </div>
-    </div>
         <div class="box box-primary flat">
           <div class="box-header with-border">
             <h4 class="box-tittle">Data Siswa Bimbel</h4>
@@ -173,6 +144,7 @@
             <table class="table table-bordered table-hover table-striped" id="siswabimbel-dt">
                 <thead>
                   <tr class="info">
+                    <th>NIS Bimbel</th>
                     <th>Nama Lengkap</th>
                     <th>Asal Sekolah</th>
                     <th>Tools</th>
@@ -225,6 +197,7 @@
             "serverSide": true,
             "ajax": {"url":"show_data", "type":"POST"},
             "columns": [
+                {"data":"nis_bimbel", "class": "text-center"},
                 {"data":"nama"},
                 {"data":"asal_sekolah"},
                 {"data":"tools", "class": "text-center", "orderable":false}

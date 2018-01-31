@@ -16,7 +16,7 @@
     <div class="login-box-body">
         <p class="login-box-msg">Login Administrator</p>
         <div id="error"></div>
-            <form action="login/#" method="post" id="form-login">
+            <form id="form-login">
                 <div class="form-group has-feedback">
                     <input type="text" name="username" class="form-control input-lg" placeholder="Username" autocomplete="off">
                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -25,7 +25,7 @@
                     <input type="password" name="password" class="form-control input-lg" placeholder="Password" autocomplete="off">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
-                <button type="button" name="login" class="btn btn-primary btn-flat btn-block btn-lg"><i class="glyphicon glyphicon-log-in"></i> Login</button>
+                <button type="button" onclick="auth_login()" class="btn btn-primary btn-flat btn-block btn-lg"><i class="glyphicon glyphicon-log-in"></i> Login</button>
             </form>
         <a href="#" class="text-bold">Forgot password ?</a>
     </div>
@@ -36,3 +36,44 @@
    <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js')?>"></script>
   </body>
 </html>
+<script type="text/javascript">
+    $(document).ready(function (e) {
+        
+    });
+    function auth_login() {
+        if ($('[name="username"]').val() == "" || $('[name="password"]').val() == "") {
+            $.ajax({
+                type: "POST",
+                url: "error",
+                data: {status:"required"},
+                success: function (data) {
+                    $("#error").html(data)
+                    $("#form-login")[0].reset()
+                }
+            });
+        } else {
+            $.ajax({
+                type: "POST",
+                url: "auth",
+                data: $("#form-login").serialize(),
+                success: function (data) {
+                    if (data == 1) {
+                        $(location).attr('href','../dashboard/show')
+                        $("#form-login")[0].reset()
+                    } else {
+                        $.ajax({
+                            type: "POST",
+                            url: "error",
+                            data: {status:"wrong"},
+                            success: function (data) {
+                                $("#error").html(data)
+                                $("#form-login")[0].reset()
+                            }
+                        });
+                    }
+                }
+            });
+        }
+    }
+
+</script>

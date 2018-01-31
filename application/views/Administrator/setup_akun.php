@@ -47,22 +47,22 @@
                         <!-- Menu Toggle Button -->
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <!-- The user image in the navbar-->
-                            <img src="http://localhost/sibimbel-forum-guru/assets/images/mahruskh.jpg"
+                            <img src="<?php echo base_url('assets/images/'.$this->session->foto);?>"
                                  class="user-image" alt="User Image"/>
-                            <span class="hidden-xs">Mahrus Khomaini</span>
+                            <span class="hidden-xs"><?php echo $this->session->nama;?></span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- The user image in the menu -->
                             <li class="user-header">
-                                <img src="http://localhost/sibimbel-forum-guru/assets/images/mahruskh.jpg"
+                                <img src="<?php echo base_url('assets/images/'.$this->session->foto);?>"
                                      class="img-circle" alt="User Image"/>
                                 <p>
-                                    Mahrus Khomaini - Administrator</p>
+                                    <?php echo $this->session->nama;?> - Administrator</p>
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-right">
-                                    <a href="http://localhost/sibimbel-forum-guru/login/logout"
+                                    <a href="<?php echo base_url('login/logout')?>"
                                        class="btn btn-default btn-flat">Logout</a>
                                 </div>
                             </li>
@@ -79,11 +79,11 @@
 
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="http://localhost/sibimbel-forum-guru/assets/images/mahruskh.jpg" class="img-circle"
+                    <img src="<?php echo base_url('assets/images/'.$this->session->foto);?>" class="img-circle"
                          alt="User Image"/>s
                 </div>
                 <div class="pull-left info">
-                    <p>Mahrus Khomaini</p>
+                    <p><?php echo $this->session->nama;?></p>
                     <a href="#">Online</a>
                 </div>
             </div>
@@ -126,7 +126,7 @@
                                         class="glyphicon glyphicon-minus"></i> Tahun Ajaran</a></li>
                     </ul>
                 </li>
-                <li><a href=""><i class="glyphicon glyphicon-file"
+                <li><a href="<?php echo base_url('laporan/bimbel-pembayaran')?>"><i class="glyphicon glyphicon-file"
                                   aria-hidden="true"></i><span> LAPORAN - LAPORAN</span></a></li>
                 <li class="active treeview menu-open">
                     <a href="#"><i class="glyphicon glyphicon-user"></i><span> ADMINISTRATOR</span><span
@@ -138,7 +138,7 @@
                                         class="glyphicon glyphicon-minus"></i> Setup Akun</a></li>
                     </ul>
                 </li>
-                <li><a href=""><i class="glyphicon glyphicon-log-out" aria-hidden="true"></i><span> LOGOUT</span></a>
+                <li><a href="<?php echo base_url('login/logout')?>"><i class="glyphicon glyphicon-log-out" aria-hidden="true"></i><span> LOGOUT</span></a>
                 </li>
             </ul>
             <!-- /.sidebar-menu -->
@@ -168,6 +168,7 @@
                 </div>
             </div>
             <div class="row">
+                <?php foreach ($admin as $row) { ?>
                 <div class="col-md-5">
                     <div class="box box-primary flat">
                         <div class="box-body">
@@ -176,13 +177,13 @@
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Username*</label>
                                         <div class="col-sm-8">
-                                            <input type="text" name="username" class="form-control" readonly="readonly">
+                                            <input type="text" name="username" value="<?php echo $row->username;?>" class="form-control" readonly="readonly">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Password*</label>
                                         <div class="col-sm-8">
-                                            <input type="password" name="password" class="form-control" readonly="readonly">
+                                            <input type="password" name="password" value="<?php echo $row->password;?>" class="form-control" readonly="readonly">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -204,25 +205,25 @@
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Nama Lengkap*</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control">
+                                            <input type="text" name="nama" value="<?php echo $row->nama;?>" class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Foto</label>
                                         <div class="col-sm-5">
-                                            <input type="file" class="form-control">
+                                            <input type="file" name="foto" value="<?php echo $row->foto;?>" class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Alamat*</label>
                                         <div class="col-sm-8">
-                                            <textarea class="form-control" row="3"></textarea>
+                                            <textarea class="form-control" name="alamat" row="3"><?php echo $row->alamat;?></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">No. HP*</label>
                                         <div class="col-sm-5">
-                                            <input type="number" class="form-control">
+                                            <input type="number" value="<?php echo $row->telepon;?>" nama="telepon" class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -237,6 +238,7 @@
                         </div>
                     </div>
                 </div>
+                <?php } ?>
             </div>
         </section>
         <!-- /.content -->

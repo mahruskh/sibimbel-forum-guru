@@ -49,22 +49,22 @@
                         <!-- Menu Toggle Button -->
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <!-- The user image in the navbar-->
-                            <img src="http://localhost/sibimbel-forum-guru/assets/images/mahruskh.jpg"
+                            <img src="<?php echo base_url('assets/images/'.$this->session->foto);?>"
                                  class="user-image" alt="User Image"/>
-                            <span class="hidden-xs">Mahrus Khomaini</span>
+                            <span class="hidden-xs"><?php echo $this->session->nama;?></span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- The user image in the menu -->
                             <li class="user-header">
-                                <img src="http://localhost/sibimbel-forum-guru/assets/images/mahruskh.jpg"
+                                <img src="<?php echo base_url('assets/images/'.$this->session->foto);?>"
                                      class="img-circle" alt="User Image"/>
                                 <p>
-                                    Mahrus Khomaini - Administrator</p>
+                                    <?php echo $this->session->nama;?> - Administrator</p>
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-right">
-                                    <a href="http://localhost/sibimbel-forum-guru/login/logout"
+                                    <a href="<?php echo base_url('login/logout')?>"
                                        class="btn btn-default btn-flat">Logout</a>
                                 </div>
                             </li>
@@ -81,11 +81,11 @@
 
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="http://localhost/sibimbel-forum-guru/assets/images/mahruskh.jpg" class="img-circle"
+                    <img src="<?php echo base_url('assets/images/'.$this->session->foto);?>" class="img-circle"
                          alt="User Image"/>s
                 </div>
                 <div class="pull-left info">
-                    <p>Mahrus Khomaini</p>
+                    <p><?php echo $this->session->nama;?></p>
                     <a href="#">Online</a>
                 </div>
             </div>
@@ -128,7 +128,7 @@
                                         class="glyphicon glyphicon-minus"></i> Tahun Ajaran</a></li>
                     </ul>
                 </li>
-                <li><a href=""><i class="glyphicon glyphicon-file"
+                <li><a href="<?php echo base_url('laporan/bimbel-pembayaran')?>"><i class="glyphicon glyphicon-file"
                                   aria-hidden="true"></i><span> LAPORAN - LAPORAN</span></a></li>
                 <li class="treeview">
                     <a href="#"><i class="glyphicon glyphicon-user"></i><span> ADMINISTRATOR</span><span
@@ -140,7 +140,7 @@
                                         class="glyphicon glyphicon-minus"></i> Setup Akun</a></li>
                     </ul>
                 </li>
-                <li><a href=""><i class="glyphicon glyphicon-log-out" aria-hidden="true"></i><span> LOGOUT</span></a>
+                <li><a href="<?php echo base_url('login/logout')?>"><i class="glyphicon glyphicon-log-out" aria-hidden="true"></i><span> LOGOUT</span></a>
                 </li>
             </ul>
             <!-- /.sidebar-menu -->
@@ -209,20 +209,20 @@
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">No. HP</label>
                                             <div class="col-sm-4">
-                                                <input type="number" name="telepon_siswa" class="form-control" maxlength="15">
+                                                <input type="number" name="telepon_siswa" class="form-control" maxlength="12">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">Catatan</label>
                                             <div class="col-sm-8">
-                                                <textarea class="form-control" name="catatan" row="3" maxlength="255" required></textarea>
+                                                <textarea class="form-control" name="catatan" row="3" maxlength="255"></textarea>
                                             </div>
                                         </div>
                                         <hr>
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">Nama Orang Tua Wali*</label>
                                             <div class="col-sm-6">
-                                                <select class="form-control wali-select2" name="id_wali_siswa"></select>
+                                                <select class="form-control wali-select2" name="id_wali_siswa" required></select>
                                             </div>
                                             <div class="col-sm-2">
                                                 <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-wali">BARU</button>
@@ -243,7 +243,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-5 control-label">Tahun Ajaran*</label>
                                             <div class="col-sm-7">
-                                                <select class="form-control tahun-ajaran-select2" required>
+                                                <select class="form-control tahun-ajaran-select2" name="id_tahun_ajaran">
                                                     <?php foreach ($def_tahun_ajaran as $row) { ?>
                                                         <option value="<?php echo $row->id_tahun_ajaran;?>"><?php echo $row->tahun_ajaran;?></option>
                                                     <?php
@@ -254,10 +254,10 @@
                                         <div class="form-group">
                                             <label class="col-sm-5 control-label">Program Bimbel*</label>
                                             <div class="col-sm-7">
-                                                <select class="form-control program-bimbel-select2" id="change-program-bimbel" required>
+                                                <select class="form-control program-bimbel-select2" name="id_program_bimbel" id="change-program-bimbel" required>
                                                     <option value="Pilih"> -- Pilih Program Bimbel -- </option>
                                                     <?php foreach ($def_program_bimbel as $row) { ?>
-                                                        <option value="<?php echo $row->id_program_bimbel;?>"><?php echo $row->program_bimbel;?></option>
+                                                        <option value="<?php echo $row->id_program_bimbel;?>"><?php echo $row->program_bimbel . " - " . $row->pilihan_program;?></option>
                                                         <?php
                                                     } ?>
                                                 </select>
@@ -283,11 +283,22 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-5 control-label">Kode Diskon</label>
-                                            <div class="col-sm-4">
+                                            <div class="col-sm-7">
                                                 <select class="form-control kode-diskon-select2" name="id_diskon"></select>
                                             </div>
-                                            <div class="col-sm-3">
-                                                <input type="number" name="jml_diskon" class="form-control" placeholder="Diskon">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-5 control-label">Jumlah Diskon</label>
+                                            <div class="col-sm-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">Rp.</span>
+                                                    <input type="number" name="jml_diskon" id="jml_diskon" class="form-control" value="0" readonly="readonly">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <div class="checkbox">
+                                                    <input type="checkbox" id="checked_jml_diskon" checked>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -393,7 +404,7 @@
 
            $(function () {
                $('.kode-diskon-select2').select2({
-                   placeholder: 'Cari',
+                   placeholder: 'Gunakan Kode Diskon',
                    minimumInputLength: 2,
                    ajax: {
                        type: "POST",
@@ -420,13 +431,14 @@
                        data: {id_diskon:$('[name="id_diskon"]').val()},
                        success: function (data) {
                            $('[name="jml_diskon"]').val(data.jml_diskon)
+                           count_total_biaya()
                        }
                    });
                })
            });
 
 
-           $('.tahun-ajaran-select2,.program-bimbel-select2').select2()
+        $('.tahun-ajaran-select2,.program-bimbel-select2').select2()
 
         $("#change-program-bimbel").change(function () {
             if ($("#change-program-bimbel").val() != "Pilih") {
@@ -456,33 +468,48 @@
             }
         });
 
-        $("#biaya_pendaftaran").keydown(function () {
+        $("#biaya_pendaftaran").change(function () {
+            count_total_biaya()
+        });
+        $("#jml_diskon").change(function () {
             count_total_biaya()
         });
 
         $("#checked_biaya_pendaftaran").click(function () {
             if ($("#checked_biaya_pendaftaran").is(':checked')) {
+                if ($('[name="biaya_pendaftaran"]').val() == ""){
+                    $('[name="biaya_pendaftaran"]').val("0")
+                }
                 $('[name="biaya_pendaftaran"]').attr('readonly',true)
             } else {
                 $('[name="biaya_pendaftaran"]').attr('readonly',false)
             }
         });
 
+        $("#checked_jml_diskon").click(function () {
+            if ($("#checked_jml_diskon").is(':checked')) {
+                if ($('[name="jml_diskon"]').val() == ""){
+                    $('[name="jml_diskon"]').val("0")
+                }
+                $('[name="jml_diskon"]').attr('readonly',true)
+            } else {
+                $('[name="jml_diskon"]').attr('readonly',false)
+            }
+        });
+
         $("#tgl_lahir").datepicker({
             autoclose: true,
-            format: 'dd MM yyyy'
+            format: 'dd M yyyy'
         })
     });
-
     function count_total_biaya() {
-        $('[name="total_biaya"]').val(parseInt($('[name="biaya_pendaftaran"]').val()) + parseInt($('[name="biaya_program"]').val() + parseInt($('[name="jml_diskon"]').val())))
+        $('[name="total_biaya"]').val(parseInt($('[name="biaya_pendaftaran"]').val()) + parseInt($('[name="biaya_program"]').val() - parseInt($('[name="jml_diskon"]').val())))
     }
-    
     function save_wali(){
         if ($('[name="nama_wali"]').val() == ""){
             alert("Nama Wali Siswa Wajib Di Isi !!!")
         } else {
-            $.ajax({
+            $.ajax({    
                 type: "POST",
                 url: "daftar/save_wali",
                 data: $("#form-wali").serialize(),

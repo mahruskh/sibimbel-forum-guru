@@ -14,22 +14,27 @@
 foreach ($pembayaran as $row) { ?>
 <table>
         <tr>
-            <td width="100px">Nama</td>
+            <td width="100px">NISB</td>
             <td>:</td>
-            <td width="400px"><?php echo $row->nama;?></td>
+            <td width="400px"><?php echo $row->nis_bimbel;?></td>
             <td>Tahun Ajaran</td>
             <td>:</td>
             <td><?php echo $row->tahun_ajaran;?></td>
         </tr>
         <tr>
+            <td width="100px">Nama</td>
+            <td>:</td>
+            <td width="400px"><?php echo $row->nama;?></td>
+            <?php
+            foreach ($detail_pembayaran as $item) { ?>
+            <td>Tgl. Bayar</td>
+            <td>:</td>
+            <td><?php echo date('d/m/Y', strtotime($item->tgl_pembayaran));?></td>
+        </tr>
+        <tr>
             <td>Asal Sekolah</td>
             <td>:</td>
             <td><?php echo $row->asal_sekolah;?></td>
-            <?php
-            foreach ($detail_pembayaran as $item) { ?>
-                <td>Tgl. Bayar</td>
-                <td>:</td>
-                <td><?php echo date('d/m/Y', strtotime($item->tgl_pembayaran));?></td>
         </tr>
 </table>
 <br>
@@ -57,7 +62,7 @@ foreach ($pembayaran as $row) { ?>
     <tr>
         <td align="left">Biaya Program : Rp. <?php echo number_format($row->total_biaya,0,'','.');?></td>
         <td align="center">Total Terbayar : Rp. <?php echo number_format($row->total_transaksi,0,'','.');?></td>
-        <td align="right">Status : <font color="red"><?php echo $row->status;?></font></td>
+        <td align="right">Status : <font color="red"><b><?php echo $row->status;?></b></font></td>
     </tr>
 </table>
 <br>

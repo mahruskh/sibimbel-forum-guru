@@ -8,9 +8,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
     <?php echo link_tag('assets/bootstrap/css/bootstrap.css');
-    echo link_tag('assets/plugins/datepicker/datepicker3.css');
     echo link_tag('assets/plugins/datatables/jquery.dataTables.css"');
-    echo link_tag('assets/plugins/datatables/dataTables.bootstrap.css');
     ?>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="../assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -48,19 +46,19 @@
                         <!-- Menu Toggle Button -->
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <!-- The user image in the navbar-->
-                            <img src="http://localhost/sibimbel-forum-guru/assets/images/mahruskh.jpg" class="user-image" alt="User Image"/>
-                            <span class="hidden-xs">Mahrus Khomaini</span>
+                            <img src="<?php echo base_url('assets/images/'.$this->session->foto);?>" class="user-image" alt="User Image"/>
+                            <span class="hidden-xs"><?php echo $this->session->nama;?></span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- The user image in the menu -->
                             <li class="user-header">
-                                <img src="http://localhost/sibimbel-forum-guru/assets/images/mahruskh.jpg" class="img-circle" alt="User Image"/><p>
-                                    Mahrus Khomaini - Administrator</p>
+                                <img src="<?php echo base_url('assets/images/'.$this->session->foto);?>" class="img-circle" alt="User Image"/><p>
+                                    <?php echo $this->session->nama;?> - Administrator</p>
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-right">
-                                    <a href="http://localhost/sibimbel-forum-guru/login/logout" class="btn btn-default btn-flat">Logout</a>
+                                    <a href="<?php echo base_url('login/logout')?>" class="btn btn-default btn-flat">Logout</a>
                                 </div>
                             </li>
                         </ul>
@@ -76,9 +74,9 @@
 
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="http://localhost/sibimbel-forum-guru/assets/images/mahruskh.jpg" class="img-circle" alt="User Image" />s</div>
+                    <img src="<?php echo base_url('assets/images/'.$this->session->foto);?>" class="img-circle" alt="User Image" />s</div>
                 <div class="pull-left info">
-                    <p>Mahrus Khomaini</p>
+                    <p><?php echo $this->session->nama;?></p>
                     <a href="#">Online</a>
                 </div>
             </div>
@@ -87,12 +85,12 @@
                 <li class="header">MENU</li>
                 <!-- Optionally, you can add icons to the links -->
                 <li class="active"><a href="<?php echo base_url('dashboard/show')?>"><i class="glyphicon glyphicon-dashboard"></i><span> DASHBOARD</span></a></li>
-                <li class="treeview">
+                <li>
                     <a href="#"><i class="glyphicon glyphicon-book"></i><span> DATA PENDAFTARAN</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
                     <ul class="treeview-menu">
-                        <li><a href="<?php echo base_url('pendaftaran/siswa-bimbel/show')?>"><i class="glyphicon glyphicon-minus"></i> Siswa Bimbel</a></li>
-                        <li><a href=""><i class="glyphicon glyphicon-minus"></i> Orang Tua (Wali)</a></li>
-                        <li><a href=""><i class="glyphicon glyphicon-minus"></i> Pengajar (Tentor)</a></li>
+                        <li class="active"><a href="<?php echo base_url('data/siswa/show')?>"><i class="glyphicon glyphicon-minus"></i> Siswa Bimbel</a></li>
+                        <li><a href="<?php echo base_url('data/wali/show')?>"><i class="glyphicon glyphicon-minus"></i> Wali / Orang Tua</a></li>
+                        <li><a href="<?php echo base_url('data/tentor/show')?>"><i class="glyphicon glyphicon-minus"></i> Tentor / Pengajar</a></li>
                     </ul>
                 </li>
                 <li><a href="<?php echo base_url('data/bimbel/show')?>"><i class="glyphicon glyphicon-tags" aria-hidden="true"></i><span> DATA BIMBEL</span></a></li>
@@ -101,20 +99,20 @@
                 <li class="treeview">
                     <a href="#"><i class="glyphicon glyphicon-cog"></i><span> SETUP</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
                     <ul class="treeview-menu">
-                        <li><a href=""><i class="glyphicon glyphicon-minus"></i> Program & Pilihan</a></li>
-                        <li><a href=""><i class="glyphicon glyphicon-minus"></i> Biaya & Diskon</a></li>
-                        <li><a href=""><i class="glyphicon glyphicon-minus"></i> Tahun Ajaran</a></li>
+                        <li><a href="<?php echo base_url('setup/program-pilihan/show')?>"><i class="glyphicon glyphicon-minus"></i> Program & Pilihan</a></li>
+                        <li><a href="<?php echo base_url('setup/biaya-diskon/show')?>"><i class="glyphicon glyphicon-minus"></i> Biaya & Diskon</a></li>
+                        <li><a href="<?php echo base_url('setup/tahun-ajaran/show')?>"><i class="glyphicon glyphicon-minus"></i> Tahun Ajaran</a></li>
                     </ul>
                 </li>
-                <li><a href=""><i class="glyphicon glyphicon-file" aria-hidden="true"></i><span> LAPORAN - LAPORAN</span></a></li>
+                <li><a href="<?php echo base_url('laporan/bimbel-pembayaran')?>"><i class="glyphicon glyphicon-file" aria-hidden="true"></i><span> LAPORAN - LAPORAN</span></a></li>
                 <li class="treeview">
                     <a href="#"><i class="glyphicon glyphicon-user"></i><span> ADMINISTRATOR</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
                     <ul class="treeview-menu">
-                        <li><a href=""><i class="glyphicon glyphicon-minus"></i> Data Administrator</a></li>
-                        <li><a href=""><i class="glyphicon glyphicon-minus"></i> Setup Akun</a></li>
+                        <li><a href="<?php echo base_url('administrator/show')?>"><i class="glyphicon glyphicon-minus"></i> Data Administrator</a></li>
+                        <li><a href="<?php echo base_url('administrator/setup-akun')?>"><i class="glyphicon glyphicon-minus"></i> Setup Akun</a></li>
                     </ul>
                 </li>
-                <li><a href=""><i class="glyphicon glyphicon-log-out" aria-hidden="true"></i><span> LOGOUT</span></a></li>
+                <li><a href="<?php echo base_url('login/logout')?>"><i class="glyphicon glyphicon-log-out" aria-hidden="true"></i><span> LOGOUT</span></a></li>
             </ul>
             <!-- /.sidebar-menu -->
         </section>
@@ -133,58 +131,17 @@
         </section>
         <!-- Main content -->
         <section class="content">
-            <div class="row">
-                <div class="col-sm-6 col-md-4">
-                    <div class="info-box">
-                        <span class="info-box-icon bg-green fa fa-check"></span>
-                        <div class="info-box-content">
-                            <span class="info-box-text">Taken</span>
-                            <span class="info-box-number"><div id="taken"></div></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <div class="info-box">
-                        <span class="info-box-icon bg-blue fa fa-circle-o"></span>
-                        <div class="info-box-content">
-                            <span class="info-box-text">All</span>
-                            <span class="info-box-number"><div id="all"></div></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <div class="info-box">
-                        <span class="info-box-icon bg-red fa fa-times"></span>
-                        <div class="info-box-content">
-                            <span class="info-box-text">Have Not Taken</span>
-                            <span class="info-box-number"><div id="have_not_taken"></div></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="box box-primary">
-                <div class="box-header with-border">
-                    <h4 class="box-tittle">Left Stuff Data</h4>
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-primary btn-sm" onclick="add()"><span class="glyphicon glyphicon-plus"></span> Left Stuff</button>
-                    </div>
-                </div>
+            <div class="box box-primary box-solid flat">
                 <div class="box-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered table-hover table-striped" id="left-stuff-dt">
-                            <thead>
-                            <tr class="info">
-                                <th>Stuf Name</th>
-                                <th>Location</th>
-                                <th>Posted At</th>
-                                <th>Status</th>
-                                <th>Tools</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-                    </div>
+                    <a href="<?php echo base_url('data/siswa/daftar');?>" class="btn btn-yahoo btn-flat">Form Pendaftaran Siswa &raquo;</a> |
+                    <a href="<?php echo base_url('data/pembayaran/show');?>" class="btn btn-yahoo btn-flat">Bayar Angsuran &raquo;</a> |
+                    <a href="<?php echo base_url('data/bimbel/show');?>" class="btn btn-yahoo btn-flat">Detail Bimbingan Belajar &raquo;</a>
+                </div>
+            </div><br><br>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-9">
+                    <img src="../assets/images/logodashboard.png" class="img-responsive">
                 </div>
             </div>
         </section>
@@ -212,8 +169,6 @@
 <!-- Bootstrap 3.3.6 -->
 <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 
-<script src="../assets/plugins/datepicker/bootstrap-datepicker.js"></script>
-<script src="../assets/plugins/datatables/jquery.dataTables.js"></script>
 
 
 <!-- AdminLTE App -->

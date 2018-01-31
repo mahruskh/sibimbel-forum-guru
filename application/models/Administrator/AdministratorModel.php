@@ -18,5 +18,12 @@ class AdministratorModel extends CI_Model
     {
         return $this->db->insert('tb_admin', $data);
     }
+    public function setup_akun($id_admin)
+    {
+        $this->db->select('username,password,nama,foto,alamat,telepon,last_data_update');
+        $this->db->from('tb_admin');
+        $this->db->where('id_admin', $id_admin);
+        return $this->db->get()->result();
+    }
 }
 ?>

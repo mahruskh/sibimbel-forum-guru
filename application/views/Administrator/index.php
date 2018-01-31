@@ -47,19 +47,19 @@
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-               <img src="http://localhost/sibimbel-forum-guru/assets/images/mahruskh.jpg" class="user-image" alt="User Image"/>
-               <span class="hidden-xs">Mahrus Khomaini</span>
+               <img src="<?php echo base_url('assets/images/'.$this->session->foto);?>" class="user-image" alt="User Image"/>
+               <span class="hidden-xs"><?php echo $this->session->nama;?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="http://localhost/sibimbel-forum-guru/assets/images/mahruskh.jpg" class="img-circle" alt="User Image"/><p>
-                Mahrus Khomaini - Administrator</p>
+                <img src="<?php echo base_url('assets/images/'.$this->session->foto);?>" class="img-circle" alt="User Image"/><p>
+                <?php echo $this->session->nama;?> - Administrator</p>
               </li>
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-right">
-                   <a href="http://localhost/sibimbel-forum-guru/login/logout" class="btn btn-default btn-flat">Logout</a>
+                   <a href="<?php echo base_url('login/logout')?>" class="btn btn-default btn-flat">Logout</a>
                 </div>
               </li>
             </ul>
@@ -75,9 +75,9 @@
 
      <div class="user-panel">
        <div class="pull-left image">
-         <img src="http://localhost/sibimbel-forum-guru/assets/images/mahruskh.jpg" class="img-circle" alt="User Image" />s</div>
+         <img src="<?php echo base_url('assets/images/'.$this->session->foto);?>" class="img-circle" alt="User Image" />s</div>
        <div class="pull-left info">
-         <p>Mahrus Khomaini</p>
+         <p><?php echo $this->session->nama;?></p>
            <a href="#">Online</a>
        </div>
      </div>
@@ -105,7 +105,7 @@
                     <li><a href="<?php echo base_url('setup/tahun-ajaran/show')?>"><i class="glyphicon glyphicon-minus"></i> Tahun Ajaran</a></li>
                 </ul>
             </li>
-            <li><a href=""><i class="glyphicon glyphicon-file" aria-hidden="true"></i><span> LAPORAN - LAPORAN</span></a></li>
+            <li><a href="<?php echo base_url('laporan/bimbel-pembayaran')?>"><i class="glyphicon glyphicon-file" aria-hidden="true"></i><span> LAPORAN - LAPORAN</span></a></li>
             <li class="active treeview menu-open">
                 <a href="#"><i class="glyphicon glyphicon-user"></i><span> ADMINISTRATOR</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
                 <ul class="treeview-menu">
@@ -113,7 +113,7 @@
                     <li><a href="<?php echo base_url('administrator/setup-akun')?>"><i class="glyphicon glyphicon-minus"></i> Setup Akun</a></li>
                 </ul>
             </li>
-            <li><a href=""><i class="glyphicon glyphicon-log-out" aria-hidden="true"></i><span> LOGOUT</span></a></li>
+            <li><a href="<?php echo base_url('login/logout')?>"><i class="glyphicon glyphicon-log-out" aria-hidden="true"></i><span> LOGOUT</span></a></li>
         </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -145,7 +145,7 @@
             <div class="col-sm-6 col-md-3">
                 <div class="box box-primary flat">
                     <div class="box-body box-profile">
-                        <img class="profile-user-img img-responsive img-circle" src="http://localhost/sibimbel-forum-guru/assets/images/mahruskh.jpg" alt="User profile picture">
+                        <img class="profile-user-img img-responsive img-circle" src="http://localhost/sibimbel-forum-guru/assets/images/<?php echo $row->foto;?>" alt="User profile picture">
                         <h3 class="profile-username text-center"><?php echo $row->nama; ?></h3>
                         <p class="text-muted text-center">
                             <?php

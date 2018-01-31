@@ -6,6 +6,8 @@ class _ProgramPilihanController extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->library('CheckSession');
+        $this->checksession->check_session($this->session->id_admin,$this->session->nama);
         $this->load->model('Setup/ProgramPilihanModel');
         $this->load->library('Datatables');
     }

@@ -6,6 +6,8 @@ class _WaliController extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->library('CheckSession');
+        $this->checksession->check_session($this->session->id_admin,$this->session->nama);
         $this->load->model('Data/WaliSiswaModel');
         $this->load->library('Datatables');
     }

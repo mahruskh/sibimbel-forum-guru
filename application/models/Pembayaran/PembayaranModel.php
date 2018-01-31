@@ -8,8 +8,7 @@ class PembayaranModel extends CI_Model
             <span class="glyphicon glyphicon-cog"></span>
          </button>
          <ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
-            <li><a href="detail/$1">Pembayaran</a></li>
-            <li><a href="#">?????</a></li>                    
+            <li><a href="detail/$1">Pembayaran</a></li>                 
             <li onclick="del_pembayaran($1)"><a href="#">Hapus !</a></li>
         </ul>
        </div>';
@@ -40,7 +39,7 @@ class PembayaranModel extends CI_Model
     {
         $this->datatables->select('id_bimbel,nama,tahun_ajaran,program_bimbel,status');
         $this->datatables->from('tb_bimbel');
-        $this->datatables->join('tb_siswa','tb_bimbel.id_siswa = tb_siswa.id_siswa','left');
+        $this->datatables->join('tb_siswa','tb_bimbel.nis_bimbel = tb_siswa.nis_bimbel','left');
         $this->datatables->join('tb_tahun_ajaran','tb_bimbel.id_tahun_ajaran = tb_tahun_ajaran.id_tahun_ajaran','left');
         $this->datatables->join('tb_program_bimbel','tb_bimbel.id_program_bimbel = tb_program_bimbel.id_program_bimbel','left');
         if (!empty($filter)){
@@ -51,7 +50,6 @@ class PembayaranModel extends CI_Model
         $this->datatables->add_column('tools_pembayaran',$this->tools_pembayaran,'id_bimbel');
         return $this->datatables->generate();
     }
-
     public function trash_pembayaran($id_bimbel)
     {
         $this->db->where('id_bimbel', $id_bimbel);
@@ -62,9 +60,9 @@ class PembayaranModel extends CI_Model
     }
     public function data_pembayaran($id_detail)
     {
-        $this->db->select('id_bimbel,nama,tahun_ajaran,program_bimbel,total_biaya,total_transaksi,status');
+        $this->db->select('id_bimbel,nama,tahun_ajaran,program_bimbel,total_biaya,total_transaksi,status,tgl_pendaftaran');
         $this->db->from('tb_bimbel');
-        $this->db->join('tb_siswa','tb_bimbel.id_siswa = tb_siswa.id_siswa','left');
+        $this->db->join('tb_siswa','tb_bimbel.nis_bimbel = tb_siswa.nis_bimbel','left');
         $this->db->join('tb_tahun_ajaran','tb_bimbel.id_tahun_ajaran = tb_tahun_ajaran.id_tahun_ajaran','left');
         $this->db->join('tb_program_bimbel','tb_bimbel.id_tahun_ajaran = tb_program_bimbel.id_program_bimbel','left');
         $this->db->where('id_bimbel', $id_detail);
@@ -81,9 +79,9 @@ class PembayaranModel extends CI_Model
     }
     public function print_pembayaran($id_detail)
     {
-        $this->db->select('nama,asal_sekolah,tahun_ajaran,program_bimbel,total_biaya,total_transaksi,status');
+        $this->db->select('tb_bimbel.nis_bimbel as nis_bimbel,nama,asal_sekolah,tahun_ajaran,program_bimbel,total_biaya,total_transaksi,status');
         $this->db->from('tb_bimbel');
-        $this->db->join('tb_siswa','tb_bimbel.id_siswa = tb_siswa.id_siswa','left');
+        $this->db->join('tb_siswa','tb_bimbel.nis_bimbel = tb_siswa.nis_bimbel','left');
         $this->db->join('tb_tahun_ajaran','tb_bimbel.id_tahun_ajaran = tb_tahun_ajaran.id_tahun_ajaran','left');
         $this->db->join('tb_program_bimbel','tb_bimbel.id_tahun_ajaran = tb_program_bimbel.id_program_bimbel','left');
         $this->db->where('id_bimbel', $id_detail);

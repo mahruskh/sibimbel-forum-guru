@@ -1,73 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="14254557-9307-41d3-a8a3-bf5fc205021c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/cca2c3a4-0635-4db0-846f-8886d977e60f.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/application/config/routes.php" afterPath="$PROJECT_DIR$/application/config/routes.php" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Administrator/_AdministratorController.php" afterPath="$PROJECT_DIR$/application/controllers/Administrator/_AdministratorController.php" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Bimbel/_BimbelController.php" afterPath="$PROJECT_DIR$/application/controllers/Bimbel/_BimbelController.php" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/CobaPdf/CobaPdfController.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Dashboard/_DashboardController.php" afterPath="$PROJECT_DIR$/application/controllers/Dashboard/_DashboardController.php" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Data/_SiswaBimbelController.php" afterPath="$PROJECT_DIR$/application/controllers/Data/_SiswaBimbelController.php" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Data/_TentorController.php" afterPath="$PROJECT_DIR$/application/controllers/Data/_TentorController.php" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Data/_WaliController.php" afterPath="$PROJECT_DIR$/application/controllers/Data/_WaliController.php" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Login/_LoginController.php" afterPath="$PROJECT_DIR$/application/controllers/Login/_LoginController.php" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Pembayaran/_PembayaranController.php" afterPath="$PROJECT_DIR$/application/controllers/Pembayaran/_PembayaranController.php" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Penjadwalan/_PenjadwalanController.php" afterPath="$PROJECT_DIR$/application/controllers/Penjadwalan/_PenjadwalanController.php" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Setup/_BiayaDiskonController.php" afterPath="$PROJECT_DIR$/application/controllers/Setup/_BiayaDiskonController.php" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Setup/_ProgramPilihanController.php" afterPath="$PROJECT_DIR$/application/controllers/Setup/_ProgramPilihanController.php" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Setup/_TahunAjaranController.php" afterPath="$PROJECT_DIR$/application/controllers/Setup/_TahunAjaranController.php" />
-      <change beforePath="$PROJECT_DIR$/application/libraries/PdfGenerator.php" afterPath="$PROJECT_DIR$/application/libraries/PdfGenerator.php" />
-      <change beforePath="$PROJECT_DIR$/application/models/Administrator/AdministratorModel.php" afterPath="$PROJECT_DIR$/application/models/Administrator/AdministratorModel.php" />
-      <change beforePath="$PROJECT_DIR$/application/models/Bimbel/BimbelModel.php" afterPath="$PROJECT_DIR$/application/models/Bimbel/BimbelModel.php" />
-      <change beforePath="$PROJECT_DIR$/application/models/Data/SiswaBimbelModel.php" afterPath="$PROJECT_DIR$/application/models/Data/SiswaBimbelModel.php" />
-      <change beforePath="$PROJECT_DIR$/application/models/Data/TentorModel.php" afterPath="$PROJECT_DIR$/application/models/Data/TentorModel.php" />
-      <change beforePath="$PROJECT_DIR$/application/models/Login/LoginModel.php" afterPath="$PROJECT_DIR$/application/models/Login/LoginModel.php" />
-      <change beforePath="$PROJECT_DIR$/application/models/Pembayaran/PembayaranModel.php" afterPath="$PROJECT_DIR$/application/models/Pembayaran/PembayaranModel.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/Administrator/add_admin.php" afterPath="$PROJECT_DIR$/application/views/Administrator/add_admin.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/Administrator/index.php" afterPath="$PROJECT_DIR$/application/views/Administrator/index.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/Administrator/setup_akun.php" afterPath="$PROJECT_DIR$/application/views/Administrator/setup_akun.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/Bimbel/index.php" afterPath="$PROJECT_DIR$/application/views/Bimbel/index.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/Dashboard/index.php" afterPath="$PROJECT_DIR$/application/views/Dashboard/index.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/DataSiswa/index.php" afterPath="$PROJECT_DIR$/application/views/DataSiswa/index.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/DataSiswa/registration_siswa.php" afterPath="$PROJECT_DIR$/application/views/DataSiswa/registration_siswa.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/DataTentor/index.php" afterPath="$PROJECT_DIR$/application/views/DataTentor/index.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/DataWali/detail_perwalian.php" afterPath="$PROJECT_DIR$/application/views/DataWali/detail_perwalian.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/DataWali/index.php" afterPath="$PROJECT_DIR$/application/views/DataWali/index.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/Login/index.php" afterPath="$PROJECT_DIR$/application/views/Login/index.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/Pembayaran/detail_pembayaran.php" afterPath="$PROJECT_DIR$/application/views/Pembayaran/detail_pembayaran.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/Pembayaran/index.php" afterPath="$PROJECT_DIR$/application/views/Pembayaran/index.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/Pembayaran/print_kwitansi_pembayaran.php" afterPath="$PROJECT_DIR$/application/views/Pembayaran/print_kwitansi_pembayaran.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/Penjadwalan/index.php" afterPath="$PROJECT_DIR$/application/views/Penjadwalan/index.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/SetupBiayaDiskon/index.php" afterPath="$PROJECT_DIR$/application/views/SetupBiayaDiskon/index.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/SetupProgramPilihan/index.php" afterPath="$PROJECT_DIR$/application/views/SetupProgramPilihan/index.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/SetupTahunAjaran/index.php" afterPath="$PROJECT_DIR$/application/views/SetupTahunAjaran/index.php" />
-      <change beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/yaml/Dumper.php" afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Dumper.php" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/yaml/Inline.php" afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Inline.php" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/yaml/LICENSE" afterPath="$PROJECT_DIR$/vendor/symfony/yaml/LICENSE" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/yaml/Parser.php" afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Parser.php" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/DumperTest.php" afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/DumperTest.php" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/Fixtures/YtsSpecificationExamples.yml" afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/Fixtures/YtsSpecificationExamples.yml" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/Fixtures/multiple_lines_as_literal_block.yml" afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/Fixtures/multiple_lines_as_literal_block.yml" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/InlineTest.php" afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/InlineTest.php" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/ParserTest.php" afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Tests/ParserTest.php" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/yaml/Yaml.php" afterPath="$PROJECT_DIR$/vendor/symfony/yaml/Yaml.php" />
-      <change beforePath="$PROJECT_DIR$/vendor/webmozart/assert/.gitignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/vendor/webmozart/assert/.styleci.yml" afterPath="$PROJECT_DIR$/vendor/webmozart/assert/.styleci.yml" />
-      <change beforePath="$PROJECT_DIR$/vendor/webmozart/assert/.travis.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/vendor/webmozart/assert/CHANGELOG.md" afterPath="$PROJECT_DIR$/vendor/webmozart/assert/CHANGELOG.md" />
-      <change beforePath="$PROJECT_DIR$/vendor/webmozart/assert/README.md" afterPath="$PROJECT_DIR$/vendor/webmozart/assert/README.md" />
-      <change beforePath="$PROJECT_DIR$/vendor/webmozart/assert/appveyor.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/vendor/webmozart/assert/phpunit.xml.dist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/vendor/webmozart/assert/src/Assert.php" afterPath="$PROJECT_DIR$/vendor/webmozart/assert/src/Assert.php" />
-      <change beforePath="$PROJECT_DIR$/vendor/webmozart/assert/tests/AssertTest.php" afterPath="" />
-    </list>
+    <list default="true" id="14254557-9307-41d3-a8a3-bf5fc205021c" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -105,28 +39,7 @@
     <favorites_list name="sibimbel-forum-guru" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="_LaporanController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/Laporan/_LaporanController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="54" column="5" lean-forward="true" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="print_bimbel_pembayaran_excel.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/Laporan/print_bimbel_pembayaran_excel.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="37" lean-forward="false" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -562,12 +475,12 @@
       <workItem from="1516594638321" duration="6000" />
       <workItem from="1516594652149" duration="844000" />
       <workItem from="1516763665756" duration="615000" />
-      <workItem from="1517399082890" duration="3137000" />
+      <workItem from="1517399082890" duration="3347000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="527628000" />
+    <option name="totallyTimeSpent" value="527838000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -580,9 +493,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="34" y="273" width="1327" height="780" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16905661" sideWeight="0.49455675" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17513682" sideWeight="0.49455675" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3243243" sideWeight="0.5027408" order="7" side_tool="true" content_ui="tabs" />
@@ -590,7 +502,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3281493" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3281493" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25075075" sideWeight="0.4972592" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.9377916" sideWeight="0.4972592" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3993994" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19577134" sideWeight="0.5054432" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1004,14 +916,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Laporan/_LaporanController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="54" column="5" lean-forward="true" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/Laporan/print_bimbel_pembayaran_pdf.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1022,8 +926,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/Laporan/print_bimbel_pembayaran_excel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="37" lean-forward="false" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+        <state relative-caret-position="544">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Laporan/_LaporanController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="54" column="5" lean-forward="true" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
           <folding />
         </state>
       </provider>

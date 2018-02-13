@@ -17,9 +17,6 @@ class _PembayaranController extends CI_Controller
         $data['tahun_ajaran'] = $this->PembayaranModel->filter_tahun_ajaran();
         $data['program_bimbel'] = $this->PembayaranModel->filter_program_bimbel();
         $this->load->view('Pembayaran/index', $data);
-//
-//        $data['filter'] = $this->PembayaranModel->filter_pembayaran();
-//        $this->load->view('Contoh/Contoh',  $data);
     }
     public function show_data()
     {
@@ -39,7 +36,6 @@ class _PembayaranController extends CI_Controller
             if ($this->input->post('status') != "All"){
                 $filter['status'] = $this->input->post('status');
             }
-//                var_dump($filter);
             echo $this->PembayaranModel->show_data($filter);
         }
     }
@@ -66,7 +62,7 @@ class _PembayaranController extends CI_Controller
         if ($this->input->is_ajax_request()) {
             $this->load->helper('date');
             $data['id_bimbel'] = $this->input->post('id_bimbel');
-            //$data[id_admin] = kurang id admin ambil dari session
+            $data['id_admin'] = $this->session->id_admin;
             $data['jml_pembayaran'] = $this->input->post('jml_pembayaran');
             $data['tgl_pembayaran'] = mdate('%Y-%m-%d', time());
             $this->PembayaranModel->add_detail_pembayaran($data);
@@ -84,7 +80,7 @@ class _PembayaranController extends CI_Controller
     {
         if ($this->input->is_ajax_request()) {
             $data['id_detail_pembayaran'] = $this->input->post('id_detail_pembayaran');
-            //$data[id_admin] = kurang id admin ambil dari session
+            $data['id_admin'] = $this->session->id_admin;
             $data['jml_pembayaran'] = $this->input->post('jml_pembayaran');
             $this->PembayaranModel->update_detail_pembayaran($data);
             $this->PembayaranModel->count_total_transaksi($this->input->post('id_bimbel'));

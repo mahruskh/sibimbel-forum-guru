@@ -1,7 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
@@ -27,7 +26,6 @@ $route['data/siswa/daftar/get_jml_diskon'] = 'Data/_SiswaBimbelController/get_jm
 $route['data/siswa/daftar/change_program_bimbel'] = 'Data/_SiswaBimbelController/change_program_bimbel';
 $route['data/siswa/detail/(:any)'] = 'Data/_SiswaBimbelController/detail_siswa/$1';
 $route['data/siswa/detail/update/siswa'] = 'Data/_SiswaBimbelController/update_siswa';
-
 
 $route['data/wali/show'] = 'Data/_WaliController/index';
 $route['data/wali/show_data_wali'] = 'Data/_WaliController/show_data_wali';
@@ -89,7 +87,6 @@ $route['setup/program-pilihan/add_program'] = 'Setup/_ProgramPilihanController/a
 $route['setup/program-pilihan/edit_program'] = 'Setup/_ProgramPilihanController/edit_program';
 $route['setup/program-pilihan/update_program'] = 'Setup/_ProgramPilihanController/update_program';
 $route['setup/program-pilihan/show_pilihan_program'] = 'Setup/_ProgramPilihanController/show_pilihan_program';
-$route['setup/program-pilihan/halo'] = 'Setup/_ProgramPilihanController/halo'; //percobaan
 
 $route['setup/program-pilihan/show_data_pilihan'] = 'Setup/_ProgramPilihanController/show_data_pilihan';
 $route['setup/program-pilihan/add_pilihan'] = 'Setup/_ProgramPilihanController/add_pilihan';
@@ -99,7 +96,6 @@ $route['setup/program-pilihan/trash_pilihan'] = 'Setup/_ProgramPilihanController
 
 $route['laporan/bimbel-pembayaran'] = 'Laporan/_LaporanController/bimbel_pembayaran';
 $route['laporan/bimbel-pembayaran/print'] = 'Laporan/_LaporanController/print_bimbel_pembayaran';
-
 
 $route['administrator/show'] = 'Administrator/_AdministratorController/index';
 $route['administrator/setup-akun'] = 'Administrator/_AdministratorController/setup_akun';

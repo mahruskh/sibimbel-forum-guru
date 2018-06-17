@@ -273,12 +273,12 @@
         $("#method_akun").click(function (){
             if ($("#method_akun").html() == "UPDATE"){
                 $("#method_akun").html("SIMPAN")
-                $('[name="username"]').attr("readonly", false)
-                $('[name="password"]').attr("readonly", false)
+                $('[name="username"]').prop("readonly", false)
+                $('[name="password"]').prop("readonly", false)
             }else if ($("#method_akun").html() == "SIMPAN"){
                 $("#method_akun").html("UPDATE")
-                $('[name="username"]').attr("readonly", "readonly")
-                $('[name="password"]').attr("readonly", "readonly")
+                $('[name="username"]').prop("readonly", "readonly")
+                $('[name="password"]').prop("readonly", "readonly")
             }
         });
     });

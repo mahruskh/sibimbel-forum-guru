@@ -254,8 +254,8 @@
     function add_tentor() {
         method = "add_tentor"
         id_update_tentor = ""
-        $("#Aktif").attr('checked',true)
-        $("#Tidak-Aktif").attr('checked',false)
+        $("#Aktif").prop('checked',true)
+        $("#Tidak-Aktif").prop('checked',false)
         $("#form-tentor")[0].reset()
         $('.modal-title').html("Tambah Tentor / Pengajar")
         $("#act").html("SIMPAN")
@@ -277,12 +277,12 @@
             success: function (data) {
                 $('[name="nama"]').val(data.nama)
                 if (data.status == "Aktif") {
-                    $("#Aktif").attr('checked',true)
-                    $("#Tidak-Aktif").attr('checked',false)
+                    $("#Aktif").prop('checked',true)
+                    $("#Tidak-Aktif").prop('checked',false)
                 }
                 else if(data.status == "Tidak Aktif") {
-                    $("#Aktif").attr('checked',false)
-                    $("#Tidak-Aktif").attr('checked',true)
+                    $("#Aktif").prop('checked',false)
+                    $("#Tidak-Aktif").prop('checked',true)
                 }
                 $('[name="pekerjaan"]').val(data.pekerjaan)
                 $('[name="alamat"]').val(data.alamat)

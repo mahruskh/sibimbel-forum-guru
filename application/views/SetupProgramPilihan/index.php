@@ -277,7 +277,7 @@
         $("#form-program")[0].reset()
         $("#act_program").html("UPDATE")
         $('.modal-title').html("Detail Program Bimbel")
-        //$('input[type="checkbox"]').attr('checked',false);
+        //$('input[type="checkbox"]').prop('checked',false);
        // hapus_hari_pertemuan()
 
         $.ajax({
@@ -302,19 +302,19 @@
     function cek_hari_pertemuan(data) {
         $.each(data.split(','),function () {
             if(this == $('[name="Senin"]').val()){
-                $('[name="Senin"]').attr("checked", true)
+                $('[name="Senin"]').prop("checked", true)
             } else if(this == $('[name="Selasa"]').val()){
-                $('[name="Selasa"]').attr("checked", true)
+                $('[name="Selasa"]').prop("checked", true)
             } else if(this == $('[name="Rabu"]').val()){
-                $('[name="Rabu"]').attr("checked", true)
+                $('[name="Rabu"]').prop("checked", true)
             } else if(this == $('[name="Kamis"]').val()){
-                $('[name="Kamis"]').attr("checked", true)
+                $('[name="Kamis"]').prop("checked", true)
             } else if(this == $('[name="Jumat"]').val()){
-                $('[name="Jumat"]').attr("checked", true)
+                $('[name="Jumat"]').prop("checked", true)
             } else if(this == $('[name="Sabtu"]').val()){
-                $('[name="Sabtu"]').attr("checked", true)
+                $('[name="Sabtu"]').prop("checked", true)
             } else if(this == $('[name="Minggu"]').val()){
-                $('[name="Minggu"]').attr("checked", true)
+                $('[name="Minggu"]').prop("checked", true)
             }
         });
     }

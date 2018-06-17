@@ -58,7 +58,7 @@
                 data: $("#form-login").serialize(),
                 success: function (data) {
                     if (data == 1) {
-                        $(location).attr('href','../dashboard/show')
+                        $(location).prop('href','../dashboard/show')
                         $("#form-login")[0].reset()
                     } else {
                         $.ajax({

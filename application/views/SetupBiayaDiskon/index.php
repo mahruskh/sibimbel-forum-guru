@@ -251,7 +251,7 @@
         $("#method_biaya_pendaftaran").click(function () {
             if ($("#method_biaya_pendaftaran").html() == "UBAH") {
                 $("#method_biaya_pendaftaran").html("SAVE")
-                $('[name="biaya_pendaftaran"]').attr("readonly", false)
+                $('[name="biaya_pendaftaran"]').prop("readonly", false)
             } else if ($("#method_biaya_pendaftaran").html() == "SAVE") {
                 if ($('[name="biaya_pendaftaran"]').val() == "") {
                     alert("Biaya Daftar Wajib Diisi !!!")
@@ -263,7 +263,7 @@
                         data: {biaya_daftar: $('[name="biaya_pendaftaran"]').val()},
                         success: function (data) {
                             if (data == 1) {
-                                $('[name="biaya_pendaftaran"]').attr("readonly", "readonly")
+                                $('[name="biaya_pendaftaran"]').prop("readonly", "readonly")
                                 alert("Biaya Daftar Berhasil Diubah")
                             }
                         }

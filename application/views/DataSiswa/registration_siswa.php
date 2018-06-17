@@ -461,10 +461,10 @@
         $("#checked_alamat").click(function () {
             if ($("#checked_alamat").is(':checked')) {
                 $('[name="alamat"]').val($('[name="alamat_get_wali"]').val())
-                $('[name="alamat"]').attr('readonly',true)
+                $('[name="alamat"]').prop('readonly',true)
             } else {
                 $('[name="alamat"]').val("")
-                $('[name="alamat"]').attr('readonly',false)
+                $('[name="alamat"]').prop('readonly',false)
             }
         });
 
@@ -480,9 +480,9 @@
                 if ($('[name="biaya_pendaftaran"]').val() == ""){
                     $('[name="biaya_pendaftaran"]').val("0")
                 }
-                $('[name="biaya_pendaftaran"]').attr('readonly',true)
+                $('[name="biaya_pendaftaran"]').prop('readonly',true)
             } else {
-                $('[name="biaya_pendaftaran"]').attr('readonly',false)
+                $('[name="biaya_pendaftaran"]').prop('readonly',false)
             }
         });
 
@@ -491,9 +491,9 @@
                 if ($('[name="jml_diskon"]').val() == ""){
                     $('[name="jml_diskon"]').val("0")
                 }
-                $('[name="jml_diskon"]').attr('readonly',true)
+                $('[name="jml_diskon"]').prop('readonly',true)
             } else {
-                $('[name="jml_diskon"]').attr('readonly',false)
+                $('[name="jml_diskon"]').prop('readonly',false)
             }
         });
 

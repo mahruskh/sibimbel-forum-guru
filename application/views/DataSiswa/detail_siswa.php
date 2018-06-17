@@ -325,10 +325,10 @@
         $("#checked_alamat").click(function () {
             if ($("#checked_alamat").is(':checked')) {
                 $('[name="alamat"]').val($('[name="alamat_get_wali"]').val())
-                $('[name="alamat"]').attr('readonly',true)
+                $('[name="alamat"]').prop('readonly',true)
             } else {
                 $('[name="alamat"]').val("")
-                $('[name="alamat"]').attr('readonly',false)
+                $('[name="alamat"]').prop('readonly',false)
             }
         });
 
